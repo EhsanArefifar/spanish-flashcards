@@ -6,13 +6,13 @@ Implement a zero-dependency, static Spanish flashcard SPA using vanilla HTML5, C
 
 ## Tasks
 
-- [ ] 1. Create `cards.json` with sample content
+- [x] 1. Create `cards.json` with sample content
   - Write a top-level `decks` array with at least 3 decks across 2 categories
   - Each deck must have `category`, `subcategory`, and a `cards` array
   - Include at least 5 cards per deck; mix cards with and without `example`/`translation` fields
   - _Requirements: 11.1, 11.2, 11.3, 11.4, 13.1_
 
-- [ ] 2. Create `index.html` structural shell
+- [x] 2. Create `index.html` structural shell
   - Write semantic HTML5 with `<header>`, `<nav id="navigator">`, `<main id="viewport">`, `<div id="error-message">`
   - Include `<link rel="stylesheet" href="style.css">` and `<script defer src="app.js">`
   - Scaffold static DOM regions: deck header (subcategory name, Review Weak Cards button, Shuffle toggle), card element with `.card__inner`, `.card__front`, `.card__back` divs, controls bar (Prev, Next, Known, Still Learning, speaker icon), progress indicator, deck-complete screen, Reset Progress button

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spanish Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1 class="app-header__title">Spanish Flashcards</h1>
+    <button class="btn btn--nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="navigator">
+      ☰ Decks
+    </button>
+  </header>
+
+  <div class="app-layout">
+
+    <!-- Navigator: category/subcategory tree, built dynamically by app.js -->
+    <nav id="navigator" class="nav" aria-label="Deck navigation">
+      <!-- Populated by renderNavigator() -->
+    </nav>
+
+    <!-- Viewport: active card and all study controls -->
+    <main id="viewport" class="viewport">
+
+      <!-- Deck header: title, review button, shuffle toggle -->
+      <div class="deck-header">
+        <h2 class="deck-header__title" id="deck-title">
+          <!-- Populated by activateDeck() -->
+        </h2>
+        <div class="deck-header__controls">
+          <button
+            class="btn btn--shuffle"
+            id="btn-shuffle"
+            aria-pressed="false"
+            title="Shuffle cards"
+          >
+            ⇄ Shuffle
+          </button>
+          <button
+            class="btn btn--review"
+            id="btn-review"
+            title="No cards marked as Still Learning in this deck"
+          >
+            ★ Review Weak Cards
+          </button>
+        </div>
+      </div>
+
+      <!-- Review mode label -->
+      <div class="review-mode-label" id="review-mode-label" hidden>
+        Review Mode
+      </div>
+
+      <!-- Flippable card -->
+      <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard — click or press Space to flip">
+        <div class="card__inner">
+          <div class="card__front">
+            <!-- Front text populated by renderCard() -->
+            <p class="card__text" id="card-front-text"></p>
+            <button class="btn btn--speaker" id="btn-speaker" aria-label="Hear pronunciation" title="Hear pronunciation">
+              🔊
+            </button>
+          </div>
+          <div class="card__back">
+            <!-- Back text and optional fields populated by renderCard() -->
+            <p class="card__text" id="card-back-text"></p>
+            <p class="card__example" id="card-example"></p>
+            <p class="card__translation" id="card-translation"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls bar: Prev, Next, Known, Still Learning -->
+      <div class="controls" id="controls">
+        <button class="btn btn--nav-card" id="btn-prev" aria-label="Previous card">
+          ← Prev
+        </button>
+        <button class="btn btn--known" id="btn-known" disabled aria-label="Mark as known">
+          ✓ Known
+        </button>
+        <button class="btn btn--learning" id="btn-learning" disabled aria-label="Mark as still learning">
+          ✗ Still Learning
+        </button>
+        <button class="btn btn--nav-card" id="btn-next" aria-label="Next card">
+          Next →
+        </button>
+      </div>
+
+      <!-- Progress indicator: "Card N of M" -->
+      <p class="progress-indicator" id="progress-indicator" aria-live="polite">
+        <!-- Populated by renderProgressIndicator() -->
+      </p>
+
+      <!-- Deck complete screen -->
+      <div class="deck-complete" id="deck-complete" hidden>
+        <p class="deck-complete__message">🎉 Deck complete!</p>
+        <div class="deck-complete__actions">
+          <button class="btn btn--restart" id="btn-restart">
+            ↺ Restart
+          </button>
+          <button class="btn btn--review-complete" id="btn-review-complete">
+            ★ Review Weak Cards
+          </button>
+        </div>
+      </div>
+
+      <!-- Reset Progress button -->
+      <div class="reset-area">
+        <button class="btn btn--reset" id="btn-reset" title="Clear all progress for all decks">
+          Reset Progress
+        </button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Error region: shown when cards.json fails to load -->
+  <div id="error-message" class="error-message" hidden role="alert">
+    <!-- Populated by renderError() -->
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

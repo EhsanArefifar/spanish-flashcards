@@ -1,0 +1,172 @@
+{
+  "decks": [
+    {
+      "category": "Verbs",
+      "subcategory": "Daily Routine",
+      "cards": [
+        {
+          "front": "despertarse",
+          "back": "to wake up",
+          "example": "Me despierto a las siete de la mañana.",
+          "translation": "I wake up at seven in the morning."
+        },
+        {
+          "front": "ducharse",
+          "back": "to shower",
+          "example": "Ella se ducha antes de desayunar.",
+          "translation": "She showers before having breakfast."
+        },
+        {
+          "front": "desayunar",
+          "back": "to have breakfast"
+        },
+        {
+          "front": "trabajar",
+          "back": "to work",
+          "example": "Trabajo desde casa los viernes.",
+          "translation": "I work from home on Fridays."
+        },
+        {
+          "front": "acostarse",
+          "back": "to go to bed"
+        },
+        {
+          "front": "cepillarse los dientes",
+          "back": "to brush one's teeth",
+          "example": "Me cepillo los dientes después de cada comida.",
+          "translation": "I brush my teeth after every meal."
+        },
+        {
+          "front": "prepararse",
+          "back": "to get ready"
+        }
+      ]
+    },
+    {
+      "category": "Verbs",
+      "subcategory": "Cooking & Eating",
+      "cards": [
+        {
+          "front": "cocinar",
+          "back": "to cook",
+          "example": "A mi madre le encanta cocinar paella.",
+          "translation": "My mother loves to cook paella."
+        },
+        {
+          "front": "hervir",
+          "back": "to boil"
+        },
+        {
+          "front": "freír",
+          "back": "to fry",
+          "example": "Fríe el ajo en aceite de oliva.",
+          "translation": "Fry the garlic in olive oil."
+        },
+        {
+          "front": "mezclar",
+          "back": "to mix"
+        },
+        {
+          "front": "probar",
+          "back": "to taste / to try",
+          "example": "¿Puedo probar un poco?",
+          "translation": "Can I taste a little?"
+        },
+        {
+          "front": "cortar",
+          "back": "to cut / to chop"
+        },
+        {
+          "front": "añadir",
+          "back": "to add",
+          "example": "Añade sal al gusto.",
+          "translation": "Add salt to taste."
+        }
+      ]
+    },
+    {
+      "category": "Vocabulary",
+      "subcategory": "Food & Drink",
+      "cards": [
+        {
+          "front": "el pan",
+          "back": "bread",
+          "example": "Compré una barra de pan en la panadería.",
+          "translation": "I bought a loaf of bread at the bakery."
+        },
+        {
+          "front": "la leche",
+          "back": "milk"
+        },
+        {
+          "front": "el agua",
+          "back": "water",
+          "example": "¿Me traes un vaso de agua, por favor?",
+          "translation": "Can you bring me a glass of water, please?"
+        },
+        {
+          "front": "la manzana",
+          "back": "apple"
+        },
+        {
+          "front": "el queso",
+          "back": "cheese",
+          "example": "En España hay muchos tipos de queso.",
+          "translation": "In Spain there are many types of cheese."
+        },
+        {
+          "front": "el café",
+          "back": "coffee"
+        },
+        {
+          "front": "la naranja",
+          "back": "orange",
+          "example": "Me gusta el zumo de naranja por la mañana.",
+          "translation": "I like orange juice in the morning."
+        }
+      ]
+    },
+    {
+      "category": "Vocabulary",
+      "subcategory": "Travel & Directions",
+      "cards": [
+        {
+          "front": "el aeropuerto",
+          "back": "airport",
+          "example": "El vuelo sale del aeropuerto a las diez.",
+          "translation": "The flight leaves from the airport at ten."
+        },
+        {
+          "front": "la estación de tren",
+          "back": "train station"
+        },
+        {
+          "front": "girar a la derecha",
+          "back": "to turn right",
+          "example": "Gira a la derecha en el semáforo.",
+          "translation": "Turn right at the traffic light."
+        },
+        {
+          "front": "seguir recto",
+          "back": "to go straight ahead"
+        },
+        {
+          "front": "el billete",
+          "back": "ticket",
+          "example": "Necesito comprar un billete de ida y vuelta.",
+          "translation": "I need to buy a round-trip ticket."
+        },
+        {
+          "front": "el mapa",
+          "back": "map"
+        },
+        {
+          "front": "perdido/a",
+          "back": "lost",
+          "example": "Estoy perdido. ¿Puede ayudarme?",
+          "translation": "I am lost. Can you help me?"
+        }
+      ]
+    }
+  ]
+}
