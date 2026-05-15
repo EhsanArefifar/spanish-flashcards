@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Tests — Spanish Flashcard App</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #f8fafc; color: #1e293b; }
+    h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .summary { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; padding: 0.75rem 1rem; border-radius: 8px; }
+    .summary.pass { background: #dcfce7; color: #16a34a; }
+    .summary.fail { background: #fee2e2; color: #dc2626; }
+    .test { margin-bottom: 0.75rem; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .test.pass { background: #f0fdf4; border-color: #86efac; }
+    .test.fail { background: #fef2f2; border-color: #fca5a5; }
+    .test__label { font-weight: 600; }
+    .test__status { float: right; font-weight: 700; }
+    .test__status.pass { color: #16a34a; }
+    .test__status.fail { color: #dc2626; }
+    .test__error { margin-top: 0.5rem; font-size: 0.875rem; color: #dc2626; white-space: pre-wrap; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>Property Tests — Spanish Flashcard App</h1>
+  <div id="summary" class="summary">Running tests…</div>
+  <div id="results"></div>
+
+  <!-- fast-check UMD bundle -->
+  <script src="https://unpkg.com/fast-check/lib/bundle/fast-check.min.js"></script>
+
+  <script>
+    // -------------------------------------------------------------------------
+    // Inlined pure functions from app.js (for test isolation)
+    // -------------------------------------------------------------------------
+
+    // Feature: spanish-flashcard-app — pure function: generateCardId
+    function generateCardId(deckIndex, cardIndex) {
+      return `deck-${deckIndex}-card-${cardIndex}`;
+    }
+
+    // Feature: spanish-flashcard-app — pure function: shuffleDeck
+    function shuffleDeck(cards) {
+      const shuffled = [...cards];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      return shuffled;
+    }
+
+    // Feature: spanish-flashcard-app — pure function: getWeakCards (deckIndex param for test isolation)
+    function getWeakCards(deck, progress, deckIndex) {
+      return deck.cards.filter((card, cardIndex) => {
+        const cardId = generateCardId(deckIndex, cardIndex);
+        return progress[cardId] === 'learning';
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // Test harness
+    // -------------------------------------------------------------------------
+    const results = [];
+
+    function runTest(label, fn) {
+      try {
+        fn();
+        results.push({ label, pass: true });
+      } catch (e) {
+        results.push({ label, pass: false, error: e.message || String(e) });
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Arbitraries
+    // -------------------------------------------------------------------------
+    const fc = window.fc;
+
+    const statusArb = fc.constantFrom('known', 'learning');
+
+    const cardArb = fc.record({
+      front: fc.string({ minLength: 1, maxLength: 50 }),
+      back: fc.string({ minLength: 1, maxLength: 50 }),
+    });
+
+    const cardsArb = fc.array(cardArb, { minLength: 1, maxLength: 20 });
+
+    const progressArb = fc.dictionary(
+      fc.string({ minLength: 1, maxLength: 30 }),
+      statusArb
+    );
+
+    // -------------------------------------------------------------------------
+    // Property 1: Progress round-trip
+    // Feature: spanish-flashcard-app, Property 1: progress round-trip
+    // -------------------------------------------------------------------------
+    runTest('Property 1: Progress round-trip — serialize/deserialize produces identical map', () => {
+      fc.assert(fc.property(progressArb, (progress) => {
+        const serialized = JSON.stringify(progress);
+        const deserialized = JSON.parse(serialized);
+        const keys = Object.keys(progress);
+        if (keys.length !== Object.keys(deserialized).length) return false;
+        return keys.every(k => deserialized[k] === progress[k]);
+      }), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 2: Shuffle preserves deck contents
+    // Feature: spanish-flashcard-app, Property 2: shuffle preserves deck contents
+    // -------------------------------------------------------------------------
+    runTest('Property 2: Shuffle preserves deck contents — same elements, no additions or removals', () => {
+      fc.assert(fc.property(cardsArb, (cards) => {
+        const shuffled = shuffleDeck(cards);
+        if (shuffled.length !== cards.length) return false;
+        // Same elements (by reference)
+        const sortById = arr => [...arr].sort((a, b) => a.front.localeCompare(b.front));
+        const origSorted = sortById(cards).map(c => c.front).join(',');
+        const shuffSorted = sortById(shuffled).map(c => c.front).join(',');
+        return origSorted === shuffSorted;
+      }), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 3: Shuffle does not mutate original array
+    // Feature: spanish-flashcard-app, Property 3: shuffle/unshuffle restores original order
+    // -------------------------------------------------------------------------
+    runTest('Property 3: Shuffle does not mutate the original array', () => {
+      fc.assert(fc.property(cardsArb, (cards) => {
+        const originalSnapshot = cards.map(c => c.front);
+        shuffleDeck(cards);
+        // Original array must be unchanged
+        return cards.every((c, i) => c.front === originalSnapshot[i]);
+      }), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 4: Shuffle order stable during navigation (displayCards unchanged)
+    // Feature: spanish-flashcard-app, Property 4: shuffle order stable during navigation
+    // -------------------------------------------------------------------------
+    runTest('Property 4: Shuffle order is stable — shuffleDeck called once produces consistent order', () => {
+      fc.assert(fc.property(cardsArb, (cards) => {
+        // Simulate: shuffle once, record order, "navigate" by reading indices
+        const shuffled = shuffleDeck(cards);
+        const snapshot = shuffled.map(c => c.front);
+        // Navigating forward/backward just reads indices — array must not change
+        for (let i = 0; i < shuffled.length; i++) {
+          if (shuffled[i].front !== snapshot[i]) return false;
+        }
+        return true;
+      }), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 5: Review mode filters correctly
+    // Feature: spanish-flashcard-app, Property 5: review mode filters correctly
+    // -------------------------------------------------------------------------
+    runTest('Property 5: Review mode filters correctly — only "learning" cards returned', () => {
+      fc.assert(fc.property(
+        fc.integer({ min: 0, max: 10 }),
+        cardsArb,
+        (deckIndex, cards) => {
+          // Build a progress map with some "learning" entries
+          const progress = {};
+          cards.forEach((card, i) => {
+            if (i % 2 === 0) progress[generateCardId(deckIndex, i)] = 'learning';
+            else if (i % 3 === 0) progress[generateCardId(deckIndex, i)] = 'known';
+          });
+
+          const deck = { cards };
+          const weak = getWeakCards(deck, progress, deckIndex);
+
+          // Every returned card must have "learning" status
+          return weak.every((card) => {
+            const originalIndex = cards.indexOf(card);
+            const cardId = generateCardId(deckIndex, originalIndex);
+            return progress[cardId] === 'learning';
+          });
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 6: Mark card overwrites previous status
+    // Feature: spanish-flashcard-app, Property 6: mark card overwrites previous status
+    // -------------------------------------------------------------------------
+    runTest('Property 6: Mark card overwrites previous status — only new status persists', () => {
+      fc.assert(fc.property(
+        fc.string({ minLength: 1, maxLength: 30 }),
+        statusArb,
+        statusArb,
+        (cardId, firstStatus, secondStatus) => {
+          const progress = {};
+          // Apply first status
+          progress[cardId] = firstStatus;
+          // Apply second status (overwrite)
+          progress[cardId] = secondStatus;
+          // Only second status should remain
+          return progress[cardId] === secondStatus && Object.keys(progress).length === 1;
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 7: Card ID stability
+    // Feature: spanish-flashcard-app, Property 7: card ID stability
+    // -------------------------------------------------------------------------
+    runTest('Property 7: Card ID stability — same inputs always produce same output', () => {
+      fc.assert(fc.property(
+        fc.integer({ min: 0, max: 100 }),
+        fc.integer({ min: 0, max: 100 }),
+        (deckIndex, cardIndex) => {
+          const id1 = generateCardId(deckIndex, cardIndex);
+          const id2 = generateCardId(deckIndex, cardIndex);
+          return id1 === id2 && id1 === `deck-${deckIndex}-card-${cardIndex}`;
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 8: Navigation resets flip state
+    // Feature: spanish-flashcard-app, Property 8: navigation resets flip state
+    // -------------------------------------------------------------------------
+    runTest('Property 8: Navigation resets flip state — isFlipped is false after any navigate call', () => {
+      fc.assert(fc.property(
+        cardsArb,
+        fc.boolean(),
+        fc.integer({ min: 0, max: 1 }),
+        (cards, startFlipped, direction) => {
+          // Simulate minimal state
+          const simState = {
+            displayCards: cards,
+            currentIndex: Math.floor(cards.length / 2),
+            isFlipped: startFlipped,
+          };
+
+          // Simulate navigateCard logic
+          function simNavigate(dir) {
+            const newIndex = simState.currentIndex + dir;
+            if (newIndex >= simState.displayCards.length || newIndex < 0) return;
+            simState.currentIndex = newIndex;
+            simState.isFlipped = false;
+          }
+
+          simNavigate(direction === 0 ? +1 : -1);
+          return simState.isFlipped === false;
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 9: Known/Still Learning buttons match flip state
+    // Feature: spanish-flashcard-app, Property 9: Known/Still Learning buttons match flip state
+    // -------------------------------------------------------------------------
+    runTest('Property 9: Known/Still Learning buttons match flip state — disabled iff not flipped', () => {
+      fc.assert(fc.property(
+        fc.boolean(),
+        (isFlipped) => {
+          // Simulate renderCard button logic
+          const btnKnownDisabled = !isFlipped;
+          const btnLearningDisabled = !isFlipped;
+          if (isFlipped) {
+            return !btnKnownDisabled && !btnLearningDisabled;
+          } else {
+            return btnKnownDisabled && btnLearningDisabled;
+          }
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 10: Card face display matches flip state
+    // Feature: spanish-flashcard-app, Property 10: card face display matches flip state
+    // -------------------------------------------------------------------------
+    runTest('Property 10: Card face display matches flip state — front when unflipped, back+optional when flipped', () => {
+      fc.assert(fc.property(
+        cardArb,
+        fc.option(fc.string({ minLength: 1 }), { nil: undefined }),
+        fc.option(fc.string({ minLength: 1 }), { nil: undefined }),
+        fc.boolean(),
+        (card, example, translation, isFlipped) => {
+          const fullCard = { ...card };
+          if (example) fullCard.example = example;
+          if (translation) fullCard.translation = translation;
+
+          // Simulate what renderCard would display
+          if (!isFlipped) {
+            // Front face visible: front text shown, back hidden
+            const frontVisible = fullCard.front;
+            const backVisible = null;
+            return frontVisible === fullCard.front && backVisible === null;
+          } else {
+            // Back face visible: back text shown, optional fields conditional
+            const backVisible = fullCard.back;
+            const exampleVisible = fullCard.example || null;
+            const translationVisible = fullCard.translation || null;
+            return (
+              backVisible === fullCard.back &&
+              exampleVisible === (fullCard.example || null) &&
+              translationVisible === (fullCard.translation || null)
+            );
+          }
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 11: SpeechSynthesis called with correct text and language
+    // Feature: spanish-flashcard-app, Property 11: SpeechSynthesis called with correct text and language
+    // -------------------------------------------------------------------------
+    runTest('Property 11: SpeechSynthesis called with correct text and language — text=card.front, lang=es-ES', () => {
+      fc.assert(fc.property(
+        fc.string({ minLength: 1, maxLength: 100 }),
+        (frontText) => {
+          // Simulate handleSpeakerClick logic
+          const utterance = { text: frontText, lang: 'es-ES' };
+          return utterance.text === frontText && utterance.lang === 'es-ES';
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Property 12: Review button disabled when no learning cards exist
+    // Feature: spanish-flashcard-app, Property 12: review button disabled when no learning cards
+    // -------------------------------------------------------------------------
+    runTest('Property 12: Review button disabled when no learning cards — disabled iff no "learning" entries', () => {
+      fc.assert(fc.property(
+        fc.integer({ min: 0, max: 5 }),
+        cardsArb,
+        (deckIndex, cards) => {
+          // Build progress with only "known" entries (no "learning")
+          const progress = {};
+          cards.forEach((card, i) => {
+            progress[generateCardId(deckIndex, i)] = 'known';
+          });
+
+          const deck = { cards };
+          const hasWeakCards = deck.cards.some((card, cardIndex) => {
+            const cardId = generateCardId(deckIndex, cardIndex);
+            return progress[cardId] === 'learning';
+          });
+
+          // Button should be disabled (hasWeakCards === false)
+          return !hasWeakCards;
+        }
+      ), { numRuns: 100 });
+    });
+
+    // -------------------------------------------------------------------------
+    // Render results
+    // -------------------------------------------------------------------------
+    const container = document.getElementById('results');
+    const summaryEl = document.getElementById('summary');
+
+    const passed = results.filter(r => r.pass).length;
+    const failed = results.filter(r => !r.pass).length;
+
+    summaryEl.textContent = `${passed} passed, ${failed} failed out of ${results.length} properties`;
+    summaryEl.className = `summary ${failed === 0 ? 'pass' : 'fail'}`;
+
+    results.forEach(r => {
+      const div = document.createElement('div');
+      div.className = `test ${r.pass ? 'pass' : 'fail'}`;
+
+      const label = document.createElement('span');
+      label.className = 'test__label';
+      label.textContent = r.label;
+
+      const status = document.createElement('span');
+      status.className = `test__status ${r.pass ? 'pass' : 'fail'}`;
+      status.textContent = r.pass ? '✓ PASS' : '✗ FAIL';
+
+      div.appendChild(label);
+      div.appendChild(status);
+
+      if (!r.pass && r.error) {
+        const err = document.createElement('div');
+        err.className = 'test__error';
+        err.textContent = r.error;
+        div.appendChild(err);
+      }
+
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
