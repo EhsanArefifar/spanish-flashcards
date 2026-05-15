@@ -19,25 +19,25 @@ Implement a zero-dependency, static Spanish flashcard SPA using vanilla HTML5, C
   - No hardcoded card or deck content — all dynamic regions left empty for JS to populate
   - _Requirements: 1.5, 3.5, 3.6, 4.3, 5.1, 6.1, 7.4, 8.1, 9.1, 10.1, 13.1_
 
-- [ ] 3. Create `style.css` with full visual design
-  - [ ] 3.1 Define CSS custom properties at `:root` for all colors, spacing, and radii
+- [x] 3. Create `style.css` with full visual design
+  - [x] 3.1 Define CSS custom properties at `:root` for all colors, spacing, and radii
     - Include `--color-primary`, `--color-bg`, `--color-card`, `--color-text`, `--color-known`, `--color-learning`, `--color-border`, `--radius-card`
     - _Requirements: 12.4_
 
-  - [ ] 3.2 Implement mobile-first layout with CSS Grid/Flexbox
+  - [x] 3.2 Implement mobile-first layout with CSS Grid/Flexbox
     - Base styles target 375px viewport; navigator collapses to a toggle-accessible panel by default
     - `@media (min-width: 768px)` breakpoint expands navigator into a sidebar
     - All interactive buttons must have `min-width: 44px; min-height: 44px`
     - Base `font-size: 16px` on body
     - _Requirements: 12.1, 12.3, 12.4, 12.5_
 
-  - [ ] 3.3 Implement CSS 3D card flip animation
+  - [x] 3.3 Implement CSS 3D card flip animation
     - `.card` sets `perspective`; `.card__inner` uses `transform-style: preserve-3d` and `transition: transform 300ms–500ms`
     - `.card__front` and `.card__back` use `backface-visibility: hidden`; `.card__back` starts at `rotateY(180deg)`
     - `.card--flipped .card__inner` applies `rotateY(180deg)`
     - _Requirements: 4.3, 4.4_
 
-  - [ ] 3.4 Style all BEM component classes
+  - [x] 3.4 Style all BEM component classes
     - `.nav`, `.nav__category`, `.nav__category--open`, `.nav__subcategory`, `.nav__subcategory--active`
     - `.btn`, `.btn--known`, `.btn--learning`, `.btn--disabled`
     - `.badge`, `.badge--known`, `.badge--learning`

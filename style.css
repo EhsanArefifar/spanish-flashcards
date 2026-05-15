@@ -1,0 +1,642 @@
+/* ============================================================
+   Spanish Flashcard App — style.css
+   Mobile-first, vanilla CSS, no external dependencies
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Custom Properties (design tokens)
+   ------------------------------------------------------------ */
+:root {
+  /* Colors */
+  --color-primary:   #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-bg:        #f8fafc;
+  --color-card:      #ffffff;
+  --color-text:      #1e293b;
+  --color-text-muted:#64748b;
+  --color-known:     #16a34a;
+  --color-known-bg:  #dcfce7;
+  --color-learning:  #dc2626;
+  --color-learning-bg:#fee2e2;
+  --color-border:    #e2e8f0;
+  --color-header-bg: #1e293b;
+  --color-header-text:#f8fafc;
+  --color-nav-bg:    #f1f5f9;
+  --color-nav-active:#dbeafe;
+  --color-overlay:   rgba(0, 0, 0, 0.4);
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+
+  /* Radii */
+  --radius-card:   16px;
+  --radius-btn:    8px;
+  --radius-badge:  12px;
+  --radius-sm:     4px;
+
+  /* Typography */
+  --font-base:  system-ui, -apple-system, sans-serif;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   2rem;
+
+  /* Card flip */
+  --flip-duration: 400ms;
+  --card-perspective: 1000px;
+
+  /* Layout */
+  --nav-width: 260px;
+  --header-height: 56px;
+}
+
+/* ------------------------------------------------------------
+   2. Reset & Base
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* base — satisfies Req 12.4 */
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  font-size: var(--text-base);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ------------------------------------------------------------
+   3. App Header
+   ------------------------------------------------------------ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--space-md);
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.app-header__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ------------------------------------------------------------
+   4. App Layout — mobile-first (375px base)
+   ------------------------------------------------------------ */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* ------------------------------------------------------------
+   5. Navigator — mobile: off-canvas overlay
+   ------------------------------------------------------------ */
+.nav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--nav-width);
+  background: var(--color-nav-bg);
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+  padding: var(--space-md) 0;
+  z-index: 90;
+
+  /* Hidden off-screen by default on mobile */
+  transform: translateX(-100%);
+  transition: transform 240ms ease;
+}
+
+/* Nav open state (toggled by JS adding .nav--open) */
+.nav--open {
+  transform: translateX(0);
+}
+
+/* Backdrop overlay when nav is open on mobile */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--color-overlay);
+  z-index: 80;
+}
+
+.nav-backdrop--visible {
+  display: block;
+}
+
+/* Category rows */
+.nav__category {
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  min-height: 44px; /* touch target */
+}
+
+.nav__category::after {
+  content: '▸';
+  font-size: 0.75rem;
+  transition: transform 200ms ease;
+}
+
+.nav__category--open::after {
+  transform: rotate(90deg);
+}
+
+/* Subcategory list — hidden until category is open */
+.nav__subcategory-list {
+  display: none;
+  list-style: none;
+}
+
+.nav__category--open + .nav__subcategory-list {
+  display: block;
+}
+
+/* Subcategory rows */
+.nav__subcategory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-xl);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  cursor: pointer;
+  min-height: 44px; /* touch target */
+  transition: background 150ms ease;
+}
+
+.nav__subcategory:hover {
+  background: var(--color-border);
+}
+
+.nav__subcategory--active {
+  background: var(--color-nav-active);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--color-primary);
+  padding-left: calc(var(--space-xl) - 3px);
+}
+
+/* Badge group inside nav subcategory */
+.nav__badges {
+  display: flex;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------
+   6. Badges
+   ------------------------------------------------------------ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-badge);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.badge--known {
+  background: var(--color-known-bg);
+  color: var(--color-known);
+}
+
+.badge--learning {
+  background: var(--color-learning-bg);
+  color: var(--color-learning);
+}
+
+/* ------------------------------------------------------------
+   7. Viewport — main study area
+   ------------------------------------------------------------ */
+.viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-lg) var(--space-md);
+  gap: var(--space-md);
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------
+   8. Deck Header
+   ------------------------------------------------------------ */
+.deck-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.deck-header__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.deck-header__controls {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Review mode label */
+.review-mode-label {
+  width: 100%;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-nav-active);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+}
+
+/* ------------------------------------------------------------
+   9. Card — 3D flip
+   ------------------------------------------------------------ */
+.card {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3 / 2;
+  perspective: var(--card-perspective); /* Req 4.3 */
+  cursor: pointer;
+  outline: none;
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-card);
+}
+
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;           /* Req 4.3 */
+  transition: transform var(--flip-duration) ease; /* 400ms — within 300–500ms range, Req 4.4 */
+  border-radius: var(--radius-card);
+}
+
+/* Flipped state */
+.card--flipped .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--color-card);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  backface-visibility: hidden;            /* Req 4.3 */
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card__back {
+  transform: rotateY(180deg);             /* Req 4.3 */
+}
+
+.card__text {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.card__example {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+.card__translation {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   10. Controls Bar
+   ------------------------------------------------------------ */
+.controls {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------
+   11. Buttons — base + variants
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-width: 44px;   /* Req 12.3 */
+  min-height: 44px;  /* Req 12.3 */
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-btn);
+  font-size: var(--text-base);
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--color-border);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Nav toggle (hamburger) — header */
+.btn--nav-toggle {
+  background: transparent;
+  border-color: rgba(255,255,255,0.3);
+  color: var(--color-header-text);
+}
+
+.btn--nav-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Card nav (Prev / Next) */
+.btn--nav-card {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--nav-card:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Known */
+.btn--known {
+  background: var(--color-known-bg);
+  border-color: var(--color-known);
+  color: var(--color-known);
+}
+
+.btn--known:hover:not(:disabled) {
+  background: var(--color-known);
+  color: #fff;
+}
+
+/* Still Learning */
+.btn--learning {
+  background: var(--color-learning-bg);
+  border-color: var(--color-learning);
+  color: var(--color-learning);
+}
+
+.btn--learning:hover:not(:disabled) {
+  background: var(--color-learning);
+  color: #fff;
+}
+
+/* Shuffle toggle */
+.btn--shuffle {
+  background: var(--color-card);
+  border-color: var(--color-border);
+}
+
+.btn--shuffle[aria-pressed="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Review Weak Cards */
+.btn--review,
+.btn--review-complete {
+  background: var(--color-card);
+  border-color: var(--color-border);
+}
+
+.btn--review:hover:not(:disabled),
+.btn--review-complete:hover:not(:disabled) {
+  background: var(--color-nav-active);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Speaker */
+.btn--speaker {
+  background: transparent;
+  border: none;
+  font-size: var(--text-xl);
+  padding: var(--space-xs);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Restart */
+.btn--restart {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--restart:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+/* Reset Progress */
+.btn--reset {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.btn--reset:hover:not(:disabled) {
+  border-color: var(--color-learning);
+  color: var(--color-learning);
+}
+
+/* Disabled state — Req 9.4 */
+.btn--disabled,
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hide speaker when SpeechSynthesis unavailable — Req 10.3 */
+body.no-speech .btn--speaker {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   12. Progress Indicator
+   ------------------------------------------------------------ */
+.progress-indicator {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   13. Deck Complete Screen
+   ------------------------------------------------------------ */
+.deck-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.deck-complete__message {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.deck-complete__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------
+   14. Reset Area
+   ------------------------------------------------------------ */
+.reset-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-sm);
+}
+
+/* ------------------------------------------------------------
+   15. Error Message
+   ------------------------------------------------------------ */
+.error-message {
+  max-width: 480px;
+  margin: var(--space-2xl) auto;
+  padding: var(--space-lg);
+  background: var(--color-learning-bg);
+  border: 1px solid var(--color-learning);
+  border-radius: var(--radius-card);
+  color: var(--color-learning);
+  font-size: var(--text-base);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   16. Desktop layout — @media (min-width: 768px)
+   ------------------------------------------------------------ */
+@media (min-width: 768px) {
+  /* Nav becomes a persistent sidebar — Req 12.5 */
+  .nav {
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transform: translateX(0); /* always visible */
+    flex-shrink: 0;
+    width: var(--nav-width);
+  }
+
+  /* Hide the hamburger toggle on desktop */
+  .btn--nav-toggle {
+    display: none;
+  }
+
+  /* Side-by-side layout */
+  .app-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* Viewport fills remaining space */
+  .viewport {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  /* Deck header goes horizontal */
+  .deck-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
