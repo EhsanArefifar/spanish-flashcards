@@ -167,6 +167,246 @@
           "translation": "I am lost. Can you help me?"
         }
       ]
+    },
+    {
+      "category": "Vocabulary",
+      "subcategory": "Coloquial",
+      "cards": [
+        {
+          "front": "¿Qué va?",
+          "back": "Colloquial expression used to strongly but casually say 'no' or deny something.",
+          "example": "—¿Estás nervioso? —¡Qué va!",
+          "translation": "Very common in Spain. Means something like 'not at all'."
+        },
+        {
+          "front": "Vaya",
+          "back": "Expression of surprise, disappointment, admiration, or reaction depending on tone.",
+          "example": "Vaya, no me esperaba esa noticia.",
+          "translation": "A very versatile Spanish reaction word."
+        },
+        {
+          "front": "Nunca mejor dicho",
+          "back": "Used when a phrase fits perfectly in the context, often humorously.",
+          "example": "Respira tranquilo… nunca mejor dicho.",
+          "translation": "Literally: 'never better said'."
+        },
+        {
+          "front": "Da gusto",
+          "back": "Expression used when something feels pleasant or satisfying.",
+          "example": "Así da gusto aprender español.",
+          "translation": "Means something like 'it's a pleasure'."
+        },
+        {
+          "front": "Buen rollo",
+          "back": "Good vibes, positive atmosphere.",
+          "example": "Hay muy buen rollo entre nosotros.",
+          "translation": "Opposite: mal rollo."
+        },
+        {
+          "front": "Mal rollo",
+          "back": "Bad atmosphere, tension, uncomfortable feeling.",
+          "example": "Ese sitio me dio mal rollo.",
+          "translation": "Very common colloquial expression."
+        },
+        {
+          "front": "De por medio",
+          "back": "Something involved or influencing the situation.",
+          "example": "Con buenas noticias de por medio, todo cambia.",
+          "translation": "Often used for emotions, problems, money, relationships, etc."
+        },
+        {
+          "front": "Echar un ojo",
+          "back": "To take a look at something.",
+          "example": "¿Le puedes echar un ojo a estos resultados?",
+          "translation": "Very common informal expression."
+        },
+        {
+          "front": "Te lo mereces",
+          "back": "You deserve it.",
+          "example": "Después de todo el esfuerzo, te lo mereces.",
+          "translation": "Used for encouragement or recognition."
+        },
+        {
+          "front": "Momentito",
+          "back": "Diminutive of 'momento'; sounds softer and affectionate.",
+          "example": "Disfruta ese momentito de orgullo.",
+          "translation": "Spanish often uses diminutives for emotional tone."
+        },
+        {
+          "front": "Anda",
+          "back": "Colloquial expression used to encourage, soften, or react.",
+          "example": "Venga, anda, cuéntame.",
+          "translation": "Does not mean 'walk' in these contexts."
+        },
+        {
+          "front": "Me ha dejado loco",
+          "back": "Something surprised or shocked me strongly.",
+          "example": "La noticia me ha dejado loco.",
+          "translation": "Very colloquial."
+        },
+        {
+          "front": "Te he pillado",
+          "back": "I understood you / I got what you mean.",
+          "example": "Ahhh, ahora te he pillado.",
+          "translation": "Pillar often means 'to catch' or 'to get'."
+        },
+        {
+          "front": "Sin lío",
+          "back": "Without complications; simply.",
+          "example": "Te lo explico sin lío.",
+          "translation": "Lío = mess, confusion."
+        },
+        {
+          "front": "Modo colega",
+          "back": "Friendly, informal tone; talking like friends.",
+          "example": "Te hablo en modo colega.",
+          "translation": "Not a fixed expression, but natural."
+        },
+        {
+          "front": "Lástima",
+          "back": "What a pity.",
+          "example": "Lástima que no puedas venir.",
+          "translation": "Soft way to express disappointment."
+        },
+        {
+          "front": "Planazo",
+          "back": "A really great plan.",
+          "example": "Ir de cervezas con amigos es un planazo.",
+          "translation": "-azo adds emphasis."
+        },
+        {
+          "front": "Vas volando",
+          "back": "You are progressing very fast.",
+          "example": "Ya terminaste cinco capítulos, vas volando.",
+          "translation": "Literally: 'you're flying'."
+        },
+        {
+          "front": "Ya tocaba",
+          "back": "It was about time.",
+          "example": "Ya tocaba descansar un poco.",
+          "translation": "From the verb tocar = to correspond/be the moment."
+        },
+        {
+          "front": "Soler",
+          "back": "Verb used for habits or things that usually happen.",
+          "example": "La gente suele tomar café por la mañana.",
+          "translation": "Structure: soler + infinitive."
+        },
+        {
+          "front": "Suena bien",
+          "back": "It sounds good.",
+          "example": "Tu plan suena muy bien.",
+          "translation": "Sonar often means 'to seem/sound'."
+        },
+        {
+          "front": "Repasar",
+          "back": "To review or refresh knowledge.",
+          "example": "Estoy repasando AWS.",
+          "translation": "Not learning from zero."
+        },
+        {
+          "front": "Profundizar en",
+          "back": "To deepen knowledge about something.",
+          "example": "Quiero profundizar en AWS.",
+          "translation": "Always used with 'en'."
+        },
+        {
+          "front": "Certificación",
+          "back": "The certification process or achievement.",
+          "example": "Estoy preparando una certificación de AWS.",
+          "translation": "The achievement/title."
+        },
+        {
+          "front": "Certificado",
+          "back": "The actual document proving something.",
+          "example": "Tengo el certificado en PDF.",
+          "translation": "The physical/digital proof."
+        },
+        {
+          "front": "Significado",
+          "back": "Meaning of a word or phrase.",
+          "example": "¿Cuál es el significado de 'rollo'?",
+          "translation": "Most common everyday word."
+        },
+        {
+          "front": "Significación",
+          "back": "Formal or academic meaning/interpretation.",
+          "example": "La significación del símbolo es profunda.",
+          "translation": "Used in linguistics or formal analysis."
+        },
+        {
+          "front": "Rollo",
+          "back": "Vibe, atmosphere, feeling.",
+          "example": "Ese tío tiene buen rollo.",
+          "translation": "Very colloquial Spanish word."
+        },
+        {
+          "front": "He estado tomando",
+          "back": "Present perfect continuous; emphasizes ongoing/recent process.",
+          "example": "He estado tomando pastillas estos meses.",
+          "translation": "Focuses on duration/process."
+        },
+        {
+          "front": "He tomado",
+          "back": "Present perfect; focuses on completed action/result.",
+          "example": "He tomado la medicación.",
+          "translation": "More neutral and factual."
+        },
+        {
+          "front": "Le pedí que me diera",
+          "back": "Example of imperfect subjunctive after pedir que.",
+          "example": "Le pedí que me diera una baja médica.",
+          "translation": "Structure: pedir que + subjuntivo."
+        },
+        {
+          "front": "Me recetó",
+          "back": "Past tense of recetar; used for doctors prescribing medicine.",
+          "example": "La médica me recetó omeprazol.",
+          "translation": "Very common in medical contexts."
+        },
+        {
+          "front": "Derivarme a cardiología",
+          "back": "To refer/send someone to a medical specialist.",
+          "example": "Quería saber si podían derivarme a cardiología.",
+          "translation": "Formal medical wording."
+        },
+        {
+          "front": "Palpitaciones",
+          "back": "Heart palpitations.",
+          "example": "Últimamente siento palpitaciones.",
+          "translation": "Medical vocabulary."
+        },
+        {
+          "front": "Sala de espera",
+          "back": "Waiting room.",
+          "example": "Estoy en la sala de espera.",
+          "translation": "Common hospital vocabulary."
+        },
+        {
+          "front": "Espirometría",
+          "back": "Spirometry test.",
+          "example": "Ya me hice la espirometría.",
+          "translation": "Medical vocabulary."
+        },
+        {
+          "front": "Me quedo tranquilo",
+          "back": "I feel relieved/reassured.",
+          "example": "Me quedo tranquilo sabiendo eso.",
+          "translation": "Very common emotional expression."
+        },
+        {
+          "front": "Qué tal",
+          "back": "How are things?/How's it going?",
+          "example": "Hola tío, ¿qué tal?",
+          "translation": "Very common greeting."
+        },
+        {
+          "front": "Cuánto tiempo",
+          "back": "Long time no see.",
+          "example": "¡Cuánto tiempo sin verte!",
+          "translation": "Used for reunions."
+        }
+      ]
     }
   ]
 }
