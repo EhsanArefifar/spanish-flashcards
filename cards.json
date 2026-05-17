@@ -170,7 +170,7 @@
     },
     {
       "category": "Vocabulary",
-      "subcategory": "Coloquial",
+      "subcategory": "Coloquial-1",
       "cards": [
         {
           "front": "¿Qué va?",
@@ -405,6 +405,492 @@
           "back": "Long time no see.",
           "example": "¡Cuánto tiempo sin verte!",
           "translation": "Used for reunions."
+        }
+      ]
+    },
+    {
+      "category": "Vocabulary",
+      "subcategory": "Coloquial-2",
+      "cards": [
+        {
+          "front": "trapista ❌ → terapeuta ✅",
+          "back": "A 'terapeuta' is a therapist or psychologist. 'Trapista' sounds like a Trappist monk.",
+          "example": "Tuve una sesión con mi terapeuta.",
+          "translation": "Similar words: psicólogo, terapeuta."
+        },
+        {
+          "front": "me lo merezco",
+          "back": "Expression meaning 'I deserve it'. Uses reflexive verb merecerse.",
+          "example": "Después de esta semana, me lo merezco.",
+          "translation": "Related: te lo mereces, se lo merece."
+        },
+        {
+          "front": "ordenar la casa",
+          "back": "To tidy or organize the house.",
+          "example": "Hoy me toca ordenar un poco la casa.",
+          "translation": "Similar: limpiar la casa, recoger."
+        },
+        {
+          "front": "dar una baja médica",
+          "back": "Expression used when a doctor grants medical leave.",
+          "example": "La médica me dio una baja médica.",
+          "translation": "Related: estar de baja, coger una baja."
+        },
+        {
+          "front": "aprovechar para",
+          "back": "To use an opportunity or free time for something useful.",
+          "example": "Estoy aprovechando esta semana para estudiar.",
+          "translation": "Similar: sacar provecho, utilizar el tiempo."
+        },
+        {
+          "front": "dar señales de vida",
+          "back": "To contact someone after a while or show that you are still around.",
+          "example": "¡Ya tocaba dar señales de vida!",
+          "translation": "Related: aparecer otra vez, volver a escribir."
+        },
+        {
+          "front": "modo batidora",
+          "back": "Colloquial metaphor meaning mental chaos or too many thoughts mixed together.",
+          "example": "Tengo la cabeza en modo batidora.",
+          "translation": "Similar: caos mental, cabeza saturada."
+        },
+        {
+          "front": "reordenar la cabeza",
+          "back": "To mentally reorganize yourself or calm your thoughts.",
+          "example": "Necesitaba unos días para reordenar la cabeza.",
+          "translation": "Related: despejarse, aclarar las ideas."
+        },
+        {
+          "front": "despejarse",
+          "back": "To clear one's mind or relax mentally.",
+          "example": "Salir a caminar me ayuda a despejarme.",
+          "translation": "Similar: relajarse, desconectar."
+        },
+        {
+          "front": "desconectar",
+          "back": "To mentally disconnect from stress or work.",
+          "example": "Necesito desconectar este fin de semana.",
+          "translation": "Related: relajarse, tomarse un respiro."
+        },
+        {
+          "front": "tomarse un respiro",
+          "back": "To take a break and breathe mentally/emotionally.",
+          "example": "Después de tanto estrés, necesito tomarme un respiro.",
+          "translation": "Similar: descansar un poco, desconectar."
+        },
+        {
+          "front": "ir al grano",
+          "back": "To get to the point directly.",
+          "example": "Vale, voy al grano.",
+          "translation": "Related: ser directo, no dar vueltas."
+        },
+        {
+          "front": "dar vueltas",
+          "back": "To overcomplicate or avoid getting directly to the point.",
+          "example": "No le des tantas vueltas.",
+          "translation": "Related: sobrepensar, complicarse."
+        },
+        {
+          "front": "pillar algo",
+          "back": "To understand something.",
+          "example": "Ahora sí lo he pillado.",
+          "translation": "Similar: entender, captar."
+        },
+        {
+          "front": "captar",
+          "back": "To grasp or understand an idea.",
+          "example": "No capté la broma al principio.",
+          "translation": "Related: pillar, entender."
+        },
+        {
+          "front": "liado",
+          "back": "Busy, overwhelmed, occupied.",
+          "example": "He estado muy liado estos días.",
+          "translation": "Similar: ocupado, saturado."
+        },
+        {
+          "front": "saturado",
+          "back": "Mentally overloaded.",
+          "example": "Estoy saturado de trabajo.",
+          "translation": "Related: agobiado, sobrecargado."
+        },
+        {
+          "front": "agobiado",
+          "back": "Feeling overwhelmed or emotionally pressured.",
+          "example": "Últimamente me siento muy agobiado.",
+          "translation": "Similar: saturado, estresado."
+        },
+        {
+          "front": "currar",
+          "back": "Informal verb meaning 'to work'.",
+          "example": "Hoy me toca currar todo el día.",
+          "translation": "Formal version: trabajar."
+        },
+        {
+          "front": "plan tranquilo",
+          "back": "A calm, relaxed plan.",
+          "example": "Hoy quiero un plan tranquilo.",
+          "translation": "Opposite: plan movido, fiesta."
+        },
+        {
+          "front": "tomar algo",
+          "back": "To go out for a drink or snack socially.",
+          "example": "Vamos a tomar algo después.",
+          "translation": "Related: ir de cañas, tomar una cerveza."
+        },
+        {
+          "front": "ir de cañas",
+          "back": "To go out for beers/tapas.",
+          "example": "El viernes vamos de cañas.",
+          "translation": "Related: tomar algo, ir a tomar una cerveza."
+        },
+        {
+          "front": "me hace ilusión",
+          "back": "Expression for being happy/excited about something.",
+          "example": "Me hace ilusión verte otra vez.",
+          "translation": "Similar: me alegra, me entusiasma."
+        },
+        {
+          "front": "caer bien",
+          "back": "To like someone / someone gives a good impression.",
+          "example": "Tu amigo me cae muy bien.",
+          "translation": "Opposite: caer mal."
+        },
+        {
+          "front": "caer mal",
+          "back": "To dislike someone / someone gives a bad impression.",
+          "example": "Ese tío me cae mal.",
+          "translation": "Opposite: caer bien."
+        },
+        {
+          "front": "irse de misión",
+          "back": "Joking way to say you're busy or focused on something important.",
+          "example": "He estado desaparecido, estaba de misión.",
+          "translation": "Related: modo misión, ocupado."
+        },
+        {
+          "front": "modo misión",
+          "back": "Focused state where someone is fully dedicated to a goal.",
+          "example": "Esta semana estoy en modo misión con AWS.",
+          "translation": "Similar: modo concentración, full focus."
+        },
+        {
+          "front": "suena a",
+          "back": "Expression meaning 'it seems like'.",
+          "example": "Eso suena a una muy buena idea.",
+          "translation": "Related: parece, da la impresión."
+        },
+        {
+          "front": "andar con cuidado",
+          "back": "To be careful.",
+          "example": "Anda con cuidado con eso.",
+          "translation": "Similar: tener cuidado, ir con ojo."
+        },
+        {
+          "front": "ir con ojo",
+          "back": "To stay alert or cautious.",
+          "example": "Ve con ojo con ese contrato.",
+          "translation": "Related: tener cuidado, estar atento."
+        }
+      ]
+    },
+    {
+      "category": "Vocabulary",
+      "subcategory": "Coloquial-3",
+      "cards": [
+        {
+          "front": "Hostia",
+          "back": "Literal meaning: the communion wafer in Catholicism. Real usage: a very common exclamation for surprise, shock, admiration, anger, etc.",
+          "example": "¡Hostia, qué rápido has terminado!",
+          "translation": "Very Spanish. Tone completely changes meaning."
+        },
+        {
+          "front": "Joder",
+          "back": "Literal meaning: to fuck/have sex (vulgar). Real usage: used constantly as 'damn', 'fuck', 'seriously', etc.",
+          "example": "Joder, estoy agotado hoy.",
+          "translation": "One of the most common emotional words in Spain."
+        },
+        {
+          "front": "Qué fuerte",
+          "back": "Literal meaning: how strong. Real usage: something shocking, intense, unbelievable or emotionally impactful.",
+          "example": "¿En serio pasó eso? Qué fuerte.",
+          "translation": "Very common reaction phrase."
+        },
+        {
+          "front": "Flipar",
+          "back": "Literal meaning: to hallucinate/trip. Real usage: to be amazed, shocked or blown away.",
+          "example": "Flipé cuando vi el precio.",
+          "translation": "Originally linked to drug culture decades ago."
+        },
+        {
+          "front": "Rayarse",
+          "back": "Literal meaning: to scratch/make lines. Real usage: to overthink, obsess or mentally spiral.",
+          "example": "No te rayes tanto por eso.",
+          "translation": "Mental stress vocabulary in Spain."
+        },
+        {
+          "front": "Ni de coña",
+          "back": "Literal meaning: not even joking. Real usage: absolutely no way.",
+          "example": "¿Trabajar un sábado? Ni de coña.",
+          "translation": "Strong informal refusal."
+        },
+        {
+          "front": "De puta madre",
+          "back": "Literal meaning: of prostitute mother. Real usage: amazing, excellent, fantastic.",
+          "example": "La cena estuvo de puta madre.",
+          "translation": "Very vulgar literally, but extremely common positively."
+        },
+        {
+          "front": "Coño",
+          "back": "Literal meaning: vagina/cunt (vulgar). Real usage: emotional exclamation similar to 'damn', 'come on', 'shit'.",
+          "example": "¡Coño, pues tienes razón!",
+          "translation": "Very contextual. Friends use it constantly."
+        },
+        {
+          "front": "Anda ya",
+          "back": "Literal meaning: go/walk already. Real usage: no way, come on, I don't believe you.",
+          "example": "—He ganado la lotería. —Anda ya.",
+          "translation": "Can be playful disbelief."
+        },
+        {
+          "front": "Madre mía",
+          "back": "Literal meaning: my mother. Real usage: expression of surprise, stress, admiration or exhaustion.",
+          "example": "Madre mía, qué semana llevo.",
+          "translation": "Safe and universal expression."
+        },
+        {
+          "front": "Tela",
+          "back": "Literal meaning: fabric/cloth. Real usage: something intense, excessive or difficult.",
+          "example": "Tiene tela el asunto.",
+          "translation": "Spain-specific metaphorical use."
+        },
+        {
+          "front": "Tiene tela",
+          "back": "Literal meaning: it has fabric. Real usage: this situation is crazy/complicated/ridiculous.",
+          "example": "Lo que hizo tiene tela.",
+          "translation": "Usually judgmental or dramatic."
+        },
+        {
+          "front": "En plan",
+          "back": "Literal meaning: in plan/in style. Real usage: filler word like English 'like'.",
+          "example": "Y yo en plan: ¿qué está pasando?",
+          "translation": "Young people use it nonstop."
+        },
+        {
+          "front": "Ya ves",
+          "back": "Literal meaning: now you see. Real usage: exactly, that's life, totally.",
+          "example": "—Estoy agotado. —Ya ves.",
+          "translation": "Agreement/resignation expression."
+        },
+        {
+          "front": "Tal cual",
+          "back": "Literal meaning: such which/exactly as. Real usage: exactly, literally true.",
+          "example": "Fue tal cual lo dijiste.",
+          "translation": "Very common modern phrase."
+        },
+        {
+          "front": "Qué cabrón",
+          "back": "Literal meaning: what a bastard/goat-like man. Real usage: can mean asshole OR lucky/funny bastard among friends.",
+          "example": "Te dieron vacaciones extra, qué cabrón.",
+          "translation": "Dangerous phrase if tone is wrong."
+        },
+        {
+          "front": "Mazo",
+          "back": "Literal meaning: mallet/hammer. Real usage: very/a lot.",
+          "example": "Hace mazo calor hoy.",
+          "translation": "Classic Madrid slang."
+        },
+        {
+          "front": "Tío",
+          "back": "Literal meaning: uncle. Real usage: dude/guy/man.",
+          "example": "Tío, tienes que ver esto.",
+          "translation": "Probably the most common social word in Spain."
+        },
+        {
+          "front": "Tronco",
+          "back": "Literal meaning: tree trunk. Real usage: dude/bro.",
+          "example": "Tronco, qué haces.",
+          "translation": "Very Madrid/street style."
+        },
+        {
+          "front": "Currárselo",
+          "back": "Literal meaning: to work it for oneself. Real usage: to put effort into something.",
+          "example": "Te lo has currado mucho.",
+          "translation": "Implies respect for effort."
+        },
+        {
+          "front": "Estar hasta los huevos",
+          "back": "Literal meaning: to be up to the eggs/testicles. Real usage: to be fed up.",
+          "example": "Estoy hasta los huevos del estrés.",
+          "translation": "Extremely common vulgar phrase."
+        },
+        {
+          "front": "Acojonado",
+          "back": "Literal meaning: with big balls/testicle-related fear. Real usage: terrified or very nervous.",
+          "example": "Estaba acojonado antes del examen.",
+          "translation": "Very colloquial emotional word."
+        },
+        {
+          "front": "Cojonudo",
+          "back": "Literal meaning: testicle-related. Real usage: excellent, awesome.",
+          "example": "El plan estuvo cojonudo.",
+          "translation": "Funny positive vulgarity."
+        },
+        {
+          "front": "La hostia",
+          "back": "Literal meaning: the communion wafer. Real usage: incredible, intense, crazy good/bad.",
+          "example": "Ese restaurante está la hostia.",
+          "translation": "Can express admiration or intensity."
+        },
+        {
+          "front": "Me cago en...",
+          "back": "Literal meaning: I shit on... Real usage: strong frustration expression.",
+          "example": "Me cago en todo, perdí el móvil.",
+          "translation": "Very Spanish swearing structure."
+        },
+        {
+          "front": "Paso",
+          "back": "Literal meaning: I pass. Real usage: I don't want to bother / I'm not interested.",
+          "example": "Paso de discutir hoy.",
+          "translation": "Short casual refusal."
+        },
+        {
+          "front": "Molar",
+          "back": "Literal meaning: no literal modern meaning. Real usage: to be cool.",
+          "example": "Ese sitio mola mucho.",
+          "translation": "Essential colloquial Spain verb."
+        },
+        {
+          "front": "Petarlo",
+          "back": "Literal meaning: to explode/break something. Real usage: to crush it, become hugely successful.",
+          "example": "Ese bar lo está petando.",
+          "translation": "Popular modern slang."
+        },
+        {
+          "front": "Estar petado",
+          "back": "Literal meaning: exploded/burst. Real usage: crowded, packed or exhausted.",
+          "example": "El metro estaba petado.",
+          "translation": "Depends heavily on context."
+        },
+        {
+          "front": "Estar hecho polvo",
+          "back": "Literal meaning: to be made into dust. Real usage: physically or emotionally exhausted.",
+          "example": "Hoy estoy hecho polvo.",
+          "translation": "Very visual metaphor."
+        },
+        {
+          "front": "Montárselo bien",
+          "back": "Literal meaning: to assemble/set it up well for oneself. Real usage: to enjoy life/have a great time.",
+          "example": "Se lo montan bien los fines de semana.",
+          "translation": "Can imply partying or simply enjoying life."
+        },
+        {
+          "front": "Qué pasada",
+          "back": "Literal meaning: what a passing. Real usage: amazing, incredible.",
+          "example": "Qué pasada de vistas.",
+          "translation": "Strong positive admiration."
+        },
+        {
+          "front": "Menuda movida",
+          "back": "Literal meaning: what a movement. Real usage: what a mess/drama/problem.",
+          "example": "Lo del trabajo es una movida.",
+          "translation": "Movida is deeply tied to Spanish slang culture."
+        },
+        {
+          "front": "Ir de cañas",
+          "back": "Literal meaning: to go for small beers. Real usage: casual social drinking/tapas culture.",
+          "example": "El viernes vamos de cañas.",
+          "translation": "Very Spanish social ritual."
+        },
+        {
+          "front": "Tomar algo",
+          "back": "Literal meaning: to take something. Real usage: to go out socially for drinks/snacks.",
+          "example": "Vamos a tomar algo después.",
+          "translation": "Extremely common invitation."
+        },
+        {
+          "front": "Curro",
+          "back": "Literal meaning: slang work/job. Real usage: work, job, workload.",
+          "example": "Tengo mucho curro esta semana.",
+          "translation": "Informal everyday word."
+        },
+        {
+          "front": "Agobiarse",
+          "back": "Literal meaning: to suffocate/oppress oneself. Real usage: to feel mentally overwhelmed.",
+          "example": "No te agobies tanto.",
+          "translation": "Very emotionally expressive verb."
+        },
+        {
+          "front": "Pillar",
+          "back": "Literal meaning: to catch/grab. Real usage: to understand/get.",
+          "example": "No pillé la broma.",
+          "translation": "Very versatile colloquial verb."
+        },
+        {
+          "front": "Ya tocaba",
+          "back": "Literal meaning: it already touched/it was its turn. Real usage: it was about time.",
+          "example": "Ya tocaba descansar un poco.",
+          "translation": "From tocar = one's turn/correspond."
+        },
+        {
+          "front": "Da gusto",
+          "back": "Literal meaning: it gives pleasure. Real usage: something feels pleasant/satisfying.",
+          "example": "Así da gusto trabajar.",
+          "translation": "Warm positive expression."
+        },
+        {
+          "front": "Buen rollo",
+          "back": "Literal meaning: good roll/vibe. Real usage: good atmosphere, positive energy.",
+          "example": "Hay muy buen rollo aquí.",
+          "translation": "One of the most useful social expressions."
+        },
+        {
+          "front": "Mal rollo",
+          "back": "Literal meaning: bad roll/vibe. Real usage: tension, creepy or uncomfortable atmosphere.",
+          "example": "Ese sitio me da mal rollo.",
+          "translation": "Can describe people, places or situations."
+        },
+        {
+          "front": "Qué guay",
+          "back": "Literal meaning: no clear literal meaning. Real usage: cool, nice.",
+          "example": "Qué guay tu coche nuevo.",
+          "translation": "Classic Spain Spanish."
+        },
+        {
+          "front": "Me mola",
+          "back": "Literal meaning: it cools me/pleases me (historically unclear). Real usage: I like it, it's cool.",
+          "example": "Me mola esa canción.",
+          "translation": "Very colloquial positive opinion."
+        },
+        {
+          "front": "Fliparlo",
+          "back": "Literal meaning: to hallucinate hard. Real usage: to be shocked/amazed.",
+          "example": "La vas a flipar cuando lo veas.",
+          "translation": "Very expressive modern slang."
+        },
+        {
+          "front": "Estar de bajón",
+          "back": "Literal meaning: to be in a downward state. Real usage: to feel emotionally low.",
+          "example": "Hoy estoy un poco de bajón.",
+          "translation": "Soft emotional expression."
+        },
+        {
+          "front": "Ponerse las pilas",
+          "back": "Literal meaning: to put batteries into oneself. Real usage: to get motivated/start acting seriously.",
+          "example": "Tengo que ponerme las pilas con el inglés.",
+          "translation": "Very visual and common phrase."
+        },
+        {
+          "front": "Ir a saco",
+          "back": "Literal meaning: to go to the sack/bag. Real usage: to go all in/full force.",
+          "example": "Esta semana estoy yendo a saco con AWS.",
+          "translation": "Strong energy/focus expression."
+        },
+        {
+          "front": "Estar al loro",
+          "back": "Literal meaning: to be at the parrot. Real usage: to pay attention/stay alert.",
+          "example": "Estate al loro con ese correo.",
+          "translation": "Funny old-school Spain expression."
         }
       ]
     }
