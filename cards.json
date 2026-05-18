@@ -2,6 +2,192 @@
   "decks": [
     {
       "category": "Verbs",
+      "subcategory": "P-A1-1",
+      "cards": [
+        {
+          "front": "I went to the doctor yesterday",
+          "back": "Fui al médico ayer",
+          "example": "Y me dijo que todo iba mejor.",
+          "translation": "ir → fui. Indefinido because it is a completed event in a closed past period."
+        },
+        {
+          "front": "I was at home all day",
+          "back": "Estuve en casa todo el día",
+          "example": "Necesitaba descansar un poco.",
+          "translation": "estar → estuve. Indefinido because the state is treated as a completed block of time."
+        },
+        {
+          "front": "I had a stressful meeting",
+          "back": "Tuve una reunión estresante",
+          "example": "Y terminé agotado.",
+          "translation": "tener → tuve. Important irregular 'uve' family."
+        },
+        {
+          "front": "I did a lot of work today",
+          "back": "Hice mucho trabajo hoy",
+          "example": "Por eso estoy cansado ahora.",
+          "translation": "hacer → hice. Irregular but only first person singular changes."
+        },
+        {
+          "front": "I couldn't sleep last night",
+          "back": "No pude dormir anoche",
+          "example": "Me estaba rayando demasiado.",
+          "translation": "poder → pude. Completed inability in a closed past period."
+        },
+        {
+          "front": "I wanted to call you",
+          "back": "Quise llamarte",
+          "example": "Pero al final se me hizo tarde.",
+          "translation": "querer → quise. In indefinido, often implies an attempted intention."
+        },
+        {
+          "front": "The doctor told me to rest",
+          "back": "El médico me dijo que descansara",
+          "example": "Y que redujera el estrés.",
+          "translation": "decir → dijo. Indirect recommendation triggers subjuntivo."
+        },
+        {
+          "front": "I put the book on the table",
+          "back": "Puse el libro en la mesa",
+          "example": "Y luego me fui a dormir.",
+          "translation": "poner → puse. Important 'use' family irregular."
+        },
+        {
+          "front": "I came home late",
+          "back": "Vine a casa tarde",
+          "example": "Había mucho tráfico.",
+          "translation": "venir → vine. Important movement verb in indefinido."
+        },
+        {
+          "front": "I brought the documents",
+          "back": "Traje los documentos",
+          "example": "Por si acaso los necesitaban.",
+          "translation": "traer → traje. Same irregular family as decir/dije."
+        },
+        {
+          "front": "I knew it",
+          "back": "Lo supe",
+          "example": "Desde el momento en que lo vi.",
+          "translation": "saber → supe. In indefinido often means 'I found out/knew suddenly'."
+        },
+        {
+          "front": "I met an interesting guy",
+          "back": "Conocí a un tío interesante",
+          "example": "En la conferencia de AWS.",
+          "translation": "conocer → conocí. In indefinido often means meeting someone for the first time."
+        },
+        {
+          "front": "I drove to Madrid",
+          "back": "Conduje hasta Madrid",
+          "example": "Y llegué muerto.",
+          "translation": "conducir → conduje. '-ducir' verbs follow the same irregular pattern."
+        },
+        {
+          "front": "They brought me good news",
+          "back": "Me trajeron buenas noticias",
+          "example": "Y me quedé mucho más tranquilo.",
+          "translation": "traer → trajeron. Third person plural irregular."
+        },
+        {
+          "front": "They told me the results were good",
+          "back": "Me dijeron que los resultados eran buenos",
+          "example": "Y respiré tranquilo.",
+          "translation": "decir → dijeron. Notice the dropped 'i' in dijeron."
+        },
+        {
+          "front": "I was able to finish the book",
+          "back": "Pude terminar el libro",
+          "example": "Aunque estaba cansado.",
+          "translation": "poder → pude. Completed successful action."
+        },
+        {
+          "front": "I wanted to change jobs",
+          "back": "Quise cambiar de trabajo",
+          "example": "Pero decidí esperar un poco.",
+          "translation": "quiser in indefinido often sounds more decisive than quería."
+        },
+        {
+          "front": "I had to explain everything",
+          "back": "Tuve que explicar todo",
+          "example": "Porque había mucha confusión.",
+          "translation": "tener que + infinitive = had to do something."
+        },
+        {
+          "front": "I came because I was worried",
+          "back": "Vine porque estaba preocupado",
+          "example": "Quería hablar con la médica.",
+          "translation": "Mix of indefinido event + imperfecto emotional background."
+        },
+        {
+          "front": "I put on a new shirt",
+          "back": "Me puse una camisa nueva",
+          "example": "Para la reunión.",
+          "translation": "ponerse → me puse. Very common reflexive irregular."
+        },
+        {
+          "front": "I found out yesterday",
+          "back": "Lo supe ayer",
+          "example": "Y me dejó loco.",
+          "translation": "saber in indefinido often means discovering information."
+        },
+        {
+          "front": "I said the same thing",
+          "back": "Dije lo mismo",
+          "example": "Pero nadie me escuchó.",
+          "translation": "decir → dije. Very high-frequency irregular."
+        },
+        {
+          "front": "I brought coffee for everyone",
+          "back": "Traje café para todos",
+          "example": "Porque la reunión iba a ser larga.",
+          "translation": "traer → traje. Extremely useful social/work verb."
+        },
+        {
+          "front": "I was with friends all evening",
+          "back": "Estuve con amigos toda la tarde",
+          "example": "Y me vino genial.",
+          "translation": "Completed social time block in the past."
+        },
+        {
+          "front": "I did what I could",
+          "back": "Hice lo que pude",
+          "example": "Pero estaba agotado mentalmente.",
+          "translation": "Very common natural Spanish chunk."
+        },
+        {
+          "front": "I came to learn Spanish",
+          "back": "Vine para aprender español",
+          "example": "Y al final me quedé aquí.",
+          "translation": "Movement verb + purpose structure."
+        },
+        {
+          "front": "I put too much pressure on myself",
+          "back": "Me puse demasiada presión",
+          "example": "Y terminé saturado.",
+          "translation": "Natural emotional usage of ponerse."
+        },
+        {
+          "front": "I had a weird feeling",
+          "back": "Tuve una sensación rara",
+          "example": "Desde la mañana.",
+          "translation": "tener used for temporary emotional experiences."
+        },
+        {
+          "front": "I couldn't concentrate",
+          "back": "No pude concentrarme",
+          "example": "Tenía demasiadas cosas en la cabeza.",
+          "translation": "Very useful emotional/work chunk."
+        },
+        {
+          "front": "I went out for beers with friends",
+          "back": "Fui de cañas con amigos",
+          "example": "Y desconecté un poco.",
+          "translation": "Classic Spain social expression."
+        }
+      ]
+    },
+    {
+      "category": "Verbs",
       "subcategory": "Daily Routine",
       "cards": [
         {
