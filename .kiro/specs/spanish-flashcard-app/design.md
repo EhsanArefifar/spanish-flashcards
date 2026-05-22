@@ -68,7 +68,8 @@ Responsibilities:
 - Render category/subcategory tree from deck data
 - Handle category expand/collapse via event delegation
 - Handle subcategory click → `activateDeck(deckIndex)`
-- Show per-card progress indicators (known/learning counts per deck)
+- Show per-deck progress badges: a green `.badge--known` with the count of `"known"` cards and a red `.badge--learning` with the count of `"learning"` cards; each badge is only rendered when its count is greater than zero
+- Show total card count next to each subcategory label (e.g. "Daily Routine · 20") and the summed total next to each category label (e.g. "Verbs · 45")
 - Collapse into a toggle-accessible panel on mobile (viewport < 768px)
 
 ### 2. Viewport (`#viewport`)
@@ -100,7 +101,7 @@ Data / Pure Functions
   deriveDisplayCards()   — returns the current ordered/filtered card array
 
 Rendering
-  renderNavigator()      — builds the nav tree from state.decks
+  renderNavigator()      — builds the nav tree from state.decks; shows known/learning badges and total card counts per subcategory and category
   renderCard()           — renders the active card face(s) into the viewport
   renderProgressIndicator() — updates "Card N of M" text
   renderDeckComplete()   — shows the end-of-deck screen
@@ -211,6 +212,8 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 .badge                 — small status indicator on nav items
 .badge--known
 .badge--learning
+
+.nav__count            — total card count label shown next to subcategory and category names
 ```
 
 ---
@@ -291,6 +294,12 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 
 **Validates: Requirements 9.5**
 
+### Property 13: Navigator card counts match deck data
+
+*For any* loaded set of decks, the total card count displayed next to each subcategory in the Navigator should equal the length of that deck's `cards` array, and the count displayed next to each category should equal the sum of all its subcategory deck sizes — both derived from `state.decks` at render time.
+
+**Validates: Requirements 13.1, 13.2, 13.3, 13.4**
+
 ---
 
 ## Error Handling
@@ -355,6 +364,7 @@ Property tests map directly to the Correctness Properties section above:
 - **Property 10** (card face display): Generate arbitrary cards with varying optional fields, render at both flip states, assert correct text visible and optional fields conditional on flip state and field presence.
 - **Property 11** (SpeechSynthesis text and language): Generate arbitrary front text strings, mock `speechSynthesis.speak`, click speaker, assert utterance `text` and `lang` match.
 - **Property 12** (review button disabled): Generate decks where no card has `"learning"` status, render, assert review button has `disabled` attribute.
+- **Property 13** (navigator card counts): Generate arbitrary deck arrays with varying sizes, call `renderNavigator`, assert each subcategory count label equals its deck's `cards.length` and each category count equals the sum of its subcategory deck sizes.
 
 Tag format for each test: `// Feature: spanish-flashcard-app, Property N: <property text>`
 

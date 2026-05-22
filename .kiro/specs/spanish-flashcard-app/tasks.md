@@ -39,10 +39,11 @@ Implement a zero-dependency, static Spanish flashcard SPA using vanilla HTML5, C
 
   - [x] 3.4 Style all BEM component classes
     - `.nav`, `.nav__category`, `.nav__category--open`, `.nav__subcategory`, `.nav__subcategory--active`
+    - `.nav__count` — muted/secondary text style for the total card count label next to subcategory and category names
     - `.btn`, `.btn--known`, `.btn--learning`, `.btn--disabled`
     - `.badge`, `.badge--known`, `.badge--learning`
     - `body.no-speech` hides the speaker icon button
-    - _Requirements: 2.4, 6.1, 6.2, 9.4, 10.3_
+    - _Requirements: 2.4, 6.1, 6.2, 9.4, 10.3, 13.1, 13.2_
 
 - [x] 4. Implement `app.js` — state object and pure data functions
   - [x] 4.1 Define the `state` object and `generateCardId` function
@@ -85,9 +86,11 @@ Implement a zero-dependency, static Spanish flashcard SPA using vanilla HTML5, C
 - [x] 6. Implement `app.js` — rendering functions
   - [x] 6.1 Implement `renderNavigator()`
     - Build category/subcategory tree from `state.decks`; attach `data-deck-index` to subcategory items
-    - Show `.badge--known` / `.badge--learning` counts per deck derived from `state.progress`
+    - Show `.badge--known` / `.badge--learning` counts per deck derived from `state.progress`; only render a badge when its count is greater than zero
+    - Show total card count next to each subcategory label using a `.nav__count` span (e.g. "Daily Routine · 20")
+    - Show summed total card count next to each category label using a `.nav__count` span (e.g. "Verbs · 45")
     - Apply `.nav__subcategory--active` to the active deck entry
-    - _Requirements: 2.1, 2.4, 2.5, 6.5_
+    - _Requirements: 2.1, 2.4, 2.5, 6.5, 13.1, 13.2, 13.3, 13.4_
 
   - [x] 6.2 Implement `renderCard()`
     - Populate `.card__front` with `front` text and speaker button
@@ -185,6 +188,15 @@ Implement a zero-dependency, static Spanish flashcard SPA using vanilla HTML5, C
   - [ ]* 11.10 Property 10 — card face display matches flip state
   - [ ]* 11.11 Property 11 — SpeechSynthesis called with correct text and language
   - [ ]* 11.12 Property 12 — review button disabled when no learning cards
+  - [ ]* 11.13 Property 13 — navigator card counts match deck data
+
+- [x] 14. Add total card count display to Navigator
+  - Update `renderNavigator()` in `app.js` to compute and render the total card count for each subcategory and each category
+  - Next to each subcategory label, append a `.nav__count` span showing the deck's `cards.length` (e.g. "Daily Routine · 20")
+  - Next to each category label, append a `.nav__count` span showing the sum of all its subcategory deck sizes (e.g. "Verbs · 45")
+  - Add `.nav__count` style to `style.css`: muted/secondary color, smaller font size, no bold
+  - Counts must be derived from `state.decks` at render time — no hardcoding
+  - _Requirements: 13.1, 13.2, 13.3, 13.4_
 
 - [x] 12. Create `README.md`
   - Document how to run locally (VS Code Live Server and Python fallback)

@@ -104,7 +104,7 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 2. WHILE a Card is in its unflipped state, THE Viewport SHALL NOT activate the "Known" and "Still Learning" buttons
 3. WHEN the user clicks "Known", THE App SHALL set the Card's Progress status to `"known"` and save it to localStorage
 4. WHEN the user clicks "Still Learning", THE App SHALL set the Card's Progress status to `"learning"` and save it to localStorage
-5. THE Navigator SHALL visually indicate the Progress status of each Card when browsing a Deck
+5. THE Navigator SHALL display a green numeric badge showing the count of `"known"` cards and a red numeric badge showing the count of `"learning"` cards next to each subcategory entry; a badge SHALL only be shown when its count is greater than zero
 6. WHEN the user marks a Card that already has a Progress status, THE App SHALL overwrite the previous status with the new value
 
 ---
@@ -190,7 +190,20 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 
 ---
 
-### Requirement 13: GitHub Pages Deployment
+### Requirement 13: Navigator Card Count Display
+
+**User Story:** As a learner, I want to see how many cards are in each deck and category at a glance, so that I can gauge the size of what I'm about to study.
+
+#### Acceptance Criteria
+
+1. THE Navigator SHALL display the total number of cards next to each subcategory entry (e.g. "Daily Routine · 20")
+2. THE Navigator SHALL display the total number of cards across all its decks next to each category entry (e.g. "Verbs · 45")
+3. WHEN a new deck is added to `cards.json`, THE Navigator SHALL reflect the updated card counts automatically on next page load without any code changes
+4. THE card count totals SHALL be derived from the loaded deck data and SHALL NOT be hardcoded
+
+---
+
+### Requirement 14: GitHub Pages Deployment
 
 **User Story:** As a content author, I want to deploy the app to GitHub Pages with no build step, so that I can publish updates by simply pushing to GitHub.
 

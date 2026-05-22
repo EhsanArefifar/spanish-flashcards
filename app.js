@@ -191,13 +191,25 @@ function renderNavigator() {
   nav.innerHTML = '';
 
   Object.entries(categories).forEach(([categoryName, entries]) => {
+    // Compute total card count for this category (sum of all its decks)
+    const categoryCardCount = entries.reduce((sum, { deck }) => sum + deck.cards.length, 0);
+
     // Category row
     const categoryEl = document.createElement('div');
     categoryEl.className = 'nav__category';
-    categoryEl.textContent = categoryName;
     categoryEl.setAttribute('role', 'button');
     categoryEl.setAttribute('tabindex', '0');
     categoryEl.setAttribute('aria-expanded', 'false');
+
+    const categoryNameSpan = document.createElement('span');
+    categoryNameSpan.textContent = categoryName;
+
+    const categoryCountSpan = document.createElement('span');
+    categoryCountSpan.className = 'nav__count';
+    categoryCountSpan.textContent = categoryCardCount;
+
+    categoryEl.appendChild(categoryNameSpan);
+    categoryEl.appendChild(categoryCountSpan);
 
     // Subcategory list
     const subcategoryList = document.createElement('ul');
@@ -222,6 +234,10 @@ function renderNavigator() {
       const nameSpan = document.createElement('span');
       nameSpan.textContent = deck.subcategory;
 
+      const subcategoryCountSpan = document.createElement('span');
+      subcategoryCountSpan.className = 'nav__count';
+      subcategoryCountSpan.textContent = deck.cards.length;
+
       const badgesDiv = document.createElement('div');
       badgesDiv.className = 'nav__badges';
 
@@ -241,6 +257,7 @@ function renderNavigator() {
       }
 
       li.appendChild(nameSpan);
+      li.appendChild(subcategoryCountSpan);
       li.appendChild(badgesDiv);
 
       // Active state
