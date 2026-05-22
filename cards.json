@@ -188,169 +188,307 @@
     },
     {
       "category": "Verbs",
-      "subcategory": "Daily Routine",
+      "subcategory": "P-A1-2",
       "cards": [
         {
-          "front": "despertarse",
-          "back": "to wake up",
-          "example": "Me despierto a las siete de la mañana.",
-          "translation": "I wake up at seven in the morning."
+          "front": "I went straight home after work",
+          "back": "Fui directamente a casa después del trabajo",
+          "example": "No tenía energía para nada más.",
+          "translation": "ir → fui. Completed movement/action in a closed time period."
         },
         {
-          "front": "ducharse",
-          "back": "to shower",
-          "example": "Ella se ducha antes de desayunar.",
-          "translation": "She showers before having breakfast."
+          "front": "I was there for almost three hours",
+          "back": "Estuve allí casi tres horas",
+          "example": "La reunión se hizo larguísima.",
+          "translation": "estar → estuve. Duration treated as a completed block."
         },
         {
-          "front": "desayunar",
-          "back": "to have breakfast"
+          "front": "I had a long conversation with my mentor",
+          "back": "Tuve una conversación larga con mi mentor",
+          "example": "Y me ayudó mucho.",
+          "translation": "tener → tuve. Common professional/social structure."
         },
         {
-          "front": "trabajar",
-          "back": "to work",
-          "example": "Trabajo desde casa los viernes.",
-          "translation": "I work from home on Fridays."
+          "front": "I did everything they asked me",
+          "back": "Hice todo lo que me pidieron",
+          "example": "Pero aun así no fue suficiente.",
+          "translation": "hacer → hice. Very common real-life chunk."
         },
         {
-          "front": "acostarse",
-          "back": "to go to bed"
+          "front": "I couldn't stop thinking about it",
+          "back": "No pude dejar de pensar en eso",
+          "example": "Me rayé muchísimo.",
+          "translation": "poder → pude. Completed inability."
         },
         {
-          "front": "cepillarse los dientes",
-          "back": "to brush one's teeth",
-          "example": "Me cepillo los dientes después de cada comida.",
-          "translation": "I brush my teeth after every meal."
+          "front": "I wanted to explain it better",
+          "back": "Quise explicarlo mejor",
+          "example": "Pero me puse nervioso.",
+          "translation": "querer → quise. Sounds more decisive than quería."
         },
         {
-          "front": "prepararse",
-          "back": "to get ready"
-        }
-      ]
-    },
-    {
-      "category": "Verbs",
-      "subcategory": "Cooking & Eating",
-      "cards": [
-        {
-          "front": "cocinar",
-          "back": "to cook",
-          "example": "A mi madre le encanta cocinar paella.",
-          "translation": "My mother loves to cook paella."
+          "front": "I said something stupid",
+          "back": "Dije una tontería",
+          "example": "Y luego me arrepentí.",
+          "translation": "decir → dije. High-frequency conversational verb."
         },
         {
-          "front": "hervir",
-          "back": "to boil"
+          "front": "I put my phone on silent mode",
+          "back": "Puse el móvil en silencio",
+          "example": "Necesitaba concentrarme.",
+          "translation": "poner → puse. Everyday practical usage."
         },
         {
-          "front": "freír",
-          "back": "to fry",
-          "example": "Fríe el ajo en aceite de oliva.",
-          "translation": "Fry the garlic in olive oil."
+          "front": "I came early this morning",
+          "back": "Vine temprano esta mañana",
+          "example": "Porque quería evitar el tráfico.",
+          "translation": "venir → vine. Common movement verb."
         },
         {
-          "front": "mezclar",
-          "back": "to mix"
+          "front": "I brought my laptop with me",
+          "back": "Traje el portátil conmigo",
+          "example": "Por si tenía que trabajar.",
+          "translation": "traer → traje. Very useful professional chunk."
         },
         {
-          "front": "probar",
-          "back": "to taste / to try",
-          "example": "¿Puedo probar un poco?",
-          "translation": "Can I taste a little?"
+          "front": "I found out too late",
+          "back": "Lo supe demasiado tarde",
+          "example": "Y ya no pude hacer nada.",
+          "translation": "saber → supe often means discovering information suddenly."
         },
         {
-          "front": "cortar",
-          "back": "to cut / to chop"
+          "front": "I met her through work",
+          "back": "La conocí por el trabajo",
+          "example": "Y conectamos enseguida.",
+          "translation": "conocer in indefinido = meeting someone for the first time."
         },
         {
-          "front": "añadir",
-          "back": "to add",
-          "example": "Añade sal al gusto.",
-          "translation": "Add salt to taste."
-        }
-      ]
-    },
-    {
-      "category": "Vocabulary",
-      "subcategory": "Food & Drink",
-      "cards": [
-        {
-          "front": "el pan",
-          "back": "bread",
-          "example": "Compré una barra de pan en la panadería.",
-          "translation": "I bought a loaf of bread at the bakery."
+          "front": "I drove for six hours",
+          "back": "Conduje durante seis horas",
+          "example": "Y terminé hecho polvo.",
+          "translation": "conducir → conduje. Irregular '-je' family."
         },
         {
-          "front": "la leche",
-          "back": "milk"
+          "front": "They brought more documents",
+          "back": "Trajeron más documentos",
+          "example": "Pero faltaban algunos papeles.",
+          "translation": "traer → trajeron. Third person plural irregular."
         },
         {
-          "front": "el agua",
-          "back": "water",
-          "example": "¿Me traes un vaso de agua, por favor?",
-          "translation": "Can you bring me a glass of water, please?"
+          "front": "They told me to stay calm",
+          "back": "Me dijeron que me calmara",
+          "example": "Y que descansara unos días.",
+          "translation": "Indirect speech + subjunctive."
         },
         {
-          "front": "la manzana",
-          "back": "apple"
+          "front": "I was able to relax a bit",
+          "back": "Pude relajarme un poco",
+          "example": "Después de hablar con el médico.",
+          "translation": "Completed successful action."
         },
         {
-          "front": "el queso",
-          "back": "cheese",
-          "example": "En España hay muchos tipos de queso.",
-          "translation": "In Spain there are many types of cheese."
+          "front": "I wanted to tell you earlier",
+          "back": "Quise decírtelo antes",
+          "example": "Pero no encontré el momento.",
+          "translation": "Natural emotional/social usage."
         },
         {
-          "front": "el café",
-          "back": "coffee"
+          "front": "I had to cancel the meeting",
+          "back": "Tuve que cancelar la reunión",
+          "example": "Porque me encontraba fatal.",
+          "translation": "tener que = obligation in the past."
         },
         {
-          "front": "la naranja",
-          "back": "orange",
-          "example": "Me gusta el zumo de naranja por la mañana.",
-          "translation": "I like orange juice in the morning."
-        }
-      ]
-    },
-    {
-      "category": "Vocabulary",
-      "subcategory": "Travel & Directions",
-      "cards": [
-        {
-          "front": "el aeropuerto",
-          "back": "airport",
-          "example": "El vuelo sale del aeropuerto a las diez.",
-          "translation": "The flight leaves from the airport at ten."
+          "front": "I came to support my wife",
+          "back": "Vine para apoyar a mi mujer",
+          "example": "Sabía que lo necesitaba.",
+          "translation": "venir + para + infinitive = purpose structure."
         },
         {
-          "front": "la estación de tren",
-          "back": "train station"
+          "front": "I put too much pressure on the project",
+          "back": "Puse demasiada presión en el proyecto",
+          "example": "Y el equipo acabó agotado.",
+          "translation": "Natural professional context."
         },
         {
-          "front": "girar a la derecha",
-          "back": "to turn right",
-          "example": "Gira a la derecha en el semáforo.",
-          "translation": "Turn right at the traffic light."
+          "front": "I had a terrible headache",
+          "back": "Tuve un dolor de cabeza horrible",
+          "example": "Y no pude trabajar bien.",
+          "translation": "Very common health-related chunk."
         },
         {
-          "front": "seguir recto",
-          "back": "to go straight ahead"
+          "front": "I couldn't understand what happened",
+          "back": "No pude entender lo que pasó",
+          "example": "Todo fue muy raro.",
+          "translation": "poder → pude. Closed completed inability."
         },
         {
-          "front": "el billete",
-          "back": "ticket",
-          "example": "Necesito comprar un billete de ida y vuelta.",
-          "translation": "I need to buy a round-trip ticket."
+          "front": "I went for a walk to clear my mind",
+          "back": "Fui a dar un paseo para despejarme",
+          "example": "Necesitaba aire fresco.",
+          "translation": "Very natural Spain Spanish chunk."
         },
         {
-          "front": "el mapa",
-          "back": "map"
+          "front": "I was at the hospital all morning",
+          "back": "Estuve en el hospital toda la mañana",
+          "example": "Haciéndome pruebas.",
+          "translation": "Completed period of time."
         },
         {
-          "front": "perdido/a",
-          "back": "lost",
-          "example": "Estoy perdido. ¿Puede ayudarme?",
-          "translation": "I am lost. Can you help me?"
+          "front": "I had the feeling that something was wrong",
+          "back": "Tuve la sensación de que algo iba mal",
+          "example": "Pero intenté mantener la calma.",
+          "translation": "Mix of indefinido event + imperfecto background."
+        },
+        {
+          "front": "I did my best",
+          "back": "Hice lo mejor que pude",
+          "example": "Aunque estaba agotado mentalmente.",
+          "translation": "Extremely useful conversational structure."
+        },
+        {
+          "front": "I couldn't find the words",
+          "back": "No pude encontrar las palabras",
+          "example": "Me quedé bloqueado.",
+          "translation": "Very useful emotional communication chunk."
+        },
+        {
+          "front": "I said exactly the same thing",
+          "back": "Dije exactamente lo mismo",
+          "example": "Pero nadie me hizo caso.",
+          "translation": "hacer caso = to pay attention/listen."
+        },
+        {
+          "front": "I brought everything I needed",
+          "back": "Traje todo lo que necesitaba",
+          "example": "No quería improvisar nada.",
+          "translation": "Useful preparation/planning context."
+        },
+        {
+          "front": "I came back much calmer",
+          "back": "Vine mucho más tranquilo",
+          "example": "Después de hablar con el especialista.",
+          "translation": "venir used metaphorically after returning from somewhere."
+        },
+        {
+          "front": "I put all my energy into learning",
+          "back": "Puse toda mi energía en aprender",
+          "example": "Y empecé a notar mejora.",
+          "translation": "Natural motivational/progress expression."
+        },
+        {
+          "front": "I had a really productive week",
+          "back": "Tuve una semana muy productiva",
+          "example": "Y avancé muchísimo.",
+          "translation": "tener + period of time = very common structure."
+        },
+        {
+          "front": "I couldn't answer immediately",
+          "back": "No pude responder inmediatamente",
+          "example": "Estaba en una reunión.",
+          "translation": "Professional/workplace chunk."
+        },
+        {
+          "front": "I wanted to change many things at once",
+          "back": "Quise cambiar demasiadas cosas a la vez",
+          "example": "Y terminé saturado.",
+          "translation": "Natural emotional reflection structure."
+        },
+        {
+          "front": "I said it without thinking",
+          "back": "Lo dije sin pensar",
+          "example": "Y luego me arrepentí.",
+          "translation": "Very high-frequency conversational chunk."
+        },
+        {
+          "front": "I went through a difficult period",
+          "back": "Pasé por una etapa difícil",
+          "example": "Pero aprendí mucho.",
+          "translation": "pasar por = to go through emotionally."
+        },
+        {
+          "front": "I had no choice",
+          "back": "No tuve otra opción",
+          "example": "Tuve que aceptar la situación.",
+          "translation": "Classic high-frequency structure."
+        },
+        {
+          "front": "I couldn't handle everything",
+          "back": "No pude con todo",
+          "example": "Mentalmente estaba agotado.",
+          "translation": "poder con algo = to handle/manage something."
+        },
+        {
+          "front": "I put too many expectations on myself",
+          "back": "Me puse demasiadas expectativas",
+          "example": "Y acabé frustrado.",
+          "translation": "Very useful emotional self-reflection chunk."
+        },
+        {
+          "front": "I came to Spain to start over",
+          "back": "Vine a España para empezar de nuevo",
+          "example": "Y cambió mi vida.",
+          "translation": "Strong emotional life-story structure."
+        },
+        {
+          "front": "I brought up the topic during dinner",
+          "back": "Saqué el tema durante la cena",
+          "example": "Y todos se quedaron en silencio.",
+          "translation": "sacar un tema = to bring up a topic."
+        },
+        {
+          "front": "I realized too late",
+          "back": "Me di cuenta demasiado tarde",
+          "example": "Y ya era imposible cambiarlo.",
+          "translation": "darse cuenta = to realize. One of the most important Spanish chunks."
+        },
+        {
+          "front": "I became obsessed with the problem",
+          "back": "Me obsesioné con el problema",
+          "example": "Y no podía desconectar.",
+          "translation": "Reflexive emotional verb in indefinido."
+        },
+        {
+          "front": "I got really nervous",
+          "back": "Me puse muy nervioso",
+          "example": "Antes de la entrevista.",
+          "translation": "ponerse = to become/change state."
+        },
+        {
+          "front": "I suddenly felt much better",
+          "back": "De repente me sentí mucho mejor",
+          "example": "Como si me quitara un peso de encima.",
+          "translation": "sentirse in indefinido = emotional change at a specific moment."
+        },
+        {
+          "front": "I ended up completely exhausted",
+          "back": "Terminé completamente agotado",
+          "example": "Necesitaba desconectar de todo.",
+          "translation": "terminar + adjective = ending up in a state."
+        },
+        {
+          "front": "I spent the whole weekend studying",
+          "back": "Pasé todo el fin de semana estudiando",
+          "example": "Pero mereció la pena.",
+          "translation": "pasar + time + gerund = spending time doing something."
+        },
+        {
+          "front": "I finally understood everything",
+          "back": "Por fin entendí todo",
+          "example": "Después de releerlo varias veces.",
+          "translation": "entender in indefinido = moment of comprehension."
+        },
+        {
+          "front": "I forgot to reply",
+          "back": "Se me olvidó responder",
+          "example": "Tenía demasiadas cosas en la cabeza.",
+          "translation": "Very common accidental structure in Spanish."
+        },
+        {
+          "front": "I felt a huge relief",
+          "back": "Sentí un alivio enorme",
+          "example": "Cuando me dieron los resultados.",
+          "translation": "sentir in indefinido = specific emotional reaction."
         }
       ]
     },

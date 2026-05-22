@@ -201,15 +201,19 @@ function renderNavigator() {
     categoryEl.setAttribute('tabindex', '0');
     categoryEl.setAttribute('aria-expanded', 'false');
 
+    const categoryLabelDiv = document.createElement('div');
+    categoryLabelDiv.className = 'nav__label';
+
     const categoryNameSpan = document.createElement('span');
     categoryNameSpan.textContent = categoryName;
 
     const categoryCountSpan = document.createElement('span');
     categoryCountSpan.className = 'nav__count';
-    categoryCountSpan.textContent = categoryCardCount;
+    categoryCountSpan.textContent = `${categoryCardCount} cards`;
 
-    categoryEl.appendChild(categoryNameSpan);
-    categoryEl.appendChild(categoryCountSpan);
+    categoryLabelDiv.appendChild(categoryNameSpan);
+    categoryLabelDiv.appendChild(categoryCountSpan);
+    categoryEl.appendChild(categoryLabelDiv);
 
     // Subcategory list
     const subcategoryList = document.createElement('ul');
@@ -231,12 +235,18 @@ function renderNavigator() {
         else if (state.progress[cardId] === 'learning') learningCount++;
       });
 
+      const nameLabelDiv = document.createElement('div');
+      nameLabelDiv.className = 'nav__label';
+
       const nameSpan = document.createElement('span');
       nameSpan.textContent = deck.subcategory;
 
       const subcategoryCountSpan = document.createElement('span');
       subcategoryCountSpan.className = 'nav__count';
-      subcategoryCountSpan.textContent = deck.cards.length;
+      subcategoryCountSpan.textContent = `${deck.cards.length} cards`;
+
+      nameLabelDiv.appendChild(nameSpan);
+      nameLabelDiv.appendChild(subcategoryCountSpan);
 
       const badgesDiv = document.createElement('div');
       badgesDiv.className = 'nav__badges';
@@ -256,8 +266,7 @@ function renderNavigator() {
         badgesDiv.appendChild(learningBadge);
       }
 
-      li.appendChild(nameSpan);
-      li.appendChild(subcategoryCountSpan);
+      li.appendChild(nameLabelDiv);
       li.appendChild(badgesDiv);
 
       // Active state

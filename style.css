@@ -196,7 +196,7 @@ button {
 /* Subcategory rows */
 .nav__subcategory {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-xl);
   font-size: var(--text-base);
@@ -223,15 +223,25 @@ button {
   display: flex;
   gap: var(--space-xs);
   flex-shrink: 0;
+  padding-top: 2px; /* nudge badges to align with the name text */
 }
 
-/* Card count label next to subcategory and category names */
+/* Label wrapper — stacks name above count */
+.nav__label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  min-width: 0;
+  flex: 1; /* take available space, leaving room for the arrow */
+}
+
+/* Card count label beneath subcategory and category names */
 .nav__count {
-  font-size: var(--text-sm);
+  font-size: 0.75rem;
   color: var(--color-text-muted);
   font-weight: 400;
-  margin-left: var(--space-xs);
-  flex-shrink: 0;
+  line-height: 1.2;
 }
 
 /* ------------------------------------------------------------
