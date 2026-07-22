@@ -164,6 +164,11 @@ function initApp() {
     document.body.classList.add('no-speech');
   }
 
+  // Attach event listeners immediately — before fetch completes — so the
+  // mobile nav toggle (and all other controls) work even if fetch is slow
+  // or fails.
+  attachEventListeners();
+
   fetch('cards.json')
     .then(response => {
       if (!response.ok) {
@@ -180,7 +185,6 @@ function initApp() {
       loadProgressFromStorage();
       renderNavigator();
       activateFirstDeck();
-      attachEventListeners();
     })
     .catch(err => {
       renderError(err.message || 'Failed to load cards.json. Please check the file and try again.');
