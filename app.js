@@ -21,6 +21,7 @@ const state = {
   decks: [],           // Array<Deck> — parsed from cards.json, never mutated
   activeDeck: null,    // Deck | null — reference into state.decks
   activeDeckIndex: 0,  // number — index into state.decks
+  activeSubDeckIndex: -1, // number — index into activeDeck.subDecks (-1 = not a sub-deck)
   displayCards: [],    // Array<Card> — current ordered/filtered view
   currentIndex: 0,     // number — index into displayCards
   isFlipped: false,    // boolean
@@ -43,6 +44,19 @@ const state = {
  */
 function generateCardId(deckIndex, cardIndex) {
   return `deck-${deckIndex}-card-${cardIndex}`;
+}
+
+/**
+ * Generates a stable, unique string key for a card in a sub-deck (hierarchical structure).
+ * Used for the new hierarchical VERBS sections.
+ *
+ * @param {number} deckIndex     - Index of the main deck in state.decks
+ * @param {number} subDeckIndex  - Index of the sub-deck within the main deck's subDecks array
+ * @param {number} cardIndex     - Index of the card within that sub-deck's cards array
+ * @returns {string}
+ */
+function generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex) {
+  return `deck-${deckIndex}-sub-${subDeckIndex}-card-${cardIndex}`;
 }
 
 /**
@@ -74,8 +88,17 @@ function shuffleDeck(cards) {
  * @returns {Array}           - Filtered array of cards with "learning" status
  */
 function getWeakCards(deck, progress) {
+  if (!deck || !deck.cards) return [];
   return deck.cards.filter((card, cardIndex) => {
-    const cardId = generateCardId(state.activeDeckIndex, cardIndex);
+    let cardId;
+    // activeSubDeckIndex === -1 means regular (non-hierarchical) deck
+    if (state.activeSubDeckIndex !== -1) {
+      // Hierarchical deck - use sub-deck ID
+      cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
+    } else {
+      // Regular deck
+      cardId = generateCardId(state.activeDeckIndex, cardIndex);
+    }
     return progress[cardId] === 'learning';
   });
 }
@@ -94,7 +117,7 @@ function getWeakCards(deck, progress) {
  * @returns {Array} - The derived display card array
  */
 function deriveDisplayCards() {
-  if (!state.activeDeck) {
+  if (!state.activeDeck || !state.activeDeck.cards) {
     state.displayCards = [];
     return state.displayCards;
   }
@@ -170,8 +193,9 @@ function initApp() {
 
 /**
  * Builds the category/subcategory navigation tree from state.decks.
- * Attaches data-deck-index to each subcategory item.
- * Shows known/learning badge counts per deck.
+ * Now supports hierarchical sub-decks for collapsible groups.
+ * Attaches data-deck-index and data-subdeck-index to clickable items.
+ * Shows known/learning badge counts per group.
  * Marks the active subcategory with .nav__subcategory--active.
  * Requirements: 2.1, 2.4, 2.5, 6.5
  */
@@ -191,8 +215,13 @@ function renderNavigator() {
   nav.innerHTML = '';
 
   Object.entries(categories).forEach(([categoryName, entries]) => {
-    // Compute total card count for this category (sum of all its decks)
-    const categoryCardCount = entries.reduce((sum, { deck }) => sum + deck.cards.length, 0);
+    // Compute total card count for this category
+    const categoryCardCount = entries.reduce((sum, { deck }) => {
+      if (deck.subDecks) {
+        return sum + deck.subDecks.reduce((subSum, subDeck) => subSum + subDeck.cards.length, 0);
+      }
+      return sum + (deck.cards ? deck.cards.length : 0);
+    }, 0);
 
     // Category row
     const categoryEl = document.createElement('div');
@@ -220,63 +249,161 @@ function renderNavigator() {
     subcategoryList.className = 'nav__subcategory-list';
 
     entries.forEach(({ deck, deckIndex }) => {
-      const li = document.createElement('li');
-      li.className = 'nav__subcategory';
-      li.dataset.deckIndex = deckIndex;
-      li.setAttribute('role', 'button');
-      li.setAttribute('tabindex', '0');
+      if (deck.subDecks) {
+        // This deck has sub-decks (hierarchical structure)
+        const mainLi = document.createElement('li');
+        mainLi.className = 'nav__subcategory nav__subcategory--expandable';
+        mainLi.setAttribute('role', 'button');
+        mainLi.setAttribute('tabindex', '0');
+        mainLi.setAttribute('aria-expanded', 'false');
 
-      // Count known/learning for this deck
-      let knownCount = 0;
-      let learningCount = 0;
-      deck.cards.forEach((card, cardIndex) => {
-        const cardId = generateCardId(deckIndex, cardIndex);
-        if (state.progress[cardId] === 'known') knownCount++;
-        else if (state.progress[cardId] === 'learning') learningCount++;
-      });
+        // Calculate total cards in all sub-decks
+        const totalCards = deck.subDecks.reduce((sum, subDeck) => sum + subDeck.cards.length, 0);
 
-      const nameLabelDiv = document.createElement('div');
-      nameLabelDiv.className = 'nav__label';
+        const mainLabelDiv = document.createElement('div');
+        mainLabelDiv.className = 'nav__label';
 
-      const nameSpan = document.createElement('span');
-      nameSpan.textContent = deck.subcategory;
+        const mainNameSpan = document.createElement('span');
+        mainNameSpan.textContent = deck.subcategory;
 
-      const subcategoryCountSpan = document.createElement('span');
-      subcategoryCountSpan.className = 'nav__count';
-      subcategoryCountSpan.textContent = `${deck.cards.length} cards`;
+        const mainCountSpan = document.createElement('span');
+        mainCountSpan.className = 'nav__count';
+        mainCountSpan.textContent = `${totalCards} cards`;
 
-      nameLabelDiv.appendChild(nameSpan);
-      nameLabelDiv.appendChild(subcategoryCountSpan);
+        mainLabelDiv.appendChild(mainNameSpan);
+        mainLabelDiv.appendChild(mainCountSpan);
+        mainLi.appendChild(mainLabelDiv);
 
-      const badgesDiv = document.createElement('div');
-      badgesDiv.className = 'nav__badges';
+        // Sub-deck list (groups)
+        const subDeckList = document.createElement('ul');
+        subDeckList.className = 'nav__subdeck-list';
 
-      if (knownCount > 0) {
-        const knownBadge = document.createElement('span');
-        knownBadge.className = 'badge badge--known';
-        knownBadge.textContent = knownCount;
-        knownBadge.setAttribute('title', `${knownCount} known`);
-        badgesDiv.appendChild(knownBadge);
+        deck.subDecks.forEach((subDeck, subDeckIndex) => {
+          const subLi = document.createElement('li');
+          subLi.className = 'nav__subdeck';
+          subLi.dataset.deckIndex = deckIndex;
+          subLi.dataset.subDeckIndex = subDeckIndex;
+          subLi.setAttribute('role', 'button');
+          subLi.setAttribute('tabindex', '0');
+
+          // Count known/learning for this sub-deck
+          let knownCount = 0;
+          let learningCount = 0;
+          subDeck.cards.forEach((card, cardIndex) => {
+            const cardId = generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex);
+            if (state.progress[cardId] === 'known') knownCount++;
+            else if (state.progress[cardId] === 'learning') learningCount++;
+          });
+
+          const subLabelDiv = document.createElement('div');
+          subLabelDiv.className = 'nav__label';
+
+          const subNameSpan = document.createElement('span');
+          subNameSpan.textContent = subDeck.groupName;
+
+          const subCountSpan = document.createElement('span');
+          subCountSpan.className = 'nav__count';
+          subCountSpan.textContent = `${subDeck.cards.length} cards`;
+
+          subLabelDiv.appendChild(subNameSpan);
+          subLabelDiv.appendChild(subCountSpan);
+
+          const badgesDiv = document.createElement('div');
+          badgesDiv.className = 'nav__badges';
+
+          if (knownCount > 0) {
+            const knownBadge = document.createElement('span');
+            knownBadge.className = 'badge badge--known';
+            knownBadge.textContent = knownCount;
+            knownBadge.setAttribute('title', `${knownCount} known`);
+            badgesDiv.appendChild(knownBadge);
+          }
+          if (learningCount > 0) {
+            const learningBadge = document.createElement('span');
+            learningBadge.className = 'badge badge--learning';
+            learningBadge.textContent = learningCount;
+            learningBadge.setAttribute('title', `${learningCount} still learning`);
+            badgesDiv.appendChild(learningBadge);
+          }
+
+          subLi.appendChild(subLabelDiv);
+          subLi.appendChild(badgesDiv);
+
+          // Active state
+          if (deckIndex === state.activeDeckIndex && subDeckIndex === state.activeSubDeckIndex && state.activeDeck) {
+            subLi.classList.add('nav__subdeck--active');
+            mainLi.classList.add('nav__subcategory--open');
+            mainLi.setAttribute('aria-expanded', 'true');
+            categoryEl.classList.add('nav__category--open');
+            categoryEl.setAttribute('aria-expanded', 'true');
+          }
+
+          subDeckList.appendChild(subLi);
+        });
+
+        mainLi.appendChild(subDeckList);
+        subcategoryList.appendChild(mainLi);
+
+      } else {
+        // Regular deck (no sub-decks)
+        const li = document.createElement('li');
+        li.className = 'nav__subcategory';
+        li.dataset.deckIndex = deckIndex;
+        li.setAttribute('role', 'button');
+        li.setAttribute('tabindex', '0');
+
+        // Count known/learning for this deck
+        let knownCount = 0;
+        let learningCount = 0;
+        deck.cards.forEach((card, cardIndex) => {
+          const cardId = generateCardId(deckIndex, cardIndex);
+          if (state.progress[cardId] === 'known') knownCount++;
+          else if (state.progress[cardId] === 'learning') learningCount++;
+        });
+
+        const nameLabelDiv = document.createElement('div');
+        nameLabelDiv.className = 'nav__label';
+
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = deck.subcategory;
+
+        const subcategoryCountSpan = document.createElement('span');
+        subcategoryCountSpan.className = 'nav__count';
+        subcategoryCountSpan.textContent = `${deck.cards.length} cards`;
+
+        nameLabelDiv.appendChild(nameSpan);
+        nameLabelDiv.appendChild(subcategoryCountSpan);
+
+        const badgesDiv = document.createElement('div');
+        badgesDiv.className = 'nav__badges';
+
+        if (knownCount > 0) {
+          const knownBadge = document.createElement('span');
+          knownBadge.className = 'badge badge--known';
+          knownBadge.textContent = knownCount;
+          knownBadge.setAttribute('title', `${knownCount} known`);
+          badgesDiv.appendChild(knownBadge);
+        }
+        if (learningCount > 0) {
+          const learningBadge = document.createElement('span');
+          learningBadge.className = 'badge badge--learning';
+          learningBadge.textContent = learningCount;
+          learningBadge.setAttribute('title', `${learningCount} still learning`);
+          badgesDiv.appendChild(learningBadge);
+        }
+
+        li.appendChild(nameLabelDiv);
+        li.appendChild(badgesDiv);
+
+        // Active state
+        if (deckIndex === state.activeDeckIndex && state.activeDeck && !state.activeDeck.subDecks) {
+          li.classList.add('nav__subcategory--active');
+          categoryEl.classList.add('nav__category--open');
+          categoryEl.setAttribute('aria-expanded', 'true');
+        }
+
+        subcategoryList.appendChild(li);
       }
-      if (learningCount > 0) {
-        const learningBadge = document.createElement('span');
-        learningBadge.className = 'badge badge--learning';
-        learningBadge.textContent = learningCount;
-        learningBadge.setAttribute('title', `${learningCount} still learning`);
-        badgesDiv.appendChild(learningBadge);
-      }
-
-      li.appendChild(nameLabelDiv);
-      li.appendChild(badgesDiv);
-
-      // Active state
-      if (deckIndex === state.activeDeckIndex && state.activeDeck) {
-        li.classList.add('nav__subcategory--active');
-        categoryEl.classList.add('nav__category--open');
-        categoryEl.setAttribute('aria-expanded', 'true');
-      }
-
-      subcategoryList.appendChild(li);
     });
 
     nav.appendChild(categoryEl);
@@ -381,7 +508,14 @@ function updateReviewButtonState() {
   if (!btnReview || !state.activeDeck) return;
 
   const hasWeakCards = state.activeDeck.cards.some((card, cardIndex) => {
-    const cardId = generateCardId(state.activeDeckIndex, cardIndex);
+    let cardId;
+    if (state.activeSubDeckIndex !== -1) {
+      // Hierarchical deck - use sub-deck ID
+      cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
+    } else {
+      // Regular deck
+      cardId = generateCardId(state.activeDeckIndex, cardIndex);
+    }
     return state.progress[cardId] === 'learning';
   });
 
@@ -427,7 +561,12 @@ function renderDeckComplete() {
   const btnReviewComplete = document.getElementById('btn-review-complete');
   if (btnReviewComplete && state.activeDeck) {
     const hasWeakCards = state.activeDeck.cards.some((card, cardIndex) => {
-      const cardId = generateCardId(state.activeDeckIndex, cardIndex);
+      let cardId;
+      if (state.activeSubDeckIndex !== -1) {
+        cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
+      } else {
+        cardId = generateCardId(state.activeDeckIndex, cardIndex);
+      }
       return state.progress[cardId] === 'learning';
     });
     if (hasWeakCards) {
@@ -479,12 +618,50 @@ function renderError(msg) {
 // ---------------------------------------------------------------------------
 
 /**
- * Activates a deck by index. Resets all transient state and re-renders.
+ * Activates a deck by index. If the deck is hierarchical (has subDecks),
+ * automatically activates its first sub-deck instead.
  * Requirements: 2.3, 5.2, 5.3, 5.4, 5.5
  */
 function activateDeck(deckIndex) {
-  state.activeDeck = state.decks[deckIndex];
+  const deck = state.decks[deckIndex];
+  if (!deck) return;
+
+  // If this deck has sub-decks, delegate to activateSubDeck for the first group
+  if (deck.subDecks && deck.subDecks.length > 0) {
+    activateSubDeck(deckIndex, 0);
+    return;
+  }
+
+  state.activeDeck = deck;
   state.activeDeckIndex = deckIndex;
+  state.activeSubDeckIndex = -1; // -1 means not a sub-deck
+  state.currentIndex = 0;
+  state.isFlipped = false;
+  state.isShuffled = false;
+  state.isReviewMode = false;
+  deriveDisplayCards();
+  showCardView();
+  renderNavigator();
+  renderCard();
+}
+
+/**
+ * Activates a specific sub-deck within a hierarchical deck.
+ * Used for hierarchical decks with subDecks array.
+ * Requirements: hierarchical navigation
+ */
+function activateSubDeck(deckIndex, subDeckIndex) {
+  const deck = state.decks[deckIndex];
+  if (!deck || !deck.subDecks || !deck.subDecks[subDeckIndex]) return;
+
+  // Create a virtual deck from the sub-deck so the rest of the app works unchanged
+  state.activeDeck = {
+    category: deck.category,
+    subcategory: deck.subcategory + ' › ' + deck.subDecks[subDeckIndex].groupName,
+    cards: deck.subDecks[subDeckIndex].cards
+  };
+  state.activeDeckIndex = deckIndex;
+  state.activeSubDeckIndex = subDeckIndex;
   state.currentIndex = 0;
   state.isFlipped = false;
   state.isShuffled = false;
@@ -556,7 +733,15 @@ function markCard(status) {
   const originalIndex = state.activeDeck.cards.indexOf(card);
   if (originalIndex === -1) return;
 
-  const cardId = generateCardId(state.activeDeckIndex, originalIndex);
+  let cardId;
+  if (state.activeSubDeckIndex !== -1) {
+    // Hierarchical deck - use sub-deck ID
+    cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, originalIndex);
+  } else {
+    // Regular deck
+    cardId = generateCardId(state.activeDeckIndex, originalIndex);
+  }
+
   state.progress[cardId] = status;
 
   // Persist to localStorage (Req 7.1)
@@ -629,11 +814,35 @@ function activateReviewMode() {
 /**
  * Handles clicks on the navigator.
  * - Category click: toggles .nav__category--open on the category element
- * - Subcategory click: calls activateDeck(deckIndex)
+ * - Subcategory click (expandable): toggles .nav__subcategory--open on the subcategory element
+ * - Sub-deck click: calls activateSubDeck(deckIndex, subDeckIndex)
+ * - Regular subcategory click: calls activateDeck(deckIndex)
  * Also handles mobile nav toggle (hamburger button).
  * Requirements: 2.2, 2.3
  */
 function handleNavClick(e) {
+  // Check for sub-deck click (Group 1, Group 2, etc.)
+  const subdeck = e.target.closest('.nav__subdeck');
+  if (subdeck) {
+    const deckIndex = parseInt(subdeck.dataset.deckIndex, 10);
+    const subDeckIndex = parseInt(subdeck.dataset.subDeckIndex, 10);
+    if (!isNaN(deckIndex) && !isNaN(subDeckIndex)) {
+      activateSubDeck(deckIndex, subDeckIndex);
+      // Close nav on mobile after selection
+      closeNav();
+    }
+    return;
+  }
+
+  // Check for expandable subcategory click (P-A1-1, P-A1-1 Reinforcement, etc.)
+  const expandableSubcategory = e.target.closest('.nav__subcategory--expandable');
+  if (expandableSubcategory) {
+    const isOpen = expandableSubcategory.classList.toggle('nav__subcategory--open');
+    expandableSubcategory.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    return;
+  }
+
+  // Check for regular subcategory click (non-hierarchical decks)
   const subcategory = e.target.closest('.nav__subcategory');
   if (subcategory) {
     const deckIndex = parseInt(subcategory.dataset.deckIndex, 10);
@@ -645,6 +854,7 @@ function handleNavClick(e) {
     return;
   }
 
+  // Check for category click
   const category = e.target.closest('.nav__category');
   if (category) {
     const isOpen = category.classList.toggle('nav__category--open');

@@ -7,10 +7,11 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 ## Glossary
 
 - **App**: The Spanish flashcard single-page web application served from `index.html`
-- **Deck**: A collection of flashcards sharing a `category` and `subcategory`, defined as one object in `cards.json`
+- **Deck**: A collection of flashcards sharing a `category` and `subcategory`, defined as one object in `cards.json`. A deck may be a flat card list or a hierarchical deck with sub-decks.
+- **Sub-Deck**: A named group of cards within a hierarchical deck (e.g. "Group 1", "Group 2"). Sub-decks are defined inside a `subDecks` array on a parent deck and allow large decks to be split into smaller, manageable groups.
 - **Card**: A single flashcard object with required `front` (Spanish) and `back` (English) fields, and optional `example` and `translation` fields
-- **Card_ID**: A unique string identifier derived from a card's deck and position, used as the key in localStorage progress storage
-- **Navigator**: The sidebar or top navigation component that lists categories and subcategories
+- **Card_ID**: A unique string identifier derived from a card's deck and position, used as the key in localStorage progress storage. For flat decks: `deck-{deckIndex}-card-{cardIndex}`. For sub-decks: `deck-{deckIndex}-sub-{subDeckIndex}-card-{cardIndex}`.
+- **Navigator**: The sidebar or top navigation component that lists categories, subcategories, and (for hierarchical decks) collapsible sub-deck groups
 - **Viewport**: The central area of the UI where the active card is displayed
 - **Progress**: The per-card study status, either `"known"` or `"learning"`, persisted in localStorage
 - **Shuffle_Mode**: An active state in which the App presents cards in a randomized order using Fisher-Yates
@@ -44,9 +45,12 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 
 1. THE Navigator SHALL list all unique categories present in the loaded deck data
 2. WHEN a category is selected, THE Navigator SHALL expand to reveal all subcategories belonging to that category
-3. WHEN a subcategory is clicked, THE App SHALL load the corresponding Deck and display the first Card in the Viewport
-4. WHILE a Deck is active, THE Navigator SHALL visually highlight the active subcategory entry
-5. WHEN a new deck block is added to `cards.json`, THE Navigator SHALL include it automatically on next page load without any code changes
+3. WHEN a subcategory is clicked and the subcategory has sub-decks, THE Navigator SHALL expand or collapse the sub-deck list for that subcategory without activating any deck
+4. WHEN a sub-deck entry (e.g. "Group 1") is clicked, THE App SHALL load the corresponding sub-deck and display its first Card in the Viewport
+5. WHEN a subcategory without sub-decks is clicked, THE App SHALL load the corresponding Deck and display the first Card in the Viewport
+6. WHILE a sub-deck is active, THE Navigator SHALL visually highlight the active sub-deck entry and keep its parent subcategory expanded
+7. WHILE a flat deck is active, THE Navigator SHALL visually highlight the active subcategory entry
+8. WHEN a new deck block is added to `cards.json`, THE Navigator SHALL include it automatically on next page load without any code changes
 
 ---
 
@@ -60,8 +64,8 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 2. WHILE a Card is in its flipped state, THE Viewport SHALL display the `back` field of the Card as the primary text
 3. WHILE a Card is in its flipped state and the Card has an `example` field, THE Viewport SHALL display the `example` value below the `back` text
 4. WHILE a Card is in its flipped state and the Card has a `translation` field, THE Viewport SHALL display the `translation` value below the `example` text
-5. THE Viewport SHALL display a progress indicator showing the current card position and total card count in the active Deck (e.g. "Card 4 of 20")
-6. THE Viewport SHALL display the active Deck's subcategory name while a Deck is being studied
+5. THE Viewport SHALL display a progress indicator showing the current card position and total card count in the active Deck or Sub-Deck (e.g. "Card 4 of 10")
+6. THE Viewport SHALL display the active Deck's subcategory name, and the active Sub-Deck's group name when a sub-deck is being studied
 
 ---
 
@@ -102,9 +106,9 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 
 1. WHILE a Card is in its flipped state, THE Viewport SHALL display a "Known" button and a "Still Learning" button
 2. WHILE a Card is in its unflipped state, THE Viewport SHALL NOT activate the "Known" and "Still Learning" buttons
-3. WHEN the user clicks "Known", THE App SHALL set the Card's Progress status to `"known"` and save it to localStorage
-4. WHEN the user clicks "Still Learning", THE App SHALL set the Card's Progress status to `"learning"` and save it to localStorage
-5. THE Navigator SHALL display a green numeric badge showing the count of `"known"` cards and a red numeric badge showing the count of `"learning"` cards next to each subcategory entry; a badge SHALL only be shown when its count is greater than zero
+3. WHEN the user clicks "Known", THE App SHALL set the Card's Progress status to `"known"` and save it to localStorage using the appropriate Card_ID (flat or hierarchical)
+4. WHEN the user clicks "Still Learning", THE App SHALL set the Card's Progress status to `"learning"` and save it to localStorage using the appropriate Card_ID (flat or hierarchical)
+5. THE Navigator SHALL display a green numeric badge showing the count of `"known"` cards and a red numeric badge showing the count of `"learning"` cards next to each subcategory entry and sub-deck entry; a badge SHALL only be shown when its count is greater than zero
 6. WHEN the user marks a Card that already has a Progress status, THE App SHALL overwrite the previous status with the new value
 
 ---
@@ -169,10 +173,11 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 #### Acceptance Criteria
 
 1. THE App SHALL expect `cards.json` to contain a top-level `decks` array
-2. THE App SHALL expect each element of `decks` to contain a `category` string, a `subcategory` string, and a `cards` array
-3. THE App SHALL expect each element of `cards` to contain a `front` string and a `back` string
-4. THE App SHALL treat `example` and `translation` fields on each card as optional
-5. WHEN a new deck object conforming to the schema is added to `cards.json`, THE App SHALL include it in the Navigator and make it available for study on next page load without any code changes
+2. THE App SHALL expect each element of `decks` to contain a `category` string and a `subcategory` string, plus either a `cards` array (flat deck) or a `subDecks` array (hierarchical deck)
+3. WHEN a deck has a `subDecks` array, THE App SHALL expect each element of `subDecks` to contain a `groupName` string and a `cards` array
+4. THE App SHALL expect each element of `cards` to contain a `front` string and a `back` string
+5. THE App SHALL treat `example` and `translation` fields on each card as optional
+6. WHEN a new deck object conforming to the schema is added to `cards.json`, THE App SHALL include it in the Navigator and make it available for study on next page load without any code changes
 
 ---
 
@@ -196,10 +201,11 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 
 #### Acceptance Criteria
 
-1. THE Navigator SHALL display the total number of cards next to each subcategory entry (e.g. "Daily Routine · 20")
-2. THE Navigator SHALL display the total number of cards across all its decks next to each category entry (e.g. "Verbs · 45")
-3. WHEN a new deck is added to `cards.json`, THE Navigator SHALL reflect the updated card counts automatically on next page load without any code changes
-4. THE card count totals SHALL be derived from the loaded deck data and SHALL NOT be hardcoded
+1. THE Navigator SHALL display the total number of cards next to each subcategory entry; for hierarchical decks this is the sum of all its sub-deck card counts
+2. THE Navigator SHALL display the total number of cards next to each sub-deck entry (e.g. "Group 1 · 10")
+3. THE Navigator SHALL display the total number of cards across all its decks next to each category entry (e.g. "Verbs · 130")
+4. WHEN a new deck is added to `cards.json`, THE Navigator SHALL reflect the updated card counts automatically on next page load without any code changes
+5. THE card count totals SHALL be derived from the loaded deck data and SHALL NOT be hardcoded
 
 ---
 

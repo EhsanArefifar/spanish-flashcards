@@ -62,14 +62,16 @@ The UI is divided into three regions defined in `index.html`:
 
 ### 1. Navigator (`#navigator`)
 
-Lists all categories and subcategories. Built dynamically from `state.decks`. Categories are collapsible. The active subcategory is highlighted.
+Lists all categories, subcategories, and hierarchical sub-deck groups. Built dynamically from `state.decks`. Categories and subcategories are collapsible. The active subcategory or sub-deck is highlighted.
 
 Responsibilities:
-- Render category/subcategory tree from deck data
+- Render category/subcategory/sub-deck tree from deck data
 - Handle category expand/collapse via event delegation
-- Handle subcategory click → `activateDeck(deckIndex)`
-- Show per-deck progress badges: a green `.badge--known` with the count of `"known"` cards and a red `.badge--learning` with the count of `"learning"` cards; each badge is only rendered when its count is greater than zero
-- Show total card count next to each subcategory label (e.g. "Daily Routine · 20") and the summed total next to each category label (e.g. "Verbs · 45")
+- Handle subcategory expand/collapse for hierarchical decks (those with `subDecks` array)
+- Handle sub-deck click → `activateSubDeck(deckIndex, subDeckIndex)`
+- Handle regular subcategory click → `activateDeck(deckIndex)`
+- Show per-deck and per-sub-deck progress badges: a green `.badge--known` with the count of `"known"` cards and a red `.badge--learning` with the count of `"learning"` cards; each badge is only rendered when its count is greater than zero
+- Show total card count next to each subcategory label (e.g. "P-A1-1 · 30"), each sub-deck label (e.g. "Group 1 · 10"), and the summed total next to each category label (e.g. "Verbs · 130")
 - Collapse into a toggle-accessible panel on mobile (viewport < 768px)
 
 ### 2. Viewport (`#viewport`)
@@ -95,30 +97,40 @@ Initialization
   loadProgressFromStorage() — reads localStorage into state.progress
 
 Data / Pure Functions
-  generateCardId(deckIndex, cardIndex) — returns stable string key for localStorage
+  generateCardId(deckIndex, cardIndex)
+                         — returns stable string key for flat-deck cards
+  generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex)
+                         — returns stable string key for hierarchical sub-deck cards
   shuffleDeck(cards)     — Fisher-Yates, returns new shuffled array
   getWeakCards(deck, progress) — returns cards filtered to "learning" status
   deriveDisplayCards()   — returns the current ordered/filtered card array
 
 Rendering
-  renderNavigator()      — builds the nav tree from state.decks; shows known/learning badges and total card counts per subcategory and category
+  renderNavigator()      — builds the nav tree from state.decks; handles both flat
+                           and hierarchical decks; shows known/learning badges and
+                           card counts per subcategory, sub-deck, and category
   renderCard()           — renders the active card face(s) into the viewport
   renderProgressIndicator() — updates "Card N of M" text
   renderDeckComplete()   — shows the end-of-deck screen
   renderError(msg)       — shows the error region
 
 Event Handlers (attached once via delegation)
-  handleNavClick(e)      — category expand/collapse, subcategory activation
+  handleNavClick(e)      — category expand/collapse; subcategory expand/collapse
+                           for hierarchical decks; sub-deck activation;
+                           regular subcategory activation
   handleCardClick(e)     — flip toggle
   handleKeyDown(e)       — Space/Enter (flip), ArrowLeft/Right (navigate)
   handleControlsClick(e) — Known, Still Learning, Shuffle, Review, Restart, Reset Progress
   handleSpeakerClick(e)  — SpeechSynthesis
 
 State Mutations
-  activateDeck(deckIndex)
-  navigateCard(direction) — +1 or -1
+  activateDeck(deckIndex)         — activates a flat deck
+  activateSubDeck(deckIndex, subDeckIndex)
+                                  — activates a sub-deck within a hierarchical deck
+  activateFirstDeck()             — activates the first available deck or sub-deck on load
+  navigateCard(direction)         — +1 or -1
   flipCard()
-  markCard(status)       — "known" | "learning"
+  markCard(status)                — "known" | "learning"
   toggleShuffle()
   activateReviewMode()
   resetProgress()
@@ -132,26 +144,40 @@ State Mutations
 
 ```js
 const state = {
-  decks: [],          // Array<Deck> — parsed from cards.json, never mutated
-  activeDeck: null,   // Deck | null — reference into state.decks
-  activeDeckIndex: 0, // number — index into state.decks
-  displayCards: [],   // Array<Card> — current ordered/filtered view (shuffled or review subset)
-  currentIndex: 0,    // number — index into displayCards
-  isFlipped: false,   // boolean
-  isShuffled: false,  // boolean
-  isReviewMode: false,// boolean
-  progress: {}        // Record<CardId, "known" | "learning">
+  decks: [],             // Array<Deck> — parsed from cards.json, never mutated
+  activeDeck: null,      // Deck | null — reference into state.decks
+  activeDeckIndex: 0,    // number — index into state.decks
+  activeSubDeckIndex: -1,// number — index into activeDeck.subDecks; -1 means flat deck
+  displayCards: [],      // Array<Card> — current ordered/filtered view (shuffled or review subset)
+  currentIndex: 0,       // number — index into displayCards
+  isFlipped: false,      // boolean
+  isShuffled: false,     // boolean
+  isReviewMode: false,   // boolean
+  progress: {}           // Record<CardId, "known" | "learning">
 };
 ```
 
 ### cards.json Schema (runtime types)
 
 ```js
-// Deck
+// Flat Deck (Vocabulary, etc.)
+{
+  category: string,      // e.g. "Vocabulary"
+  subcategory: string,   // e.g. "Coloquial-1" — unique per deck
+  cards: Card[]
+}
+
+// Hierarchical Deck (Verbs)
 {
   category: string,      // e.g. "Verbs"
-  subcategory: string,   // e.g. "Daily Routine" — unique per deck
-  cards: Card[]
+  subcategory: string,   // e.g. "P-A1-1"
+  subDecks: SubDeck[]    // groups of cards within this deck
+}
+
+// SubDeck
+{
+  groupName: string,     // e.g. "Group 1"
+  cards: Card[]          // 10 cards per group
 }
 
 // Card
@@ -165,13 +191,23 @@ const state = {
 
 ### Card ID Derivation
 
-Card IDs are used as localStorage keys. They are derived deterministically from deck and card position in the original (unshuffled) `state.decks` array so they remain stable across sessions:
+Card IDs are used as localStorage keys. They are derived deterministically from deck and card position in the original (unshuffled) `state.decks` array so they remain stable across sessions.
 
+**Flat deck** (Vocabulary, etc.):
 ```js
 function generateCardId(deckIndex, cardIndex) {
   return `deck-${deckIndex}-card-${cardIndex}`;
 }
 ```
+
+**Hierarchical sub-deck** (Verbs with groups):
+```js
+function generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex) {
+  return `deck-${deckIndex}-sub-${subDeckIndex}-card-${cardIndex}`;
+}
+```
+
+The correct generator is selected at runtime based on `state.activeSubDeckIndex`: when it is `-1` the deck is flat; otherwise the sub-deck generator is used.
 
 ### localStorage Schema
 
@@ -179,11 +215,11 @@ function generateCardId(deckIndex, cardIndex) {
 Key:   "flashcard-progress"
 Value: JSON string of Record<CardId, "known" | "learning">
 
-Example:
+Example (mix of flat and sub-deck IDs):
 {
-  "deck-0-card-0": "known",
-  "deck-0-card-3": "learning",
-  "deck-1-card-1": "known"
+  "deck-0-sub-0-card-0": "known",
+  "deck-0-sub-0-card-3": "learning",
+  "deck-3-card-1": "known"
 }
 ```
 
@@ -202,7 +238,14 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 .nav__category         — category row
 .nav__category--open   — expanded state
 .nav__subcategory      — subcategory row
-.nav__subcategory--active — currently selected deck
+.nav__subcategory--expandable — subcategory that contains sub-decks (has expand/collapse behaviour)
+.nav__subcategory--open       — expandable subcategory in its expanded state
+.nav__subcategory--active     — currently selected flat deck
+.nav__subdeck-list     — hidden list of sub-deck groups, shown when parent is --open
+.nav__subdeck          — individual sub-deck row (Group 1, Group 2, …)
+.nav__subdeck--active  — currently selected sub-deck
+.nav__label            — wrapper that stacks name above card count
+.nav__count            — total card count shown beneath each nav label
 
 .btn                   — base button style
 .btn--known            — green variant
@@ -212,8 +255,6 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 .badge                 — small status indicator on nav items
 .badge--known
 .badge--learning
-
-.nav__count            — total card count label shown next to subcategory and category names
 ```
 
 ---
@@ -296,9 +337,9 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 
 ### Property 13: Navigator card counts match deck data
 
-*For any* loaded set of decks, the total card count displayed next to each subcategory in the Navigator should equal the length of that deck's `cards` array, and the count displayed next to each category should equal the sum of all its subcategory deck sizes — both derived from `state.decks` at render time.
+*For any* loaded set of decks, the total card count displayed next to each subcategory in the Navigator should equal the total cards in that deck (sum of all sub-deck card counts for hierarchical decks, or the flat `cards.length`), the count displayed next to each sub-deck group should equal that sub-deck's `cards.length`, and the count displayed next to each category should equal the sum of all its deck sizes — all derived from `state.decks` at render time.
 
-**Validates: Requirements 13.1, 13.2, 13.3, 13.4**
+**Validates: Requirements 13.1, 13.2, 13.3, 13.4, 13.5**
 
 ---
 
@@ -373,9 +414,12 @@ Tag format for each test: `// Feature: spanish-flashcard-app, Property N: <prope
 Manual browser checks (no automation required given the zero-dependency constraint):
 
 - Load `index.html` via Live Server → navigator renders, first deck activates
-- Click a subcategory → correct deck loads, card 1 of N shown
+- Click a category → it expands to show all subcategories
+- Click a subcategory with sub-decks (e.g. P-A1-1) → it expands/collapses to show/hide Group 1, Group 2, Group 3 without activating any deck
+- Click a sub-deck group (e.g. Group 1) → that group loads, "Card 1 of 10" shown, parent subcategory stays expanded and highlighted
+- Click a flat subcategory (e.g. Coloquial-1) → correct deck loads, card 1 of N shown
 - Flip card → back face visible, Known/Still Learning buttons active
-- Mark known → reload page → card still shows known status
+- Mark known → reload page → card still shows known status, badge appears on sub-deck in navigator
 - Shuffle → navigate forward/back → all cards present, no duplicates
 - Review Mode with no weak cards → button disabled with tooltip
 - Resize to 375px → navigator collapses, all buttons remain tappable

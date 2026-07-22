@@ -210,12 +210,87 @@ button {
   background: var(--color-border);
 }
 
+/* Don't apply hover background to the whole expandable wrapper — only its header row */
+.nav__subcategory--expandable:hover {
+  background: none;
+}
+
+.nav__subcategory--expandable > .nav__label:hover {
+  background: var(--color-border);
+}
+
 .nav__subcategory--active {
   background: var(--color-nav-active);
   color: var(--color-primary);
   font-weight: 600;
   border-left: 3px solid var(--color-primary);
   padding-left: calc(var(--space-xl) - 3px);
+}
+
+/* Expandable subcategory (main sections like P-A1-1) */
+.nav__subcategory--expandable {
+  flex-direction: column;  /* stack: header row on top, subdeck list below */
+  align-items: stretch;
+  padding: 0;              /* padding moved to the inner header row */
+}
+
+/* Inner header row for expandable items (holds the label + arrow) */
+.nav__subcategory--expandable > .nav__label {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-xl);
+  min-height: 44px;
+  justify-content: center;
+  position: relative;
+}
+
+.nav__subcategory--expandable > .nav__label::after {
+  content: '▸';
+  font-size: 0.75rem;
+  transition: transform 200ms ease;
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav__subcategory--open > .nav__label::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Sub-deck list (for groups within sections) */
+.nav__subdeck-list {
+  display: none;
+  list-style: none;
+}
+
+.nav__subcategory--open .nav__subdeck-list {
+  display: block;
+}
+
+/* Sub-deck rows (Group 1, Group 2, etc.) — indented one level deeper than sections */
+.nav__subdeck {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) calc(var(--space-xl) + var(--space-lg));
+  font-size: var(--text-base);
+  color: var(--color-text);
+  cursor: pointer;
+  min-height: 44px; /* touch target */
+  transition: background 150ms ease;
+}
+
+.nav__subdeck:hover {
+  background: var(--color-border);
+}
+
+.nav__subdeck--active {
+  background: var(--color-nav-active);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--color-primary);
+  padding-left: calc(var(--space-xl) + var(--space-lg) - 3px);
 }
 
 /* Badge group inside nav subcategory */

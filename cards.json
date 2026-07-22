@@ -3,798 +3,863 @@
     {
       "category": "Verbs",
       "subcategory": "P-A1-1",
-      "cards": [
+      "subDecks": [
         {
-          "front": "I went to the doctor yesterday",
-          "back": "Fui al médico ayer",
-          "example": "Y me dijo que todo iba mejor.",
-          "translation": "ir → fui. Indefinido because it is a completed event in a closed past period."
+          "groupName": "Group 1",
+          "cards": [
+            {
+              "front": "I went to the doctor yesterday",
+              "back": "Fui al médico ayer",
+              "example": "Y me dijo que todo iba mejor.",
+              "translation": "ir → fui. Indefinido because it is a completed event in a closed past period."
+            },
+            {
+              "front": "I was at home all day",
+              "back": "Estuve en casa todo el día",
+              "example": "Necesitaba descansar un poco.",
+              "translation": "estar → estuve. Indefinido because the state is treated as a completed block of time."
+            },
+            {
+              "front": "I had a stressful meeting",
+              "back": "Tuve una reunión estresante",
+              "example": "Y terminé agotado.",
+              "translation": "tener → tuve. Important irregular 'uve' family."
+            },
+            {
+              "front": "I did a lot of work today",
+              "back": "Hice mucho trabajo hoy",
+              "example": "Por eso estoy cansado ahora.",
+              "translation": "hacer → hice. Irregular but only first person singular changes."
+            },
+            {
+              "front": "I couldn't sleep last night",
+              "back": "No pude dormir anoche",
+              "example": "Me estaba rayando demasiado.",
+              "translation": "poder → pude. Completed inability in a closed past period."
+            },
+            {
+              "front": "I wanted to call you",
+              "back": "Quise llamarte",
+              "example": "Pero al final se me hizo tarde.",
+              "translation": "querer → quise. In indefinido, often implies an attempted intention."
+            },
+            {
+              "front": "The doctor told me to rest",
+              "back": "El médico me dijo que descansara",
+              "example": "Y que redujera el estrés.",
+              "translation": "decir → dijo. Indirect recommendation triggers subjuntivo."
+            },
+            {
+              "front": "I put the book on the table",
+              "back": "Puse el libro en la mesa",
+              "example": "Y luego me fui a dormir.",
+              "translation": "poner → puse. Important 'use' family irregular."
+            },
+            {
+              "front": "I came home late",
+              "back": "Vine a casa tarde",
+              "example": "Había mucho tráfico.",
+              "translation": "venir → vine. Important movement verb in indefinido."
+            },
+            {
+              "front": "I brought the documents",
+              "back": "Traje los documentos",
+              "example": "Por si acaso los necesitaban.",
+              "translation": "traer → traje. Same irregular family as decir/dije."
+            }
+          ]
         },
         {
-          "front": "I was at home all day",
-          "back": "Estuve en casa todo el día",
-          "example": "Necesitaba descansar un poco.",
-          "translation": "estar → estuve. Indefinido because the state is treated as a completed block of time."
+          "groupName": "Group 2",
+          "cards": [
+            {
+              "front": "I knew it",
+              "back": "Lo supe",
+              "example": "Desde el momento en que lo vi.",
+              "translation": "saber → supe. In indefinido often means 'I found out/knew suddenly'."
+            },
+            {
+              "front": "I met an interesting guy",
+              "back": "Conocí a un tío interesante",
+              "example": "En la conferencia de AWS.",
+              "translation": "conocer → conocí. In indefinido often means meeting someone for the first time."
+            },
+            {
+              "front": "I drove to Madrid",
+              "back": "Conduje hasta Madrid",
+              "example": "Y llegué muerto.",
+              "translation": "conducir → conduje. '-ducir' verbs follow the same irregular pattern."
+            },
+            {
+              "front": "They brought me good news",
+              "back": "Me trajeron buenas noticias",
+              "example": "Y me quedé mucho más tranquilo.",
+              "translation": "traer → trajeron. Third person plural irregular."
+            },
+            {
+              "front": "They told me the results were good",
+              "back": "Me dijeron que los resultados eran buenos",
+              "example": "Y respiré tranquilo.",
+              "translation": "decir → dijeron. Notice the dropped 'i' in dijeron."
+            },
+            {
+              "front": "I was able to finish the book",
+              "back": "Pude terminar el libro",
+              "example": "Aunque estaba cansado.",
+              "translation": "poder → pude. Completed successful action."
+            },
+            {
+              "front": "I wanted to change jobs",
+              "back": "Quise cambiar de trabajo",
+              "example": "Pero decidí esperar un poco.",
+              "translation": "quiser in indefinido often sounds more decisive than quería."
+            },
+            {
+              "front": "I had to explain everything",
+              "back": "Tuve que explicar todo",
+              "example": "Porque había mucha confusión.",
+              "translation": "tener que + infinitive = had to do something."
+            },
+            {
+              "front": "I came because I was worried",
+              "back": "Vine porque estaba preocupado",
+              "example": "Quería hablar con la médica.",
+              "translation": "Mix of indefinido event + imperfecto emotional background."
+            },
+            {
+              "front": "I put on a new shirt",
+              "back": "Me puse una camisa nueva",
+              "example": "Para la reunión.",
+              "translation": "ponerse → me puse. Very common reflexive irregular."
+            }
+          ]
         },
         {
-          "front": "I had a stressful meeting",
-          "back": "Tuve una reunión estresante",
-          "example": "Y terminé agotado.",
-          "translation": "tener → tuve. Important irregular 'uve' family."
-        },
-        {
-          "front": "I did a lot of work today",
-          "back": "Hice mucho trabajo hoy",
-          "example": "Por eso estoy cansado ahora.",
-          "translation": "hacer → hice. Irregular but only first person singular changes."
-        },
-        {
-          "front": "I couldn't sleep last night",
-          "back": "No pude dormir anoche",
-          "example": "Me estaba rayando demasiado.",
-          "translation": "poder → pude. Completed inability in a closed past period."
-        },
-        {
-          "front": "I wanted to call you",
-          "back": "Quise llamarte",
-          "example": "Pero al final se me hizo tarde.",
-          "translation": "querer → quise. In indefinido, often implies an attempted intention."
-        },
-        {
-          "front": "The doctor told me to rest",
-          "back": "El médico me dijo que descansara",
-          "example": "Y que redujera el estrés.",
-          "translation": "decir → dijo. Indirect recommendation triggers subjuntivo."
-        },
-        {
-          "front": "I put the book on the table",
-          "back": "Puse el libro en la mesa",
-          "example": "Y luego me fui a dormir.",
-          "translation": "poner → puse. Important 'use' family irregular."
-        },
-        {
-          "front": "I came home late",
-          "back": "Vine a casa tarde",
-          "example": "Había mucho tráfico.",
-          "translation": "venir → vine. Important movement verb in indefinido."
-        },
-        {
-          "front": "I brought the documents",
-          "back": "Traje los documentos",
-          "example": "Por si acaso los necesitaban.",
-          "translation": "traer → traje. Same irregular family as decir/dije."
-        },
-        {
-          "front": "I knew it",
-          "back": "Lo supe",
-          "example": "Desde el momento en que lo vi.",
-          "translation": "saber → supe. In indefinido often means 'I found out/knew suddenly'."
-        },
-        {
-          "front": "I met an interesting guy",
-          "back": "Conocí a un tío interesante",
-          "example": "En la conferencia de AWS.",
-          "translation": "conocer → conocí. In indefinido often means meeting someone for the first time."
-        },
-        {
-          "front": "I drove to Madrid",
-          "back": "Conduje hasta Madrid",
-          "example": "Y llegué muerto.",
-          "translation": "conducir → conduje. '-ducir' verbs follow the same irregular pattern."
-        },
-        {
-          "front": "They brought me good news",
-          "back": "Me trajeron buenas noticias",
-          "example": "Y me quedé mucho más tranquilo.",
-          "translation": "traer → trajeron. Third person plural irregular."
-        },
-        {
-          "front": "They told me the results were good",
-          "back": "Me dijeron que los resultados eran buenos",
-          "example": "Y respiré tranquilo.",
-          "translation": "decir → dijeron. Notice the dropped 'i' in dijeron."
-        },
-        {
-          "front": "I was able to finish the book",
-          "back": "Pude terminar el libro",
-          "example": "Aunque estaba cansado.",
-          "translation": "poder → pude. Completed successful action."
-        },
-        {
-          "front": "I wanted to change jobs",
-          "back": "Quise cambiar de trabajo",
-          "example": "Pero decidí esperar un poco.",
-          "translation": "quiser in indefinido often sounds more decisive than quería."
-        },
-        {
-          "front": "I had to explain everything",
-          "back": "Tuve que explicar todo",
-          "example": "Porque había mucha confusión.",
-          "translation": "tener que + infinitive = had to do something."
-        },
-        {
-          "front": "I came because I was worried",
-          "back": "Vine porque estaba preocupado",
-          "example": "Quería hablar con la médica.",
-          "translation": "Mix of indefinido event + imperfecto emotional background."
-        },
-        {
-          "front": "I put on a new shirt",
-          "back": "Me puse una camisa nueva",
-          "example": "Para la reunión.",
-          "translation": "ponerse → me puse. Very common reflexive irregular."
-        },
-        {
-          "front": "I found out yesterday",
-          "back": "Lo supe ayer",
-          "example": "Y me dejó loco.",
-          "translation": "saber in indefinido often means discovering information."
-        },
-        {
-          "front": "I said the same thing",
-          "back": "Dije lo mismo",
-          "example": "Pero nadie me escuchó.",
-          "translation": "decir → dije. Very high-frequency irregular."
-        },
-        {
-          "front": "I brought coffee for everyone",
-          "back": "Traje café para todos",
-          "example": "Porque la reunión iba a ser larga.",
-          "translation": "traer → traje. Extremely useful social/work verb."
-        },
-        {
-          "front": "I was with friends all evening",
-          "back": "Estuve con amigos toda la tarde",
-          "example": "Y me vino genial.",
-          "translation": "Completed social time block in the past."
-        },
-        {
-          "front": "I did what I could",
-          "back": "Hice lo que pude",
-          "example": "Pero estaba agotado mentalmente.",
-          "translation": "Very common natural Spanish chunk."
-        },
-        {
-          "front": "I came to learn Spanish",
-          "back": "Vine para aprender español",
-          "example": "Y al final me quedé aquí.",
-          "translation": "Movement verb + purpose structure."
-        },
-        {
-          "front": "I put too much pressure on myself",
-          "back": "Me puse demasiada presión",
-          "example": "Y terminé saturado.",
-          "translation": "Natural emotional usage of ponerse."
-        },
-        {
-          "front": "I had a weird feeling",
-          "back": "Tuve una sensación rara",
-          "example": "Desde la mañana.",
-          "translation": "tener used for temporary emotional experiences."
-        },
-        {
-          "front": "I couldn't concentrate",
-          "back": "No pude concentrarme",
-          "example": "Tenía demasiadas cosas en la cabeza.",
-          "translation": "Very useful emotional/work chunk."
-        },
-        {
-          "front": "I went out for beers with friends",
-          "back": "Fui de cañas con amigos",
-          "example": "Y desconecté un poco.",
-          "translation": "Classic Spain social expression."
+          "groupName": "Group 3",
+          "cards": [
+            {
+              "front": "I found out yesterday",
+              "back": "Lo supe ayer",
+              "example": "Y me dejó loco.",
+              "translation": "saber in indefinido often means discovering information."
+            },
+            {
+              "front": "I said the same thing",
+              "back": "Dije lo mismo",
+              "example": "Pero nadie me escuchó.",
+              "translation": "decir → dije. Very high-frequency irregular."
+            },
+            {
+              "front": "I brought coffee for everyone",
+              "back": "Traje café para todos",
+              "example": "Porque la reunión iba a ser larga.",
+              "translation": "traer → traje. Extremely useful social/work verb."
+            },
+            {
+              "front": "I was with friends all evening",
+              "back": "Estuve con amigos toda la tarde",
+              "example": "Y me vino genial.",
+              "translation": "Completed social time block in the past."
+            },
+            {
+              "front": "I did what I could",
+              "back": "Hice lo que pude",
+              "example": "Pero estaba agotado mentalmente.",
+              "translation": "Very common natural Spanish chunk."
+            },
+            {
+              "front": "I came to learn Spanish",
+              "back": "Vine para aprender español",
+              "example": "Y al final me quedé aquí.",
+              "translation": "Movement verb + purpose structure."
+            },
+            {
+              "front": "I put too much pressure on myself",
+              "back": "Me puse demasiada presión",
+              "example": "Y terminé saturado.",
+              "translation": "Natural emotional usage of ponerse."
+            },
+            {
+              "front": "I had a weird feeling",
+              "back": "Tuve una sensación rara",
+              "example": "Desde la mañana.",
+              "translation": "tener used for temporary emotional experiences."
+            },
+            {
+              "front": "I couldn't concentrate",
+              "back": "No pude concentrarme",
+              "example": "Tenía demasiadas cosas en la cabeza.",
+              "translation": "Very useful emotional/work chunk."
+            },
+            {
+              "front": "I went out for beers with friends",
+              "back": "Fui de cañas con amigos",
+              "example": "Y desconecté un poco.",
+              "translation": "Classic Spain social expression."
+            }
+          ]
         }
       ]
     },
     {
       "category": "Verbs",
       "subcategory": "P-A1-1 Reinforcement",
-      "cards": [
+      "subDecks": [
         {
-          "front": "I went straight home after work",
-          "back": "Fui directamente a casa después del trabajo",
-          "example": "No tenía energía para nada más.",
-          "translation": "ir → fui. Completed movement/action in a closed time period."
+          "groupName": "Group 1",
+          "cards": [
+            {
+              "front": "I went straight home after work",
+              "back": "Fui directamente a casa después del trabajo",
+              "example": "No tenía energía para nada más.",
+              "translation": "ir → fui. Completed movement/action in a closed time period."
+            },
+            {
+              "front": "I was there for almost three hours",
+              "back": "Estuve allí casi tres horas",
+              "example": "La reunión se hizo larguísima.",
+              "translation": "estar → estuve. Duration treated as a completed block."
+            },
+            {
+              "front": "I had a long conversation with my mentor",
+              "back": "Tuve una conversación larga con mi mentor",
+              "example": "Y me ayudó mucho.",
+              "translation": "tener → tuve. Common professional/social structure."
+            },
+            {
+              "front": "I did everything they asked me",
+              "back": "Hice todo lo que me pidieron",
+              "example": "Pero aun así no fue suficiente.",
+              "translation": "hacer → hice. Very common real-life chunk."
+            },
+            {
+              "front": "I couldn't stop thinking about it",
+              "back": "No pude dejar de pensar en eso",
+              "example": "Me rayé muchísimo.",
+              "translation": "poder → pude. Completed inability."
+            },
+            {
+              "front": "I wanted to explain it better",
+              "back": "Quise explicarlo mejor",
+              "example": "Pero me puse nervioso.",
+              "translation": "querer → quise. Sounds more decisive than quería."
+            },
+            {
+              "front": "I said something stupid",
+              "back": "Dije una tontería",
+              "example": "Y luego me arrepentí.",
+              "translation": "decir → dije. High-frequency conversational verb."
+            },
+            {
+              "front": "I put my phone on silent mode",
+              "back": "Puse el móvil en silencio",
+              "example": "Necesitaba concentrarme.",
+              "translation": "poner → puse. Everyday practical usage."
+            },
+            {
+              "front": "I came early this morning",
+              "back": "Vine temprano esta mañana",
+              "example": "Porque quería evitar el tráfico.",
+              "translation": "venir → vine. Common movement verb."
+            },
+            {
+              "front": "I brought my laptop with me",
+              "back": "Traje el portátil conmigo",
+              "example": "Por si tenía que trabajar.",
+              "translation": "traer → traje. Very useful professional chunk."
+            }
+          ]
         },
         {
-          "front": "I was there for almost three hours",
-          "back": "Estuve allí casi tres horas",
-          "example": "La reunión se hizo larguísima.",
-          "translation": "estar → estuve. Duration treated as a completed block."
+          "groupName": "Group 2",
+          "cards": [
+            {
+              "front": "I found out too late",
+              "back": "Lo supe demasiado tarde",
+              "example": "Y ya no pude hacer nada.",
+              "translation": "saber → supe often means discovering information suddenly."
+            },
+            {
+              "front": "I met her through work",
+              "back": "La conocí por el trabajo",
+              "example": "Y conectamos enseguida.",
+              "translation": "conocer in indefinido = meeting someone for the first time."
+            },
+            {
+              "front": "I drove for six hours",
+              "back": "Conduje durante seis horas",
+              "example": "Y terminé hecho polvo.",
+              "translation": "conducir → conduje. Irregular '-je' family."
+            },
+            {
+              "front": "They brought more documents",
+              "back": "Trajeron más documentos",
+              "example": "Pero faltaban algunos papeles.",
+              "translation": "traer → trajeron. Third person plural irregular."
+            },
+            {
+              "front": "They told me to stay calm",
+              "back": "Me dijeron que me calmara",
+              "example": "Y que descansara unos días.",
+              "translation": "Indirect speech + subjunctive."
+            },
+            {
+              "front": "I was able to relax a bit",
+              "back": "Pude relajarme un poco",
+              "example": "Después de hablar con el médico.",
+              "translation": "Completed successful action."
+            },
+            {
+              "front": "I wanted to tell you earlier",
+              "back": "Quise decírtelo antes",
+              "example": "Pero no encontré el momento.",
+              "translation": "Natural emotional/social usage."
+            },
+            {
+              "front": "I had to cancel the meeting",
+              "back": "Tuve que cancelar la reunión",
+              "example": "Porque me encontraba fatal.",
+              "translation": "tener que = obligation in the past."
+            },
+            {
+              "front": "I came to support my wife",
+              "back": "Vine para apoyar a mi mujer",
+              "example": "Sabía que lo necesitaba.",
+              "translation": "venir + para + infinitive = purpose structure."
+            },
+            {
+              "front": "I put too much pressure on the project",
+              "back": "Puse demasiada presión en el proyecto",
+              "example": "Y el equipo acabó agotado.",
+              "translation": "Natural professional context."
+            }
+          ]
         },
         {
-          "front": "I had a long conversation with my mentor",
-          "back": "Tuve una conversación larga con mi mentor",
-          "example": "Y me ayudó mucho.",
-          "translation": "tener → tuve. Common professional/social structure."
+          "groupName": "Group 3",
+          "cards": [
+            {
+              "front": "I had a terrible headache",
+              "back": "Tuve un dolor de cabeza horrible",
+              "example": "Y no pude trabajar bien.",
+              "translation": "Very common health-related chunk."
+            },
+            {
+              "front": "I couldn't understand what happened",
+              "back": "No pude entender lo que pasó",
+              "example": "Todo fue muy raro.",
+              "translation": "poder → pude. Closed completed inability."
+            },
+            {
+              "front": "I went for a walk to clear my mind",
+              "back": "Fui a dar un paseo para despejarme",
+              "example": "Necesitaba aire fresco.",
+              "translation": "Very natural Spain Spanish chunk."
+            },
+            {
+              "front": "I was at the hospital all morning",
+              "back": "Estuve en el hospital toda la mañana",
+              "example": "Haciéndome pruebas.",
+              "translation": "Completed period of time."
+            },
+            {
+              "front": "I had the feeling that something was wrong",
+              "back": "Tuve la sensación de que algo iba mal",
+              "example": "Pero intenté mantener la calma.",
+              "translation": "Mix of indefinido event + imperfecto background."
+            },
+            {
+              "front": "I did my best",
+              "back": "Hice lo mejor que pude",
+              "example": "Aunque estaba agotado mentalmente.",
+              "translation": "Extremely useful conversational structure."
+            },
+            {
+              "front": "I couldn't find the words",
+              "back": "No pude encontrar las palabras",
+              "example": "Me quedé bloqueado.",
+              "translation": "Very useful emotional communication chunk."
+            },
+            {
+              "front": "I said exactly the same thing",
+              "back": "Dije exactamente lo mismo",
+              "example": "Pero nadie me hizo caso.",
+              "translation": "hacer caso = to pay attention/listen."
+            },
+            {
+              "front": "I brought everything I needed",
+              "back": "Traje todo lo que necesitaba",
+              "example": "No quería improvisar nada.",
+              "translation": "Useful preparation/planning context."
+            },
+            {
+              "front": "I came back much calmer",
+              "back": "Vine mucho más tranquilo",
+              "example": "Después de hablar con el especialista.",
+              "translation": "venir used metaphorically after returning from somewhere."
+            }
+          ]
         },
         {
-          "front": "I did everything they asked me",
-          "back": "Hice todo lo que me pidieron",
-          "example": "Pero aun así no fue suficiente.",
-          "translation": "hacer → hice. Very common real-life chunk."
+          "groupName": "Group 4",
+          "cards": [
+            {
+              "front": "I put all my energy into learning",
+              "back": "Puse toda mi energía en aprender",
+              "example": "Y empecé a notar mejora.",
+              "translation": "Natural motivational/progress expression."
+            },
+            {
+              "front": "I had a really productive week",
+              "back": "Tuve una semana muy productiva",
+              "example": "Y avancé muchísimo.",
+              "translation": "tener + period of time = very common structure."
+            },
+            {
+              "front": "I couldn't answer immediately",
+              "back": "No pude responder inmediatamente",
+              "example": "Estaba en una reunión.",
+              "translation": "Professional/workplace chunk."
+            },
+            {
+              "front": "I wanted to change many things at once",
+              "back": "Quise cambiar demasiadas cosas a la vez",
+              "example": "Y terminé saturado.",
+              "translation": "Natural emotional reflection structure."
+            },
+            {
+              "front": "I said it without thinking",
+              "back": "Lo dije sin pensar",
+              "example": "Y luego me arrepentí.",
+              "translation": "Very high-frequency conversational chunk."
+            },
+            {
+              "front": "I went through a difficult period",
+              "back": "Pasé por una etapa difícil",
+              "example": "Pero aprendí mucho.",
+              "translation": "pasar por = to go through emotionally."
+            },
+            {
+              "front": "I had no choice",
+              "back": "No tuve otra opción",
+              "example": "Tuve que aceptar la situación.",
+              "translation": "Classic high-frequency structure."
+            },
+            {
+              "front": "I couldn't handle everything",
+              "back": "No pude con todo",
+              "example": "Mentalmente estaba agotado.",
+              "translation": "poder con algo = to handle/manage something."
+            },
+            {
+              "front": "I put too many expectations on myself",
+              "back": "Me puse demasiadas expectativas",
+              "example": "Y acabé frustrado.",
+              "translation": "Very useful emotional self-reflection chunk."
+            },
+            {
+              "front": "I came to Spain to start over",
+              "back": "Vine a España para empezar de nuevo",
+              "example": "Y cambió mi vida.",
+              "translation": "Strong emotional life-story structure."
+            }
+          ]
         },
         {
-          "front": "I couldn't stop thinking about it",
-          "back": "No pude dejar de pensar en eso",
-          "example": "Me rayé muchísimo.",
-          "translation": "poder → pude. Completed inability."
-        },
-        {
-          "front": "I wanted to explain it better",
-          "back": "Quise explicarlo mejor",
-          "example": "Pero me puse nervioso.",
-          "translation": "querer → quise. Sounds more decisive than quería."
-        },
-        {
-          "front": "I said something stupid",
-          "back": "Dije una tontería",
-          "example": "Y luego me arrepentí.",
-          "translation": "decir → dije. High-frequency conversational verb."
-        },
-        {
-          "front": "I put my phone on silent mode",
-          "back": "Puse el móvil en silencio",
-          "example": "Necesitaba concentrarme.",
-          "translation": "poner → puse. Everyday practical usage."
-        },
-        {
-          "front": "I came early this morning",
-          "back": "Vine temprano esta mañana",
-          "example": "Porque quería evitar el tráfico.",
-          "translation": "venir → vine. Common movement verb."
-        },
-        {
-          "front": "I brought my laptop with me",
-          "back": "Traje el portátil conmigo",
-          "example": "Por si tenía que trabajar.",
-          "translation": "traer → traje. Very useful professional chunk."
-        },
-        {
-          "front": "I found out too late",
-          "back": "Lo supe demasiado tarde",
-          "example": "Y ya no pude hacer nada.",
-          "translation": "saber → supe often means discovering information suddenly."
-        },
-        {
-          "front": "I met her through work",
-          "back": "La conocí por el trabajo",
-          "example": "Y conectamos enseguida.",
-          "translation": "conocer in indefinido = meeting someone for the first time."
-        },
-        {
-          "front": "I drove for six hours",
-          "back": "Conduje durante seis horas",
-          "example": "Y terminé hecho polvo.",
-          "translation": "conducir → conduje. Irregular '-je' family."
-        },
-        {
-          "front": "They brought more documents",
-          "back": "Trajeron más documentos",
-          "example": "Pero faltaban algunos papeles.",
-          "translation": "traer → trajeron. Third person plural irregular."
-        },
-        {
-          "front": "They told me to stay calm",
-          "back": "Me dijeron que me calmara",
-          "example": "Y que descansara unos días.",
-          "translation": "Indirect speech + subjunctive."
-        },
-        {
-          "front": "I was able to relax a bit",
-          "back": "Pude relajarme un poco",
-          "example": "Después de hablar con el médico.",
-          "translation": "Completed successful action."
-        },
-        {
-          "front": "I wanted to tell you earlier",
-          "back": "Quise decírtelo antes",
-          "example": "Pero no encontré el momento.",
-          "translation": "Natural emotional/social usage."
-        },
-        {
-          "front": "I had to cancel the meeting",
-          "back": "Tuve que cancelar la reunión",
-          "example": "Porque me encontraba fatal.",
-          "translation": "tener que = obligation in the past."
-        },
-        {
-          "front": "I came to support my wife",
-          "back": "Vine para apoyar a mi mujer",
-          "example": "Sabía que lo necesitaba.",
-          "translation": "venir + para + infinitive = purpose structure."
-        },
-        {
-          "front": "I put too much pressure on the project",
-          "back": "Puse demasiada presión en el proyecto",
-          "example": "Y el equipo acabó agotado.",
-          "translation": "Natural professional context."
-        },
-        {
-          "front": "I had a terrible headache",
-          "back": "Tuve un dolor de cabeza horrible",
-          "example": "Y no pude trabajar bien.",
-          "translation": "Very common health-related chunk."
-        },
-        {
-          "front": "I couldn't understand what happened",
-          "back": "No pude entender lo que pasó",
-          "example": "Todo fue muy raro.",
-          "translation": "poder → pude. Closed completed inability."
-        },
-        {
-          "front": "I went for a walk to clear my mind",
-          "back": "Fui a dar un paseo para despejarme",
-          "example": "Necesitaba aire fresco.",
-          "translation": "Very natural Spain Spanish chunk."
-        },
-        {
-          "front": "I was at the hospital all morning",
-          "back": "Estuve en el hospital toda la mañana",
-          "example": "Haciéndome pruebas.",
-          "translation": "Completed period of time."
-        },
-        {
-          "front": "I had the feeling that something was wrong",
-          "back": "Tuve la sensación de que algo iba mal",
-          "example": "Pero intenté mantener la calma.",
-          "translation": "Mix of indefinido event + imperfecto background."
-        },
-        {
-          "front": "I did my best",
-          "back": "Hice lo mejor que pude",
-          "example": "Aunque estaba agotado mentalmente.",
-          "translation": "Extremely useful conversational structure."
-        },
-        {
-          "front": "I couldn't find the words",
-          "back": "No pude encontrar las palabras",
-          "example": "Me quedé bloqueado.",
-          "translation": "Very useful emotional communication chunk."
-        },
-        {
-          "front": "I said exactly the same thing",
-          "back": "Dije exactamente lo mismo",
-          "example": "Pero nadie me hizo caso.",
-          "translation": "hacer caso = to pay attention/listen."
-        },
-        {
-          "front": "I brought everything I needed",
-          "back": "Traje todo lo que necesitaba",
-          "example": "No quería improvisar nada.",
-          "translation": "Useful preparation/planning context."
-        },
-        {
-          "front": "I came back much calmer",
-          "back": "Vine mucho más tranquilo",
-          "example": "Después de hablar con el especialista.",
-          "translation": "venir used metaphorically after returning from somewhere."
-        },
-        {
-          "front": "I put all my energy into learning",
-          "back": "Puse toda mi energía en aprender",
-          "example": "Y empecé a notar mejora.",
-          "translation": "Natural motivational/progress expression."
-        },
-        {
-          "front": "I had a really productive week",
-          "back": "Tuve una semana muy productiva",
-          "example": "Y avancé muchísimo.",
-          "translation": "tener + period of time = very common structure."
-        },
-        {
-          "front": "I couldn't answer immediately",
-          "back": "No pude responder inmediatamente",
-          "example": "Estaba en una reunión.",
-          "translation": "Professional/workplace chunk."
-        },
-        {
-          "front": "I wanted to change many things at once",
-          "back": "Quise cambiar demasiadas cosas a la vez",
-          "example": "Y terminé saturado.",
-          "translation": "Natural emotional reflection structure."
-        },
-        {
-          "front": "I said it without thinking",
-          "back": "Lo dije sin pensar",
-          "example": "Y luego me arrepentí.",
-          "translation": "Very high-frequency conversational chunk."
-        },
-        {
-          "front": "I went through a difficult period",
-          "back": "Pasé por una etapa difícil",
-          "example": "Pero aprendí mucho.",
-          "translation": "pasar por = to go through emotionally."
-        },
-        {
-          "front": "I had no choice",
-          "back": "No tuve otra opción",
-          "example": "Tuve que aceptar la situación.",
-          "translation": "Classic high-frequency structure."
-        },
-        {
-          "front": "I couldn't handle everything",
-          "back": "No pude con todo",
-          "example": "Mentalmente estaba agotado.",
-          "translation": "poder con algo = to handle/manage something."
-        },
-        {
-          "front": "I put too many expectations on myself",
-          "back": "Me puse demasiadas expectativas",
-          "example": "Y acabé frustrado.",
-          "translation": "Very useful emotional self-reflection chunk."
-        },
-        {
-          "front": "I came to Spain to start over",
-          "back": "Vine a España para empezar de nuevo",
-          "example": "Y cambió mi vida.",
-          "translation": "Strong emotional life-story structure."
-        },
-        {
-          "front": "I brought up the topic during dinner",
-          "back": "Saqué el tema durante la cena",
-          "example": "Y todos se quedaron en silencio.",
-          "translation": "sacar un tema = to bring up a topic."
-        },
-        {
-          "front": "I realized too late",
-          "back": "Me di cuenta demasiado tarde",
-          "example": "Y ya era imposible cambiarlo.",
-          "translation": "darse cuenta = to realize. One of the most important Spanish chunks."
-        },
-        {
-          "front": "I became obsessed with the problem",
-          "back": "Me obsesioné con el problema",
-          "example": "Y no podía desconectar.",
-          "translation": "Reflexive emotional verb in indefinido."
-        },
-        {
-          "front": "I got really nervous",
-          "back": "Me puse muy nervioso",
-          "example": "Antes de la entrevista.",
-          "translation": "ponerse = to become/change state."
-        },
-        {
-          "front": "I suddenly felt much better",
-          "back": "De repente me sentí mucho mejor",
-          "example": "Como si me quitara un peso de encima.",
-          "translation": "sentirse in indefinido = emotional change at a specific moment."
-        },
-        {
-          "front": "I ended up completely exhausted",
-          "back": "Terminé completamente agotado",
-          "example": "Necesitaba desconectar de todo.",
-          "translation": "terminar + adjective = ending up in a state."
-        },
-        {
-          "front": "I spent the whole weekend studying",
-          "back": "Pasé todo el fin de semana estudiando",
-          "example": "Pero mereció la pena.",
-          "translation": "pasar + time + gerund = spending time doing something."
-        },
-        {
-          "front": "I finally understood everything",
-          "back": "Por fin entendí todo",
-          "example": "Después de releerlo varias veces.",
-          "translation": "entender in indefinido = moment of comprehension."
-        },
-        {
-          "front": "I forgot to reply",
-          "back": "Se me olvidó responder",
-          "example": "Tenía demasiadas cosas en la cabeza.",
-          "translation": "Very common accidental structure in Spanish."
-        },
-        {
-          "front": "I felt a huge relief",
-          "back": "Sentí un alivio enorme",
-          "example": "Cuando me dieron los resultados.",
-          "translation": "sentir in indefinido = specific emotional reaction."
+          "groupName": "Group 5",
+          "cards": [
+            {
+              "front": "I brought up the topic during dinner",
+              "back": "Saqué el tema durante la cena",
+              "example": "Y todos se quedaron en silencio.",
+              "translation": "sacar un tema = to bring up a topic."
+            },
+            {
+              "front": "I realized too late",
+              "back": "Me di cuenta demasiado tarde",
+              "example": "Y ya era imposible cambiarlo.",
+              "translation": "darse cuenta = to realize. One of the most important Spanish chunks."
+            },
+            {
+              "front": "I became obsessed with the problem",
+              "back": "Me obsesioné con el problema",
+              "example": "Y no podía desconectar.",
+              "translation": "Reflexive emotional verb in indefinido."
+            },
+            {
+              "front": "I got really nervous",
+              "back": "Me puse muy nervioso",
+              "example": "Antes de la entrevista.",
+              "translation": "ponerse = to become/change state."
+            },
+            {
+              "front": "I suddenly felt much better",
+              "back": "De repente me sentí mucho mejor",
+              "example": "Como si me quitara un peso de encima.",
+              "translation": "sentirse in indefinido = emotional change at a specific moment."
+            },
+            {
+              "front": "I ended up completely exhausted",
+              "back": "Terminé completamente agotado",
+              "example": "Necesitaba desconectar de todo.",
+              "translation": "terminar + adjective = ending up in a state."
+            },
+            {
+              "front": "I spent the whole weekend studying",
+              "back": "Pasé todo el fin de semana estudiando",
+              "example": "Pero mereció la pena.",
+              "translation": "pasar + time + gerund = spending time doing something."
+            },
+            {
+              "front": "I finally understood everything",
+              "back": "Por fin entendí todo",
+              "example": "Después de releerlo varias veces.",
+              "translation": "entender in indefinido = moment of comprehension."
+            },
+            {
+              "front": "I forgot to reply",
+              "back": "Se me olvidó responder",
+              "example": "Tenía demasiadas cosas en la cabeza.",
+              "translation": "Very common accidental structure in Spanish."
+            },
+            {
+              "front": "I felt a huge relief",
+              "back": "Sentí un alivio enorme",
+              "example": "Cuando me dieron los resultados.",
+              "translation": "sentir in indefinido = specific emotional reaction."
+            }
+          ]
         }
       ]
     },
     {
       "category": "Verbs",
       "subcategory": "P-A1-2",
-      "cards": [
+      "subDecks": [
         {
-          "front": "I tried to stay calm",
-          "back": "Intenté mantener la calma",
-          "example": "Pero tenía demasiada presión encima.",
-          "translation": "intentar = to try. Very high-frequency emotional/work verb."
+          "groupName": "Group 1",
+          "cards": [
+            {
+              "front": "I tried to stay calm",
+              "back": "Intenté mantener la calma",
+              "example": "Pero tenía demasiada presión encima.",
+              "translation": "intentar = to try. Very high-frequency emotional/work verb."
+            },
+            {
+              "front": "I decided to take a break",
+              "back": "Decidí tomarme un descanso",
+              "example": "Mi cabeza lo necesitaba.",
+              "translation": "decidir = to decide. tomarse un descanso = to take a break."
+            },
+            {
+              "front": "I finally managed to finish it",
+              "back": "Por fin conseguí terminarlo",
+              "example": "Me costó muchísimo.",
+              "translation": "conseguir = to manage/achieve successfully."
+            },
+            {
+              "front": "I forgot the meeting completely",
+              "back": "Olvidé la reunión por completo",
+              "example": "Tenía demasiadas cosas en la cabeza.",
+              "translation": "olvidar = to forget. Very common daily verb."
+            },
+            {
+              "front": "I suddenly remembered something important",
+              "back": "De repente me acordé de algo importante",
+              "example": "Y tuve que volver a casa.",
+              "translation": "acordarse de = to remember."
+            },
+            {
+              "front": "I noticed that she was worried",
+              "back": "Noté que estaba preocupada",
+              "example": "Aunque intentaba disimularlo.",
+              "translation": "notar = to notice/perceive emotionally."
+            },
+            {
+              "front": "I changed my mind",
+              "back": "Cambié de opinión",
+              "example": "Después de hablar con él.",
+              "translation": "Very common conversational chunk."
+            },
+            {
+              "front": "I left my laptop at home",
+              "back": "Dejé el portátil en casa",
+              "example": "Y me di cuenta demasiado tarde.",
+              "translation": "dejar = to leave something somewhere."
+            },
+            {
+              "front": "I kept thinking about it all day",
+              "back": "Seguí pensando en eso todo el día",
+              "example": "No podía desconectar.",
+              "translation": "seguir + gerund/thinking structure = continuing action."
+            },
+            {
+              "front": "I started feeling much better",
+              "back": "Empecé a sentirme mucho mejor",
+              "example": "Después de descansar unos días.",
+              "translation": "empezar a + infinitive = to start doing something."
+            }
+          ]
         },
         {
-          "front": "I decided to take a break",
-          "back": "Decidí tomarme un descanso",
-          "example": "Mi cabeza lo necesitaba.",
-          "translation": "decidir = to decide. tomarse un descanso = to take a break."
+          "groupName": "Group 2",
+          "cards": [
+            {
+              "front": "I ended up liking Madrid a lot",
+              "back": "Acabé disfrutando mucho Madrid",
+              "example": "Tiene muy buen ambiente.",
+              "translation": "acabar + gerund = to end up doing something."
+            },
+            {
+              "front": "I helped a friend with his project",
+              "back": "Ayudé a un amigo con su proyecto",
+              "example": "Y aprendí bastante también.",
+              "translation": "ayudar = very common social/professional verb."
+            },
+            {
+              "front": "I avoided talking about the topic",
+              "back": "Evité hablar del tema",
+              "example": "No era el mejor momento.",
+              "translation": "evitar = to avoid."
+            },
+            {
+              "front": "I organized everything last night",
+              "back": "Organicé todo anoche",
+              "example": "Para no ir con prisas hoy.",
+              "translation": "organizar = very useful productivity verb."
+            },
+            {
+              "front": "I prepared for the interview all week",
+              "back": "Me preparé para la entrevista toda la semana",
+              "example": "Quería hacerlo bien.",
+              "translation": "prepararse para = prepare oneself for."
+            },
+            {
+              "front": "I reviewed the document several times",
+              "back": "Revisé el documento varias veces",
+              "example": "No quería cometer errores.",
+              "translation": "revisar = review/check carefully."
+            },
+            {
+              "front": "I fixed the issue this morning",
+              "back": "Arreglé el problema esta mañana",
+              "example": "Al final era una tontería.",
+              "translation": "arreglar = fix/solve."
+            },
+            {
+              "front": "I took advantage of the free time",
+              "back": "Aproveché el tiempo libre",
+              "example": "Y avancé bastante con el libro.",
+              "translation": "aprovechar = to make good use of."
+            },
+            {
+              "front": "I improved a lot this month",
+              "back": "Mejoré muchísimo este mes",
+              "example": "Sobre todo hablando.",
+              "translation": "mejorar = improve."
+            },
+            {
+              "front": "My stress got worse again",
+              "back": "Mi estrés empeoró otra vez",
+              "example": "Tenía demasiadas responsabilidades.",
+              "translation": "empeorar = worsen."
+            }
+          ]
         },
         {
-          "front": "I finally managed to finish it",
-          "back": "Por fin conseguí terminarlo",
-          "example": "Me costó muchísimo.",
-          "translation": "conseguir = to manage/achieve successfully."
+          "groupName": "Group 3",
+          "cards": [
+            {
+              "front": "I trusted him immediately",
+              "back": "Confié en él inmediatamente",
+              "example": "Me transmitió tranquilidad.",
+              "translation": "confiar en = to trust."
+            },
+            {
+              "front": "I supported my wife during a difficult period",
+              "back": "Apoyé a mi mujer durante una etapa difícil",
+              "example": "Y ella hizo lo mismo conmigo.",
+              "translation": "apoyar = emotional/social support verb."
+            },
+            {
+              "front": "We argued about work again",
+              "back": "Discutimos otra vez sobre el trabajo",
+              "example": "Había mucha tensión.",
+              "translation": "discutir = to argue/discuss intensely."
+            },
+            {
+              "front": "I relaxed a bit this weekend",
+              "back": "Me relajé un poco este fin de semana",
+              "example": "Lo necesitaba muchísimo.",
+              "translation": "relajarse = emotional recovery verb."
+            },
+            {
+              "front": "I got excited about the opportunity",
+              "back": "Me ilusioné con la oportunidad",
+              "example": "Parecía un gran cambio.",
+              "translation": "ilusionarse = to become excited/hopeful."
+            },
+            {
+              "front": "I realized what the real problem was",
+              "back": "Me di cuenta de cuál era el verdadero problema",
+              "example": "Y todo empezó a tener sentido.",
+              "translation": "darse cuenta de = to realize."
+            },
+            {
+              "front": "The situation turned out better than expected",
+              "back": "La situación resultó mejor de lo esperado",
+              "example": "Y me quedé mucho más tranquilo.",
+              "translation": "resultar = to turn out/result."
+            },
+            {
+              "front": "The meeting seemed endless",
+              "back": "La reunión parecía interminable",
+              "example": "Todos estábamos agotados.",
+              "translation": "parecer = to seem/appear."
+            },
+            {
+              "front": "I gradually got used to the rhythm",
+              "back": "Poco a poco me acostumbré al ritmo",
+              "example": "Aunque al principio fue duro.",
+              "translation": "acostumbrarse a = to get used to."
+            },
+            {
+              "front": "I continued learning even when I was tired",
+              "back": "Seguí aprendiendo incluso cuando estaba cansado",
+              "example": "No quería perder el hábito.",
+              "translation": "seguir + gerund/continuation structure."
+            }
+          ]
         },
         {
-          "front": "I forgot the meeting completely",
-          "back": "Olvidé la reunión por completo",
-          "example": "Tenía demasiadas cosas en la cabeza.",
-          "translation": "olvidar = to forget. Very common daily verb."
+          "groupName": "Group 4",
+          "cards": [
+            {
+              "front": "I changed many habits this year",
+              "back": "Cambié muchos hábitos este año",
+              "example": "Y me siento mejor mentalmente.",
+              "translation": "Natural self-improvement context."
+            },
+            {
+              "front": "I tried to explain it clearly",
+              "back": "Intenté explicarlo claramente",
+              "example": "Pero seguían confundidos.",
+              "translation": "Very useful work communication chunk."
+            },
+            {
+              "front": "I managed to disconnect for a while",
+              "back": "Conseguí desconectar un rato",
+              "example": "Y me vino genial.",
+              "translation": "desconectar = mentally disconnect/unwind."
+            },
+            {
+              "front": "I started taking things more calmly",
+              "back": "Empecé a tomarme las cosas con más calma",
+              "example": "Y noté la diferencia.",
+              "translation": "tomarse las cosas con calma = important emotional chunk."
+            },
+            {
+              "front": "I ended up understanding his point",
+              "back": "Acabé entendiendo su punto de vista",
+              "example": "Aunque al principio no estaba de acuerdo.",
+              "translation": "acabar + gerund = eventual realization."
+            },
+            {
+              "front": "I helped organize the event",
+              "back": "Ayudé a organizar el evento",
+              "example": "Y salió bastante bien.",
+              "translation": "Combination of social + productivity verbs."
+            },
+            {
+              "front": "I avoided checking my phone constantly",
+              "back": "Evité mirar el móvil constantemente",
+              "example": "Necesitaba descansar mentalmente.",
+              "translation": "Very modern daily-life chunk."
+            },
+            {
+              "front": "I prepared everything in advance",
+              "back": "Preparé todo con antelación",
+              "example": "Para evitar problemas.",
+              "translation": "con antelación = beforehand/in advance."
+            },
+            {
+              "front": "I reviewed my notes before the meeting",
+              "back": "Revisé mis apuntes antes de la reunión",
+              "example": "Quería sentirme preparado.",
+              "translation": "apuntes = notes."
+            },
+            {
+              "front": "I fixed things with my friend",
+              "back": "Arreglé las cosas con mi amigo",
+              "example": "Y ahora estamos bien otra vez.",
+              "translation": "arreglar las cosas = repair a relationship/problem."
+            }
+          ]
         },
         {
-          "front": "I suddenly remembered something important",
-          "back": "De repente me acordé de algo importante",
-          "example": "Y tuve que volver a casa.",
-          "translation": "acordarse de = to remember."
-        },
-        {
-          "front": "I noticed that she was worried",
-          "back": "Noté que estaba preocupada",
-          "example": "Aunque intentaba disimularlo.",
-          "translation": "notar = to notice/perceive emotionally."
-        },
-        {
-          "front": "I changed my mind",
-          "back": "Cambié de opinión",
-          "example": "Después de hablar con él.",
-          "translation": "Very common conversational chunk."
-        },
-        {
-          "front": "I left my laptop at home",
-          "back": "Dejé el portátil en casa",
-          "example": "Y me di cuenta demasiado tarde.",
-          "translation": "dejar = to leave something somewhere."
-        },
-        {
-          "front": "I kept thinking about it all day",
-          "back": "Seguí pensando en eso todo el día",
-          "example": "No podía desconectar.",
-          "translation": "seguir + gerund/thinking structure = continuing action."
-        },
-        {
-          "front": "I started feeling much better",
-          "back": "Empecé a sentirme mucho mejor",
-          "example": "Después de descansar unos días.",
-          "translation": "empezar a + infinitive = to start doing something."
-        },
-        {
-          "front": "I ended up liking Madrid a lot",
-          "back": "Acabé disfrutando mucho Madrid",
-          "example": "Tiene muy buen ambiente.",
-          "translation": "acabar + gerund = to end up doing something."
-        },
-        {
-          "front": "I helped a friend with his project",
-          "back": "Ayudé a un amigo con su proyecto",
-          "example": "Y aprendí bastante también.",
-          "translation": "ayudar = very common social/professional verb."
-        },
-        {
-          "front": "I avoided talking about the topic",
-          "back": "Evité hablar del tema",
-          "example": "No era el mejor momento.",
-          "translation": "evitar = to avoid."
-        },
-        {
-          "front": "I organized everything last night",
-          "back": "Organicé todo anoche",
-          "example": "Para no ir con prisas hoy.",
-          "translation": "organizar = very useful productivity verb."
-        },
-        {
-          "front": "I prepared for the interview all week",
-          "back": "Me preparé para la entrevista toda la semana",
-          "example": "Quería hacerlo bien.",
-          "translation": "prepararse para = prepare oneself for."
-        },
-        {
-          "front": "I reviewed the document several times",
-          "back": "Revisé el documento varias veces",
-          "example": "No quería cometer errores.",
-          "translation": "revisar = review/check carefully."
-        },
-        {
-          "front": "I fixed the issue this morning",
-          "back": "Arreglé el problema esta mañana",
-          "example": "Al final era una tontería.",
-          "translation": "arreglar = fix/solve."
-        },
-        {
-          "front": "I took advantage of the free time",
-          "back": "Aproveché el tiempo libre",
-          "example": "Y avancé bastante con el libro.",
-          "translation": "aprovechar = to make good use of."
-        },
-        {
-          "front": "I improved a lot this month",
-          "back": "Mejoré muchísimo este mes",
-          "example": "Sobre todo hablando.",
-          "translation": "mejorar = improve."
-        },
-        {
-          "front": "My stress got worse again",
-          "back": "Mi estrés empeoró otra vez",
-          "example": "Tenía demasiadas responsabilidades.",
-          "translation": "empeorar = worsen."
-        },
-        {
-          "front": "I trusted him immediately",
-          "back": "Confié en él inmediatamente",
-          "example": "Me transmitió tranquilidad.",
-          "translation": "confiar en = to trust."
-        },
-        {
-          "front": "I supported my wife during a difficult period",
-          "back": "Apoyé a mi mujer durante una etapa difícil",
-          "example": "Y ella hizo lo mismo conmigo.",
-          "translation": "apoyar = emotional/social support verb."
-        },
-        {
-          "front": "We argued about work again",
-          "back": "Discutimos otra vez sobre el trabajo",
-          "example": "Había mucha tensión.",
-          "translation": "discutir = to argue/discuss intensely."
-        },
-        {
-          "front": "I relaxed a bit this weekend",
-          "back": "Me relajé un poco este fin de semana",
-          "example": "Lo necesitaba muchísimo.",
-          "translation": "relajarse = emotional recovery verb."
-        },
-        {
-          "front": "I got excited about the opportunity",
-          "back": "Me ilusioné con la oportunidad",
-          "example": "Parecía un gran cambio.",
-          "translation": "ilusionarse = to become excited/hopeful."
-        },
-        {
-          "front": "I realized what the real problem was",
-          "back": "Me di cuenta de cuál era el verdadero problema",
-          "example": "Y todo empezó a tener sentido.",
-          "translation": "darse cuenta de = to realize."
-        },
-        {
-          "front": "The situation turned out better than expected",
-          "back": "La situación resultó mejor de lo esperado",
-          "example": "Y me quedé mucho más tranquilo.",
-          "translation": "resultar = to turn out/result."
-        },
-        {
-          "front": "The meeting seemed endless",
-          "back": "La reunión parecía interminable",
-          "example": "Todos estábamos agotados.",
-          "translation": "parecer = to seem/appear."
-        },
-        {
-          "front": "I gradually got used to the rhythm",
-          "back": "Poco a poco me acostumbré al ritmo",
-          "example": "Aunque al principio fue duro.",
-          "translation": "acostumbrarse a = to get used to."
-        },
-        {
-          "front": "I continued learning even when I was tired",
-          "back": "Seguí aprendiendo incluso cuando estaba cansado",
-          "example": "No quería perder el hábito.",
-          "translation": "seguir + gerund/continuation structure."
-        },
-        {
-          "front": "I changed many habits this year",
-          "back": "Cambié muchos hábitos este año",
-          "example": "Y me siento mejor mentalmente.",
-          "translation": "Natural self-improvement context."
-        },
-        {
-          "front": "I tried to explain it clearly",
-          "back": "Intenté explicarlo claramente",
-          "example": "Pero seguían confundidos.",
-          "translation": "Very useful work communication chunk."
-        },
-        {
-          "front": "I managed to disconnect for a while",
-          "back": "Conseguí desconectar un rato",
-          "example": "Y me vino genial.",
-          "translation": "desconectar = mentally disconnect/unwind."
-        },
-        {
-          "front": "I started taking things more calmly",
-          "back": "Empecé a tomarme las cosas con más calma",
-          "example": "Y noté la diferencia.",
-          "translation": "tomarse las cosas con calma = important emotional chunk."
-        },
-        {
-          "front": "I ended up understanding his point",
-          "back": "Acabé entendiendo su punto de vista",
-          "example": "Aunque al principio no estaba de acuerdo.",
-          "translation": "acabar + gerund = eventual realization."
-        },
-        {
-          "front": "I helped organize the event",
-          "back": "Ayudé a organizar el evento",
-          "example": "Y salió bastante bien.",
-          "translation": "Combination of social + productivity verbs."
-        },
-        {
-          "front": "I avoided checking my phone constantly",
-          "back": "Evité mirar el móvil constantemente",
-          "example": "Necesitaba descansar mentalmente.",
-          "translation": "Very modern daily-life chunk."
-        },
-        {
-          "front": "I prepared everything in advance",
-          "back": "Preparé todo con antelación",
-          "example": "Para evitar problemas.",
-          "translation": "con antelación = beforehand/in advance."
-        },
-        {
-          "front": "I reviewed my notes before the meeting",
-          "back": "Revisé mis apuntes antes de la reunión",
-          "example": "Quería sentirme preparado.",
-          "translation": "apuntes = notes."
-        },
-        {
-          "front": "I fixed things with my friend",
-          "back": "Arreglé las cosas con mi amigo",
-          "example": "Y ahora estamos bien otra vez.",
-          "translation": "arreglar las cosas = repair a relationship/problem."
-        },
-        {
-          "front": "I took advantage of the quiet atmosphere",
-          "back": "Aproveché el ambiente tranquilo",
-          "example": "Para leer un poco.",
-          "translation": "ambiente = atmosphere/vibe."
-        },
-        {
-          "front": "I improved little by little",
-          "back": "Mejoré poco a poco",
-          "example": "Sin meterme tanta presión.",
-          "translation": "poco a poco = gradually."
-        },
-        {
-          "front": "Things got worse after the meeting",
-          "back": "Las cosas empeoraron después de la reunión",
-          "example": "Había mucha tensión en el equipo.",
-          "translation": "empeorar often used impersonally with situations."
-        },
-        {
-          "front": "I trusted my instincts",
-          "back": "Confié en mis instintos",
-          "example": "Y al final salió bien.",
-          "translation": "instintos = instincts."
-        },
-        {
-          "front": "I supported him emotionally",
-          "back": "Lo apoyé emocionalmente",
-          "example": "Estaba pasando por un momento duro.",
-          "translation": "pasar por un momento duro = go through a hard moment."
-        },
-        {
-          "front": "We discussed the problem calmly",
-          "back": "Discutimos el problema con calma",
-          "example": "Y encontramos una solución.",
-          "translation": "discutir doesn't always mean aggressive argument."
-        },
-        {
-          "front": "I relaxed after hearing the news",
-          "back": "Me relajé después de escuchar la noticia",
-          "example": "Por fin podía respirar tranquilo.",
-          "translation": "respirar tranquilo = breathe relieved."
-        },
-        {
-          "front": "I got excited again about learning Spanish",
-          "back": "Me ilusioné otra vez con aprender español",
-          "example": "Sentía que avanzaba.",
-          "translation": "Very useful motivation/emotional-learning chunk."
-        },
-        {
-          "front": "I realized I needed balance",
-          "back": "Me di cuenta de que necesitaba equilibrio",
-          "example": "No podía seguir así.",
-          "translation": "Important reflective structure."
-        },
-        {
-          "front": "Everything turned out fine in the end",
-          "back": "Al final todo resultó bien",
-          "example": "Aunque estaba preocupado al principio.",
-          "translation": "Very common natural Spanish closure phrase."
+          "groupName": "Group 5",
+          "cards": [
+            {
+              "front": "I took advantage of the quiet atmosphere",
+              "back": "Aproveché el ambiente tranquilo",
+              "example": "Para leer un poco.",
+              "translation": "ambiente = atmosphere/vibe."
+            },
+            {
+              "front": "I improved little by little",
+              "back": "Mejoré poco a poco",
+              "example": "Sin meterme tanta presión.",
+              "translation": "poco a poco = gradually."
+            },
+            {
+              "front": "Things got worse after the meeting",
+              "back": "Las cosas empeoraron después de la reunión",
+              "example": "Había mucha tensión en el equipo.",
+              "translation": "empeorar often used impersonally with situations."
+            },
+            {
+              "front": "I trusted my instincts",
+              "back": "Confié en mis instintos",
+              "example": "Y al final salió bien.",
+              "translation": "instintos = instincts."
+            },
+            {
+              "front": "I supported him emotionally",
+              "back": "Lo apoyé emocionalmente",
+              "example": "Estaba pasando por un momento duro.",
+              "translation": "pasar por un momento duro = go through a hard moment."
+            },
+            {
+              "front": "We discussed the problem calmly",
+              "back": "Discutimos el problema con calma",
+              "example": "Y encontramos una solución.",
+              "translation": "discutir doesn't always mean aggressive argument."
+            },
+            {
+              "front": "I relaxed after hearing the news",
+              "back": "Me relajé después de escuchar la noticia",
+              "example": "Por fin podía respirar tranquilo.",
+              "translation": "respirar tranquilo = breathe relieved."
+            },
+            {
+              "front": "I got excited again about learning Spanish",
+              "back": "Me ilusioné otra vez con aprender español",
+              "example": "Sentía que avanzaba.",
+              "translation": "Very useful motivation/emotional-learning chunk."
+            },
+            {
+              "front": "I realized I needed balance",
+              "back": "Me di cuenta de que necesitaba equilibrio",
+              "example": "No podía seguir así.",
+              "translation": "Important reflective structure."
+            },
+            {
+              "front": "Everything turned out fine in the end",
+              "back": "Al final todo resultó bien",
+              "example": "Aunque estaba preocupado al principio.",
+              "translation": "Very common natural Spanish closure phrase."
+            }
+          ]
         }
       ]
     },
