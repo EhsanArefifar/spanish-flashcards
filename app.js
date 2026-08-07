@@ -437,6 +437,18 @@ function renderCard() {
   // Populate front
   frontText.textContent = card.front;
 
+  // Optional front example (shown on front face, e.g. Persian context sentence)
+  const frontExampleEl = document.getElementById('card-front-example');
+  if (frontExampleEl) {
+    if (card['front example']) {
+      frontExampleEl.textContent = card['front example'];
+      frontExampleEl.hidden = false;
+    } else {
+      frontExampleEl.textContent = '';
+      frontExampleEl.hidden = true;
+    }
+  }
+
   // Populate back
   backText.textContent = card.back;
 
@@ -547,59 +559,6 @@ function renderProgressIndicator() {
 }
 
 /**
- * Shows the deck-complete screen and hides the card + controls.
- * Requirements: 5.5, 5.6, 5.7, 9.2
- */
-function renderDeckComplete() {
-  const cardEl = document.getElementById('card');
-  const controls = document.getElementById('controls');
-  const deckComplete = document.getElementById('deck-complete');
-  const progressIndicator = document.getElementById('progress-indicator');
-
-  if (cardEl) cardEl.hidden = true;
-  if (controls) controls.hidden = true;
-  if (progressIndicator) progressIndicator.hidden = true;
-  if (deckComplete) deckComplete.hidden = false;
-
-  // Update Review Weak Cards button on complete screen
-  const btnReviewComplete = document.getElementById('btn-review-complete');
-  if (btnReviewComplete && state.activeDeck) {
-    const hasWeakCards = state.activeDeck.cards.some((card, cardIndex) => {
-      let cardId;
-      if (state.activeSubDeckIndex !== -1) {
-        cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
-      } else {
-        cardId = generateCardId(state.activeDeckIndex, cardIndex);
-      }
-      return state.progress[cardId] === 'learning';
-    });
-    if (hasWeakCards) {
-      btnReviewComplete.disabled = false;
-      btnReviewComplete.classList.remove('btn--disabled');
-    } else {
-      btnReviewComplete.disabled = true;
-      btnReviewComplete.classList.add('btn--disabled');
-      btnReviewComplete.title = 'No cards marked as Still Learning in this deck';
-    }
-  }
-}
-
-/**
- * Shows the card and controls (used when leaving deck-complete screen).
- */
-function showCardView() {
-  const cardEl = document.getElementById('card');
-  const controls = document.getElementById('controls');
-  const deckComplete = document.getElementById('deck-complete');
-  const progressIndicator = document.getElementById('progress-indicator');
-
-  if (cardEl) cardEl.hidden = false;
-  if (controls) controls.hidden = false;
-  if (progressIndicator) progressIndicator.hidden = false;
-  if (deckComplete) deckComplete.hidden = true;
-}
-
-/**
  * Shows the error region with a human-readable message.
  * Hides the navigator and viewport.
  * Requirements: 1.3
@@ -644,7 +603,7 @@ function activateDeck(deckIndex) {
   state.isShuffled = false;
   state.isReviewMode = false;
   deriveDisplayCards();
-  showCardView();
+
   renderNavigator();
   renderCard();
 }
@@ -671,7 +630,7 @@ function activateSubDeck(deckIndex, subDeckIndex) {
   state.isShuffled = false;
   state.isReviewMode = false;
   deriveDisplayCards();
-  showCardView();
+
   renderNavigator();
   renderCard();
 }
@@ -697,8 +656,7 @@ function flipCard() {
 /**
  * Navigates to the next (+1) or previous (-1) card.
  * Resets flip state on navigation (Req 5.4).
- * Shows deck-complete screen when advancing past the last card (Req 5.5).
- * Requirements: 5.2, 5.3, 5.4, 5.5
+ * Wraps around when advancing past the last card.
  *
  * @param {number} direction - +1 for next, -1 for previous
  */
@@ -706,8 +664,10 @@ function navigateCard(direction) {
   const newIndex = state.currentIndex + direction;
 
   if (newIndex >= state.displayCards.length) {
-    // Past the last card — show deck complete screen
-    renderDeckComplete();
+    // Past the last card — wrap back to first
+    state.currentIndex = 0;
+    state.isFlipped = false;
+    renderCard();
     return;
   }
 
@@ -717,8 +677,7 @@ function navigateCard(direction) {
   }
 
   state.currentIndex = newIndex;
-  state.isFlipped = false; // Req 5.4
-  showCardView();
+  state.isFlipped = false;
   renderCard();
 }
 
@@ -786,7 +745,7 @@ function toggleShuffle() {
   state.currentIndex = 0;
   state.isFlipped = false;
   deriveDisplayCards();
-  showCardView();
+
   renderCard();
 }
 
@@ -807,7 +766,7 @@ function activateReviewMode() {
     deriveDisplayCards();
   }
 
-  showCardView();
+
   renderCard();
 }
 
@@ -952,12 +911,6 @@ function handleControlsClick(e) {
     case 'btn-review':
       activateReviewMode();
       break;
-    case 'btn-restart':
-      activateDeck(state.activeDeckIndex);
-      break;
-    case 'btn-review-complete':
-      activateReviewMode();
-      break;
     case 'btn-reset':
       resetProgress();
       break;
@@ -1034,10 +987,6 @@ function attachEventListeners() {
   // Deck header (Shuffle, Review Weak Cards)
   const deckHeader = document.querySelector('.deck-header');
   if (deckHeader) deckHeader.addEventListener('click', handleControlsClick);
-
-  // Deck complete screen (Restart, Review Weak Cards)
-  const deckComplete = document.getElementById('deck-complete');
-  if (deckComplete) deckComplete.addEventListener('click', handleControlsClick);
 
   // Reset Progress button
   const resetArea = document.querySelector('.reset-area');

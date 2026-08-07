@@ -63,6 +63,7 @@
           <div class="card__front">
             <!-- Front text populated by renderCard() -->
             <p class="card__text" id="card-front-text"></p>
+            <p class="card__front-example" id="card-front-example"></p>
             <button class="btn btn--speaker" id="btn-speaker" aria-label="Hear pronunciation" title="Hear pronunciation">
               🔊
             </button>
@@ -96,19 +97,6 @@
       <p class="progress-indicator" id="progress-indicator" aria-live="polite">
         <!-- Populated by renderProgressIndicator() -->
       </p>
-
-      <!-- Deck complete screen -->
-      <div class="deck-complete" id="deck-complete" hidden>
-        <p class="deck-complete__message">🎉 Deck complete!</p>
-        <div class="deck-complete__actions">
-          <button class="btn btn--restart" id="btn-restart">
-            ↺ Restart
-          </button>
-          <button class="btn btn--review-complete" id="btn-review-complete">
-            ★ Review Weak Cards
-          </button>
-        </div>
-      </div>
 
       <!-- Reset Progress button -->
       <div class="reset-area">

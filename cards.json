@@ -2,7 +2,7 @@
   "decks": [
     {
       "category": "Verbs",
-      "subcategory": "P-A1-1",
+      "subcategory": "P-A1",
       "subDecks": [
         {
           "groupName": "Group 1",
@@ -198,15 +198,9 @@
               "translation": "Classic Spain social expression."
             }
           ]
-        }
-      ]
-    },
-    {
-      "category": "Verbs",
-      "subcategory": "P-A1-1 Reinforcement",
-      "subDecks": [
+        },
         {
-          "groupName": "Group 1",
+          "groupName": "Group 4",
           "cards": [
             {
               "front": "I went straight home after work",
@@ -271,7 +265,7 @@
           ]
         },
         {
-          "groupName": "Group 2",
+          "groupName": "Group 5",
           "cards": [
             {
               "front": "I found out too late",
@@ -336,7 +330,7 @@
           ]
         },
         {
-          "groupName": "Group 3",
+          "groupName": "Group 6",
           "cards": [
             {
               "front": "I had a terrible headache",
@@ -401,7 +395,7 @@
           ]
         },
         {
-          "groupName": "Group 4",
+          "groupName": "Group 7",
           "cards": [
             {
               "front": "I put all my energy into learning",
@@ -466,7 +460,7 @@
           ]
         },
         {
-          "groupName": "Group 5",
+          "groupName": "Group 8",
           "cards": [
             {
               "front": "I brought up the topic during dinner",
@@ -534,7 +528,7 @@
     },
     {
       "category": "Verbs",
-      "subcategory": "P-A1-2",
+      "subcategory": "P-A2",
       "subDecks": [
         {
           "groupName": "Group 1",
@@ -858,6 +852,740 @@
               "back": "Al final todo resultó bien",
               "example": "Aunque estaba preocupado al principio.",
               "translation": "Very common natural Spanish closure phrase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Verbs",
+      "subcategory": "P-A3",
+      "subDecks": [
+        {
+          "groupName": "Group 1",
+          "cards": [
+            {
+              "front": "I was thinking about changing jobs",
+              "front example": "When suddenly another company called me.",
+              "back": "Estaba pensando en cambiar de trabajo",
+              "example": "Cuando de repente me llamaron de otra empresa.",
+              "translation": "Imperfecto gives the background action; indefinido introduces the event that interrupts it. pensar en = to think about."
+            },
+            {
+              "front": "I was having dinner when he called me",
+              "front example": "I wasn't expecting the call at all.",
+              "back": "Estaba cenando cuando me llamó",
+              "example": "No me esperaba la llamada para nada.",
+              "translation": "Estaba cenando = ongoing background; me llamó = completed interrupting event."
+            },
+            {
+              "front": "I didn't understand what was happening",
+              "front example": "Everything happened very quickly.",
+              "back": "No entendía qué estaba pasando",
+              "example": "Todo ocurrió demasiado rápido.",
+              "translation": "Imperfecto describes the ongoing state of not understanding; ocurrió marks the completed event."
+            },
+            {
+              "front": "I was feeling a bit strange that day",
+              "front example": "I didn't really know why.",
+              "back": "Ese día me sentía un poco raro",
+              "example": "No sabía exactamente por qué.",
+              "translation": "Sentirse in imperfecto describes an ongoing emotional state."
+            },
+            {
+              "front": "I thought everything was going well",
+              "front example": "But then I received some unexpected news.",
+              "back": "Pensaba que todo iba bien",
+              "example": "Pero luego recibí una noticia inesperada.",
+              "translation": "Pensaba + iba = two imperfectos describing a past belief and the background situation."
+            },
+            {
+              "front": "I was about to leave when she arrived",
+              "front example": "So I stayed a little longer.",
+              "back": "Estaba a punto de irme cuando llegó",
+              "example": "Así que me quedé un rato más.",
+              "translation": "Estar a punto de + infinitive = to be about to do something."
+            },
+            {
+              "front": "I used to work from home",
+              "front example": "And I had quite a lot of flexibility.",
+              "back": "Trabajaba desde casa",
+              "example": "Y tenía bastante flexibilidad.",
+              "translation": "Imperfecto expresses a repeated or habitual past situation."
+            },
+            {
+              "front": "I used to go there every Friday",
+              "front example": "But I haven't been there for months.",
+              "back": "Iba allí todos los viernes",
+              "example": "Pero hace meses que no voy.",
+              "translation": "Ir → iba. Imperfecto is natural with repeated past habits."
+            },
+            {
+              "front": "I didn't use to understand this",
+              "front example": "Now it seems much clearer to me.",
+              "back": "Antes no entendía esto",
+              "example": "Ahora me resulta mucho más claro.",
+              "translation": "Antes + imperfecto describes a past state that has changed."
+            },
+            {
+              "front": "I was trying to explain the situation",
+              "front example": "But nobody seemed to be listening to me.",
+              "back": "Estaba intentando explicar la situación",
+              "example": "Pero nadie parecía escucharme.",
+              "translation": "Estaba intentando = ongoing attempt. intentar + infinitive = to try to do something."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 2",
+          "cards": [
+            {
+              "front": "Nobody seemed to understand",
+              "front example": "So I had to explain it again.",
+              "back": "Nadie parecía entenderlo",
+              "example": "Así que tuve que explicarlo otra vez.",
+              "translation": "Parecer = to seem. Tuve que = I had to, a completed past obligation."
+            },
+            {
+              "front": "I didn't know what to say",
+              "front example": "My mind went completely blank.",
+              "back": "No sabía qué decir",
+              "example": "Me quedé completamente en blanco.",
+              "translation": "Saber → sabía. No sabía qué decir is a very common conversational pattern."
+            },
+            {
+              "front": "I was worried about what might happen",
+              "front example": "But I tried not to think about it too much.",
+              "back": "Me preocupaba lo que pudiera pasar",
+              "example": "Pero intenté no darle demasiadas vueltas.",
+              "translation": "Preocuparse describes an ongoing concern. darle vueltas a algo = to overthink something."
+            },
+            {
+              "front": "I kept telling myself that everything would be fine",
+              "front example": "Even though I was quite nervous inside.",
+              "back": "Me repetía que todo saldría bien",
+              "example": "Aunque por dentro estaba bastante nervioso.",
+              "translation": "Me repetía = repeated background action. Saldría = conditional for future viewed from a past perspective."
+            },
+            {
+              "front": "I didn't expect it to happen so quickly",
+              "front example": "It completely caught me by surprise.",
+              "back": "No esperaba que ocurriera tan rápido",
+              "example": "Me pilló completamente por sorpresa.",
+              "translation": "No esperaba = imperfecto for an expectation at that time. ocurrir is imperfect subjunctive after esperaba que."
+            },
+            {
+              "front": "I was getting used to the new routine",
+              "front example": "At first it was quite difficult for me.",
+              "back": "Me estaba acostumbrando a la nueva rutina",
+              "example": "Al principio me costaba bastante.",
+              "translation": "Estar + gerund expresses an ongoing process. acostumbrarse a = to get used to."
+            },
+            {
+              "front": "At first, everything felt strange",
+              "front example": "But little by little I adapted to the new situation.",
+              "back": "Al principio todo resultaba extraño",
+              "example": "Pero poco a poco me fui adaptando.",
+              "translation": "Resultar = to seem/turn out. adaptarse = to adapt."
+            },
+            {
+              "front": "I was slowly getting better",
+              "front example": "And little by little I regained my confidence.",
+              "back": "Poco a poco iba mejorando",
+              "example": "Y empecé a recuperar la confianza.",
+              "translation": "Ir + gerund emphasizes gradual progression. recuperar = to recover/regain."
+            },
+            {
+              "front": "I didn't realize how tired I was",
+              "front example": "Until I got home.",
+              "back": "No me daba cuenta de lo cansado que estaba",
+              "example": "Hasta que llegué a casa.",
+              "translation": "Darse cuenta in imperfecto describes an ongoing lack of awareness; llegué marks the specific moment."
+            },
+            {
+              "front": "When I arrived, everyone was already eating",
+              "front example": "So I sat down with them.",
+              "back": "Cuando llegué, todos ya estaban comiendo",
+              "example": "Así que me senté con ellos.",
+              "translation": "Llegué = completed event; estaban comiendo = ongoing background action."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 3",
+          "cards": [
+            {
+              "front": "I wanted to leave, but I stayed",
+              "front example": "In the end, the conversation became interesting.",
+              "back": "Quería irme, pero me quedé",
+              "example": "Al final la conversación se puso interesante.",
+              "translation": "Quería = intention/background state; me quedé = completed decision/action."
+            },
+            {
+              "front": "I felt more confident after that",
+              "front example": "And I started speaking more easily.",
+              "back": "Después de eso me sentí más seguro",
+              "example": "Y empecé a hablar con más soltura.",
+              "translation": "Sentirse in indefinido marks a change in emotional state. con soltura = fluently/naturally."
+            },
+            {
+              "front": "I realized I was overthinking everything",
+              "front example": "And I decided to stop doing it so much.",
+              "back": "Me di cuenta de que estaba dándole demasiadas vueltas a todo",
+              "example": "Y decidí parar un poco.",
+              "translation": "Me di cuenta = completed realization; estaba dándole vueltas = ongoing mental process."
+            },
+            {
+              "front": "I was looking for a solution",
+              "front example": "When suddenly an idea came to me.",
+              "back": "Estaba buscando una solución",
+              "example": "Cuando se me ocurrió una idea.",
+              "translation": "Estaba buscando = background action. ocurrírsele algo a alguien = for an idea to occur to someone."
+            },
+            {
+              "front": "I suddenly had an idea",
+              "front example": "And everything started to make sense.",
+              "back": "De repente se me ocurrió una idea",
+              "example": "Y todo empezó a encajar.",
+              "translation": "Ocurrírsele algo a alguien = to suddenly think of/have an idea. encajar = to fit/make sense."
+            },
+            {
+              "front": "I was expecting something different",
+              "front example": "But reality was different.",
+              "back": "Me esperaba algo diferente",
+              "example": "Pero la realidad fue otra.",
+              "translation": "Esperarse algo = to expect something. The reflexive form is very common in conversation."
+            },
+            {
+              "front": "I didn't feel like going out",
+              "front example": "I preferred to stay at home.",
+              "back": "No me apetecía salir",
+              "example": "Prefería quedarme en casa.",
+              "translation": "Apetecer = to feel like/want to do something. Very useful Spain Spanish verb."
+            },
+            {
+              "front": "I felt like having a coffee",
+              "front example": "So I went to a café.",
+              "back": "Me apetecía tomar un café",
+              "example": "Así que fui a una cafetería.",
+              "translation": "Me apetecía = I felt like having. Apetecer is normally used with an indirect-object structure."
+            },
+            {
+              "front": "I was enjoying the evening",
+              "front example": "When it started raining.",
+              "back": "Estaba disfrutando de la noche",
+              "example": "Cuando empezó a llover.",
+              "translation": "Estaba disfrutando = ongoing action interrupted by empezó."
+            },
+            {
+              "front": "We were having a great time",
+              "front example": "Until we had to leave.",
+              "back": "Nos lo estábamos pasando genial",
+              "example": "Hasta que tuvimos que irnos.",
+              "translation": "Pasárselo genial = to have a great time. Very natural conversational Spanish."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 4",
+          "cards": [
+            {
+              "front": "I was talking to a friend when I got the news",
+              "front example": "It really surprised me.",
+              "back": "Estaba hablando con un amigo cuando me enteré de la noticia",
+              "example": "Me dejó bastante sorprendido.",
+              "translation": "Estaba hablando = background; me enteré = completed discovery. enterarse de = to find out."
+            },
+            {
+              "front": "I had been thinking about it for days",
+              "front example": "But I still hadn't made a decision.",
+              "back": "Llevaba días pensando en ello",
+              "example": "Pero todavía no había tomado una decisión.",
+              "translation": "Llevar + time + gerund = to have been doing something for a period of time."
+            },
+            {
+              "front": "I was becoming more comfortable speaking Spanish",
+              "front example": "And that really encouraged me.",
+              "back": "Me estaba sintiendo más cómodo hablando español",
+              "example": "Y eso me animó bastante.",
+              "translation": "Ongoing emotional development uses imperfecto/progressive structure. animar = encourage/cheer up."
+            },
+            {
+              "front": "I was afraid of making a mistake",
+              "front example": "But every time I worried about it less.",
+              "back": "Tenía miedo de equivocarme",
+              "example": "Pero cada vez me preocupaba menos.",
+              "translation": "Tener miedo de + infinitive = to be afraid of doing something."
+            },
+            {
+              "front": "I didn't want to interrupt you",
+              "front example": "So I waited until you finished speaking.",
+              "back": "No quería interrumpirte",
+              "example": "Por eso esperé a que terminaras.",
+              "translation": "Quería = imperfecto because it describes intention at that moment. esperar a que + subjunctive is required."
+            },
+            {
+              "front": "I was wondering if you could help me",
+              "front example": "It's a fairly quick thing.",
+              "back": "Me preguntaba si podrías ayudarme",
+              "example": "Es una cosa bastante rápida.",
+              "translation": "Me preguntaba = softens a request. podrías = conditional for politeness."
+            },
+            {
+              "front": "I thought you were going to come",
+              "front example": "That's why I didn't message you.",
+              "back": "Pensaba que ibas a venir",
+              "example": "Por eso no te escribí.",
+              "translation": "Pensaba = past belief; ibas a venir = near/future-in-the-past construction."
+            },
+            {
+              "front": "I was going to call you",
+              "front example": "But it got very late.",
+              "back": "Iba a llamarte",
+              "example": "Pero se me hizo tardísimo.",
+              "translation": "Ir a + infinitive in imperfecto expresses an intended future action from a past perspective. hacerse tarde = to get late."
+            },
+            {
+              "front": "I was having a bad day",
+              "front example": "And everything was annoying me.",
+              "back": "Estaba teniendo un día malo",
+              "example": "Y cualquier cosa me molestaba.",
+              "translation": "Imperfecto describes the ongoing state/background of the day. molestar = to bother/annoy."
+            },
+            {
+              "front": "Everything was going according to plan",
+              "front example": "Until a problem came up.",
+              "back": "Todo iba según lo previsto",
+              "example": "Hasta que surgió un problema.",
+              "translation": "Ir = to go/progress. surgir = to arise/come up."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 5",
+          "cards": [
+            {
+              "front": "Then an unexpected problem came up",
+              "front example": "And we had to change our plans.",
+              "back": "Entonces surgió un problema inesperado",
+              "example": "Y tuvimos que cambiar de planes.",
+              "translation": "Surgir = to arise. Indefinido marks the new event in the story."
+            },
+            {
+              "front": "We had to change our plans",
+              "front example": "But in the end everything went well.",
+              "back": "Tuvimos que cambiar de planes",
+              "example": "Pero al final salió todo bien.",
+              "translation": "Tuvimos que = completed past obligation. cambiar de planes = change plans."
+            },
+            {
+              "front": "In the end, everything worked out",
+              "front example": "Although at first things looked pretty bad.",
+              "back": "Al final todo salió bien",
+              "example": "Aunque al principio pintaba bastante mal.",
+              "translation": "Salir bien = to work out well. Pintar mal = to look bad/not look promising."
+            },
+            {
+              "front": "At first it looked complicated",
+              "front example": "I no longer had to think about it so much.",
+              "back": "Al principio parecía complicado",
+              "example": "Ya no tenía que pensar tanto.",
+              "translation": "Parecía = background impression. parecer = to seem."
+            },
+            {
+              "front": "Once I got the hang of it, it became easier",
+              "front example": "I no longer had to think about it so much.",
+              "back": "Cuando le cogí el tranquillo, se volvió más fácil",
+              "example": "Ya no tenía que pensar tanto.",
+              "translation": "Cogerle el tranquillo a algo = to get the hang of it. Very useful colloquial expression."
+            },
+            {
+              "front": "I was slowly getting the hang of it",
+              "front example": "And every time it came out more naturally.",
+              "back": "Poco a poco le iba cogiendo el tranquillo",
+              "example": "Y cada vez me salía con más naturalidad.",
+              "translation": "Iba + gerund emphasizes gradual progress. salir con naturalidad = come out naturally."
+            },
+            {
+              "front": "I felt like I was making progress",
+              "front example": "And that gave me quite a lot of motivation.",
+              "back": "Sentía que estaba avanzando",
+              "example": "Y eso me daba bastante motivación.",
+              "translation": "Sentía = ongoing perception; estaba avanzando = ongoing progress."
+            },
+            {
+              "front": "I finally realized what I had been doing wrong",
+              "front example": "And since then I've tried to avoid it.",
+              "back": "Por fin me di cuenta de lo que estaba haciendo mal",
+              "example": "Y desde entonces intento evitarlo.",
+              "translation": "Completed realization + imperfect progressive action. desde entonces = since then."
+            },
+            {
+              "front": "I was making the same mistake over and over",
+              "front example": "Until someone pointed it out to me.",
+              "back": "Cometía el mismo error una y otra vez",
+              "example": "Hasta que alguien me lo señaló.",
+              "translation": "Imperfecto for repeated past behavior. señalar = to point something out."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Verbs",
+      "subcategory": "P-A4",
+      "subDecks": [
+        {
+          "groupName": "Group 1",
+          "cards": [
+            {
+              "front": "I'll deal with it tomorrow",
+              "front example": "Today I need to disconnect from everything for a while.",
+              "back": "Mañana me encargaré de ello",
+              "example": "Hoy necesito desconectar.",
+              "translation": "Future for a future intention. encargarse de = to take care of/deal with."
+            },
+            {
+              "front": "I'll let you know",
+              "front example": "As soon as I have any news.",
+              "back": "Te avisaré",
+              "example": "En cuanto tenga noticias.",
+              "translation": "Avisar = to let someone know/inform someone. Very useful everyday verb."
+            },
+            {
+              "front": "I'll keep you updated",
+              "front example": "If anything changes, I'll let you know.",
+              "back": "Te mantendré al tanto",
+              "example": "Si cambia algo, te aviso.",
+              "translation": "Mantener al tanto = to keep someone informed. Natural professional/social phrase."
+            },
+            {
+              "front": "I'll probably stay home tonight",
+              "front example": "I'm very tired.",
+              "back": "Probablemente me quedaré en casa esta noche",
+              "example": "Estoy bastante cansado.",
+              "translation": "Future expresses a prediction/intention. quedarse = to stay."
+            },
+            {
+              "front": "He'll probably be at work",
+              "front example": "That's why he's not answering.",
+              "back": "Estará trabajando",
+              "example": "Por eso no contesta.",
+              "translation": "Future can express present probability: estará = he is probably."
+            },
+            {
+              "front": "That must be expensive",
+              "front example": "It looks like it costs quite a lot.",
+              "back": "Eso será caro",
+              "example": "Tiene pinta de costar bastante.",
+              "translation": "Future probability is very common in Spanish for guesses about the present. tener pinta de = look/seem likely to."
+            },
+            {
+              "front": "What time will you arrive?",
+              "front example": "Let me know when you're nearby.",
+              "back": "¿A qué hora llegarás?",
+              "example": "Avísame cuando estés cerca.",
+              "translation": "Future for asking about a future event. cuando + future reference takes present subjunctive."
+            },
+            {
+              "front": "I'll see what I can do",
+              "front example": "But I don't promise anything.",
+              "back": "Veré qué puedo hacer",
+              "example": "Pero no te prometo nada.",
+              "translation": "Veré = I will see. Useful when you cannot promise a result."
+            },
+            {
+              "front": "I'll try to sort it out",
+              "front example": "And I'll tell you as soon as I know more.",
+              "back": "Intentaré solucionarlo",
+              "example": "Y te cuento algo en cuanto sepa más.",
+              "translation": "Intentaré = future of intentar. solucionar = to solve/fix an issue."
+            },
+            {
+              "front": "I'll probably need more time",
+              "front example": "I don't want to do it in a rush.",
+              "back": "Probablemente necesitaré más tiempo",
+              "example": "No quiero hacerlo con prisas.",
+              "translation": "Future prediction + necesitar = to need. con prisas = in a rush."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 2",
+          "cards": [
+            {
+              "front": "Could you give me a hand?",
+              "front example": "I only have one more thing left to finish.",
+              "back": "¿Podrías echarme una mano?",
+              "example": "Solo me queda una cosa por terminar.",
+              "translation": "Conditional for polite requests. echar una mano = to give a hand/help."
+            },
+            {
+              "front": "Would you mind waiting a moment?",
+              "front example": "I have to finish this first.",
+              "back": "¿Te importaría esperar un momento?",
+              "example": "Tengo que terminar esto primero.",
+              "translation": "Te importaría = very polite conditional request. importar = to mind."
+            },
+            {
+              "front": "I would like to ask you something",
+              "front example": "It's a slightly sensitive topic.",
+              "back": "Me gustaría preguntarte una cosa",
+              "example": "Es un tema un poco delicado.",
+              "translation": "Me gustaría = I would like. Conditional gives politeness and softens the request."
+            },
+            {
+              "front": "I'd rather stay at home",
+              "front example": "I don't feel like going out today.",
+              "back": "Preferiría quedarme en casa",
+              "example": "Hoy no me apetece salir.",
+              "translation": "Preferiría = I would rather. Conditional expresses preference politely."
+            },
+            {
+              "front": "I would probably do the same",
+              "front example": "I don't see many alternatives.",
+              "back": "Probablemente haría lo mismo",
+              "example": "No veo muchas alternativas.",
+              "translation": "Conditional expresses a hypothetical reaction. alternativa = alternative."
+            },
+            {
+              "front": "I wouldn't do that if I were you",
+              "front example": "But obviously it's your decision.",
+              "back": "Yo no haría eso si fuera tú",
+              "example": "Pero evidentemente es decisión tuya.",
+              "translation": "Classic hypothetical: conditional + imperfect subjunctive. fuera = imperfect subjunctive of ser."
+            },
+            {
+              "front": "If I had more time, I'd travel more",
+              "front example": "But right now I don't have much time.",
+              "back": "Si tuviera más tiempo, viajaría más",
+              "example": "Pero ahora mismo voy bastante justo.",
+              "translation": "Si + imperfect subjunctive + conditional = hypothetical present situation. ir justo de tiempo = have little time."
+            },
+            {
+              "front": "If I could, I'd take a few days off",
+              "front example": "I need to disconnect from everything for a while.",
+              "back": "Si pudiera, me tomaría unos días libres",
+              "example": "Necesito desconectar un poco.",
+              "translation": "Pudiera = imperfect subjunctive; me tomaría = conditional. tomarse días libres = take days off."
+            },
+            {
+              "front": "If I were you, I'd talk to her first",
+              "front example": "That way you could avoid misunderstandings.",
+              "back": "Si fuera tú, hablaría con ella primero",
+              "example": "Así evitarías malentendidos.",
+              "translation": "Standard advice structure: si fuera tú + conditional. malentendido = misunderstanding."
+            },
+            {
+              "front": "I'd be happier if I had more free time",
+              "front example": "I've been extremely busy lately.",
+              "back": "Sería más feliz si tuviera más tiempo libre",
+              "example": "Últimamente voy demasiado a tope.",
+              "translation": "Conditional expresses the hypothetical result; imperfect subjunctive expresses the hypothetical condition. ir a tope = be extremely busy."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 3",
+          "cards": [
+            {
+              "front": "I would have done it differently",
+              "front example": "But at that time I didn't have all the information.",
+              "back": "Lo habría hecho de otra manera",
+              "example": "Pero en aquel momento no tenía toda la información.",
+              "translation": "Conditional perfect = habría + participle. Used for hypothetical actions in the past."
+            },
+            {
+              "front": "I would have called you, but I didn't have your number",
+              "front example": "I remembered too late.",
+              "back": "Te habría llamado, pero no tenía tu número",
+              "example": "Me acordé demasiado tarde.",
+              "translation": "Habría llamado = unrealized past action. Imperfecto describes the background reason."
+            },
+            {
+              "front": "I should probably reconsider it",
+              "front example": "There are several factors I hadn't considered.",
+              "back": "Probablemente debería replanteármelo",
+              "example": "Hay algunos factores que no había considerado.",
+              "translation": "Debería = conditional of deber, often used for advice or soft self-recommendation. replanteárselo = reconsider it."
+            },
+            {
+              "front": "You should give it another thought",
+              "front example": "You don't have to decide today.",
+              "back": "Deberías pensártelo otra vez",
+              "example": "No tienes que decidirlo hoy.",
+              "translation": "Deberías = soft advice. pensárselo = to think something over."
+            },
+            {
+              "front": "It would be better to wait",
+              "front example": "That way we'll have more information.",
+              "back": "Sería mejor esperar",
+              "example": "Así tendremos más información.",
+              "translation": "Sería mejor = it would be better. Conditional softens advice."
+            },
+            {
+              "front": "It wouldn't hurt to ask",
+              "front example": "Worst case, they'll say no.",
+              "back": "No estaría de más preguntar",
+              "example": "Como mucho, te dirán que no.",
+              "translation": "No estaría de más = it wouldn't hurt / it wouldn't be a bad idea. Very useful idiomatic phrase."
+            },
+            {
+              "front": "Maybe we should postpone it",
+              "front example": "We don't have enough time right now.",
+              "back": "Quizá deberíamos aplazarlo",
+              "example": "Ahora mismo no tenemos tiempo suficiente.",
+              "translation": "Deberíamos = conditional advice. aplazar = postpone."
+            },
+            {
+              "front": "I'd suggest talking to your manager",
+              "front example": "Maybe they can give you a hand.",
+              "back": "Yo sugeriría hablar con tu jefe",
+              "example": "Quizá pueda echarte una mano.",
+              "translation": "Sugeriría = conditional makes the suggestion less forceful. echar una mano = help."
+            },
+            {
+              "front": "I'd avoid making a decision right now",
+              "front example": "I'd wait until I had more information.",
+              "back": "Yo evitaría tomar una decisión ahora mismo",
+              "example": "Esperaría a tener más datos.",
+              "translation": "Evitaría = I would avoid. Conditional expresses cautious advice."
+            },
+            {
+              "front": "I'd take the opportunity if I were you",
+              "front example": "Opportunities like this don't come along very often.",
+              "back": "Yo aprovecharía la oportunidad si fuera tú",
+              "example": "No se presentan muchas así.",
+              "translation": "Aprovechar = make use of/take advantage of. Hypothetical advice structure."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 4",
+          "cards": [
+            {
+              "front": "I might go if the weather improves",
+              "front example": "We'll see what happens tomorrow.",
+              "back": "Igual voy si mejora el tiempo",
+              "example": "Ya veremos mañana.",
+              "translation": "Igual + present can mean 'maybe/perhaps' in colloquial Spain Spanish."
+            },
+            {
+              "front": "Maybe I'll join you later",
+              "front example": "It depends on how the afternoon goes.",
+              "back": "Igual me uno a vosotros más tarde",
+              "example": "Depende de cómo vaya la tarde.",
+              "translation": "Igual = maybe/perhaps in colloquial Spain. unirse = to join."
+            },
+            {
+              "front": "I'll probably have finished by then",
+              "front example": "So we can meet without any problem.",
+              "back": "Para entonces probablemente ya habré terminado",
+              "example": "Así que podremos quedar sin problema.",
+              "translation": "Future perfect = habré + participle. Used for an action completed before a future point."
+            },
+            {
+              "front": "By next month, I'll have finished the course",
+              "front example": "After that I want to start another one.",
+              "back": "Para el mes que viene habré terminado el curso",
+              "example": "Después quiero ponerme con otro.",
+              "translation": "Future perfect emphasizes completion before a future deadline. ponerse con = start working on."
+            },
+            {
+              "front": "By the time you arrive, I'll already have left",
+              "front example": "But I'll leave the keys for you.",
+              "back": "Cuando llegues, ya me habré ido",
+              "example": "Pero te dejo las llaves.",
+              "translation": "Me habré ido = future perfect of irse. When referring to the future, Spanish uses subjunctive after cuando."
+            },
+            {
+              "front": "I would have finished earlier if I hadn't been interrupted",
+              "front example": "I lost almost an hour because of that.",
+              "back": "Habría terminado antes si no me hubieran interrumpido",
+              "example": "Perdí casi una hora con eso.",
+              "translation": "Conditional perfect + pluperfect subjunctive = unreal past condition and result."
+            },
+            {
+              "front": "I would have accepted if the conditions had been different",
+              "front example": "But it wasn't worth it for me.",
+              "back": "Habría aceptado si las condiciones hubieran sido diferentes",
+              "example": "Pero no me compensaba.",
+              "translation": "Past hypothetical. compensar = to be worth it/pay off."
+            },
+            {
+              "front": "What would you do in my situation?",
+              "front example": "I need an honest opinion.",
+              "back": "¿Qué harías tú en mi situación?",
+              "example": "Necesito una opinión sincera.",
+              "translation": "Conditional is used for hypothetical questions and advice."
+            },
+            {
+              "front": "What would you have done?",
+              "front example": "I want to know how you would have approached it.",
+              "back": "¿Qué habrías hecho tú?",
+              "example": "Quiero saber cómo lo habrías planteado.",
+              "translation": "Conditional perfect asks about an alternative past action. plantear = approach/frame a problem."
+            },
+            {
+              "front": "I would never have imagined that",
+              "front example": "A few years ago, it would have seemed impossible to me.",
+              "back": "Nunca me habría imaginado eso",
+              "example": "Hace unos años me habría parecido imposible.",
+              "translation": "Habría imaginado = unrealized past perspective. Useful for expressing surprise."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 5",
+          "cards": [
+            {
+              "front": "A few years ago, I would have found this impossible",
+              "front example": "And now it's part of my everyday life.",
+              "back": "Hace unos años me habría parecido imposible",
+              "example": "Y ahora forma parte de mi día a día.",
+              "translation": "Habría parecido = conditional perfect for a hypothetical past perspective."
+            },
+            {
+              "front": "I think I'll need to rethink my approach",
+              "front example": "Some things aren't working.",
+              "back": "Creo que tendré que replantearme el enfoque",
+              "example": "Hay cosas que no están funcionando.",
+              "translation": "Tendré que = I will have to. replantearse = reconsider/rethink; enfoque = approach."
+            },
+            {
+              "front": "I'll probably end up changing my mind",
+              "front example": "The same thing always happens to me.",
+              "back": "Probablemente acabaré cambiando de opinión",
+              "example": "Siempre me pasa lo mismo.",
+              "translation": "Acabar + gerund in future = will end up doing something."
+            },
+            {
+              "front": "I wouldn't rule it out",
+              "front example": "But I wouldn't get my hopes up either.",
+              "back": "No lo descartaría",
+              "example": "Pero tampoco me haría muchas ilusiones.",
+              "translation": "Descartar = rule out/discard. Conditional softens the statement."
+            },
+            {
+              "front": "I wouldn't get my hopes up",
+              "front example": "Until we have something confirmed.",
+              "back": "No me haría muchas ilusiones",
+              "example": "Hasta que tengamos algo confirmado.",
+              "translation": "Hacerse ilusiones = get one's hopes up. Very natural emotional expression."
+            },
+            {
+              "front": "That would make a huge difference",
+              "front example": "Especially in the long term.",
+              "back": "Eso supondría una gran diferencia",
+              "example": "Sobre todo a largo plazo.",
+              "translation": "Suponer = mean/represent/entail. Conditional is useful for hypothetical consequences."
+            },
+            {
+              "front": "It would be worth it",
+              "front example": "If it really helps you make progress.",
+              "back": "Merecería la pena",
+              "example": "Si realmente te ayuda a avanzar.",
+              "translation": "Merecer la pena = to be worth it. Conditional expresses hypothetical value."
             }
           ]
         }
