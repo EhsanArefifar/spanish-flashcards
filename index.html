@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spanish Flashcards</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -62,9 +62,11 @@
         <div class="card__inner">
           <div class="card__front">
             <!-- Front text populated by renderCard() -->
+            <p class="card__context" id="card-context" lang="es" hidden></p>
             <p class="card__text" id="card-front-text"></p>
             <p class="card__front-example" id="card-front-example"></p>
-            <button class="btn btn--speaker" id="btn-speaker" aria-label="Hear pronunciation" title="Hear pronunciation">
+            <p class="card__fa" id="card-front-fa" lang="fa" dir="rtl" hidden></p>
+            <button class="btn btn--speaker" id="btn-speaker" data-face="front" aria-label="Hear the Spanish" title="Hear the Spanish">
               🔊
             </button>
           </div>
@@ -73,6 +75,10 @@
             <p class="card__text" id="card-back-text"></p>
             <p class="card__example" id="card-example"></p>
             <p class="card__translation" id="card-translation"></p>
+            <ul class="card__fa-list" id="card-back-fa" hidden></ul>
+            <button class="btn btn--speaker" id="btn-speaker-back" data-face="back" aria-label="Hear the Spanish answer" title="Hear the Spanish answer">
+              🔊
+            </button>
           </div>
         </div>
       </div>
@@ -114,6 +120,6 @@
     <!-- Populated by renderError() -->
   </div>
 
-  <script defer src="app.js"></script>
+  <script defer src="app.js?v=2"></script>
 </body>
 </html>

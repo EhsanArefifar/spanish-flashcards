@@ -10,7 +10,7 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 - **Deck**: A collection of flashcards sharing a `category` and `subcategory`, defined as one object in `cards.json`. A deck may be a flat card list or a hierarchical deck with sub-decks.
 - **Sub-Deck**: A named group of cards within a hierarchical deck (e.g. "Group 1", "Group 2"). Sub-decks are defined inside a `subDecks` array on a parent deck and allow large decks to be split into smaller, manageable groups.
 - **Card**: A single flashcard object with required `front` (Spanish) and `back` (English) fields, and optional `example` and `translation` fields
-- **Card_ID**: A unique string identifier derived from a card's deck and position, used as the key in localStorage progress storage. For flat decks: `deck-{deckIndex}-card-{cardIndex}`. For sub-decks: `deck-{deckIndex}-sub-{subDeckIndex}-card-{cardIndex}`.
+- **Card_ID**: A string identifier derived from a hash of a card's `front` + `back`, used as the key in localStorage progress storage. It does not depend on the card's position, so reorganising decks never moves progress onto other cards.
 - **Navigator**: The sidebar or top navigation component that lists categories, subcategories, and (for hierarchical decks) collapsible sub-deck groups
 - **Viewport**: The central area of the UI where the active card is displayed
 - **Progress**: The per-card study status, either `"known"` or `"learning"`, persisted in localStorage
@@ -123,7 +123,7 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 2. WHEN the App initializes, THE App SHALL read all stored Progress from localStorage and apply it to the loaded card data before rendering
 3. THE App SHALL store Progress for each Deck independently so that cards in different Decks do not share state
 4. THE App SHALL provide a "Reset Progress" button that clears all stored Progress from localStorage
-5. WHEN the user activates "Reset Progress", THE App SHALL remove all Progress entries from localStorage and re-render the current view with no statuses applied
+5. WHEN the user activates "Reset Progress", THE App SHALL ask for confirmation and, if confirmed, remove all Progress entries from localStorage and re-render the current view with no statuses applied
 
 ---
 
@@ -160,8 +160,8 @@ A static, client-side flashcard application for learning Spanish vocabulary and 
 
 #### Acceptance Criteria
 
-1. WHILE a Card is displayed, THE Viewport SHALL show a speaker icon button on the card front
-2. WHEN the user clicks the speaker icon, THE App SHALL use the SpeechSynthesis API to speak the `front` field text with language set to `es-ES`
+1. WHILE a Card is displayed, THE Viewport SHALL show a speaker icon button on each card face that contains Spanish text, and no speaker button on a face without Spanish
+2. WHEN the user clicks a speaker icon, THE App SHALL use the SpeechSynthesis API to speak the Spanish text of that face (front: `context`, or `front` for Spanish-front decks; back: `back` + `example` for decks with `"frontLanguage": "en"`, otherwise `example`) with language set to `es-ES`
 3. WHERE the browser does not support the SpeechSynthesis API, THE App SHALL hide the speaker icon button
 
 ---

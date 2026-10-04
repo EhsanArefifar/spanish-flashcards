@@ -6,9 +6,9 @@
  *
  * Sections (added incrementally across tasks):
  *   1. State object
- *   2. Pure data functions: generateCardId, shuffleDeck, getWeakCards, deriveDisplayCards
- *   3. Initialization & progress persistence
- *   4. Rendering functions: renderNavigator, renderCard, renderProgressIndicator, renderDeckComplete, renderError
+ *   2. Pure data functions: cyrb53, getCardId, getGroupKey, getReviewStatus, getSpeechText, shuffleDeck, getWeakCards, deriveDisplayCards
+ *   3. Initialization & progress persistence: loadProgressFromStorage, saveProgress, migrateLegacyProgress, initApp
+ *   4. Rendering functions: renderNavigator, renderCard, renderProgressIndicator, renderError
  *   5. State mutations: activateDeck, activateFirstDeck, flipCard, navigateCard, markCard, resetProgress, toggleShuffle, activateReviewMode
  *   6. Event handlers: handleNavClick, handleCardClick, handleKeyDown, handleControlsClick, handleSpeakerClick, attachEventListeners
  */
@@ -27,7 +27,9 @@ const state = {
   isFlipped: false,    // boolean
   isShuffled: false,   // boolean
   isReviewMode: false, // boolean
-  progress: {}         // Record<CardId, "known" | "learning">
+  progress: {},        // Record<CardId, "known" | "learning">
+  practice: {},        // Record<GroupKey, { last: "YYYY-MM-DD", sessions: number }>
+  migratedFromV1: false // true once old position-based progress has been converted
 };
 
 // ---------------------------------------------------------------------------
@@ -35,28 +37,122 @@ const state = {
 // ---------------------------------------------------------------------------
 
 /**
- * Derives a stable, unique string key for a card based on its position in the
- * original (unshuffled) decks array. Used as the localStorage progress key.
+ * 53-bit string hash (cyrb53, public domain). Used to derive stable card IDs.
  *
- * @param {number} deckIndex  - Index of the deck in state.decks
- * @param {number} cardIndex  - Index of the card within that deck's cards array
+ * @param {string} str
+ * @returns {number}
+ */
+function cyrb53(str) {
+  let h1 = 0xdeadbeef;
+  let h2 = 0x41c6ce57;
+  for (let i = 0; i < str.length; i++) {
+    const ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+  h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+  h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+}
+
+const cardIdCache = new WeakMap();
+
+/**
+ * Derives a stable Card_ID from the card's content (front + back), so progress
+ * stays attached to the card when decks or groups are reordered, renamed or
+ * merged. Editing a card's front or back gives it a new ID, which resets its
+ * progress — intended, since the sentence to learn has changed.
+ *
+ * @param {Object} card
  * @returns {string}
  */
-function generateCardId(deckIndex, cardIndex) {
-  return `deck-${deckIndex}-card-${cardIndex}`;
+function getCardId(card) {
+  let id = cardIdCache.get(card);
+  if (!id) {
+    id = 'c' + cyrb53(`${(card.front || '').trim()}\u241F${(card.back || '').trim()}`).toString(36);
+    cardIdCache.set(card, id);
+  }
+  return id;
+}
+
+/** Days until a group is due again, indexed by how many days it has been practised. */
+const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
+
+/**
+ * Stable key for a study group, e.g. "W-1 › Group 1 · Stand-up: done", or the
+ * subcategory name for a flat deck. Matches the title shown above the card.
+ *
+ * @param {number} deckIndex
+ * @param {number} subDeckIndex - -1 for a flat deck
+ * @returns {string}
+ */
+function getGroupKey(deckIndex, subDeckIndex) {
+  const deck = state.decks[deckIndex];
+  if (subDeckIndex === -1) return deck.subcategory;
+  return `${deck.subcategory} › ${deck.subDecks[subDeckIndex].groupName}`;
+}
+
+/** Local calendar date as "YYYY-MM-DD". */
+function todayString(date = new Date()) {
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${date.getFullYear()}-${month}-${day}`;
+}
+
+/** Whole days from one "YYYY-MM-DD" date to another (DST-safe). */
+function daysBetween(from, to) {
+  const [fy, fm, fd] = from.split('-').map(Number);
+  const [ty, tm, td] = to.split('-').map(Number);
+  return Math.round((new Date(ty, tm - 1, td) - new Date(fy, fm - 1, fd)) / 86400000);
 }
 
 /**
- * Generates a stable, unique string key for a card in a sub-deck (hierarchical structure).
- * Used for the new hierarchical VERBS sections.
+ * When a group was last practised and whether it is due again. The gap grows
+ * with each day the group has been practised (1, 3, 7, 14, 30, 60 days);
+ * groups that still have "learning" cards come back within two days.
  *
- * @param {number} deckIndex     - Index of the main deck in state.decks
- * @param {number} subDeckIndex  - Index of the sub-deck within the main deck's subDecks array
- * @param {number} cardIndex     - Index of the card within that sub-deck's cards array
+ * @param {string} groupKey
+ * @param {Array} cards - the group's cards
+ * @returns {{daysAgo: number, due: boolean} | null} null if never practised
+ */
+function getReviewStatus(groupKey, cards) {
+  const entry = state.practice[groupKey];
+  if (!entry || !entry.last) return null;
+  const daysAgo = daysBetween(entry.last, todayString());
+  const step = Math.min(Math.max(entry.sessions, 1), REVIEW_INTERVALS.length) - 1;
+  let interval = REVIEW_INTERVALS[step];
+  if (cards.some(card => state.progress[getCardId(card)] === 'learning')) {
+    interval = Math.min(interval, 2);
+  }
+  return { daysAgo, due: daysAgo >= interval };
+}
+
+/**
+ * The Spanish text to read aloud for one face of a card, or '' if that face
+ * has no Spanish. Decks with "frontLanguage": "en" have an English prompt on
+ * the front and the Spanish answer on the back; other decks have Spanish on
+ * the front and an English definition on the back.
+ *
+ * @param {Object} card
+ * @param {'front'|'back'} face
  * @returns {string}
  */
-function generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex) {
-  return `deck-${deckIndex}-sub-${subDeckIndex}-card-${cardIndex}`;
+function getSpeechText(card, face) {
+  const frontIsSpanish = !state.activeDeck || state.activeDeck.frontLanguage !== 'en';
+  if (face === 'front') {
+    return card.context || (frontIsSpanish ? card.front : '');
+  }
+  if (frontIsSpanish) {
+    return card.example || card.front;
+  }
+  // End each sentence with punctuation so the voice pauses between them
+  return [card.back, card.example]
+    .filter(Boolean)
+    .map(text => text.trim())
+    .map(text => (/[.!?…]$/.test(text) ? text : `${text}.`))
+    .join(' ');
 }
 
 /**
@@ -80,8 +176,7 @@ function shuffleDeck(cards) {
 
 /**
  * Filters a deck's cards to only those whose Card_ID maps to "learning" in the
- * given progress map. Card IDs are derived using state.activeDeckIndex and each
- * card's index within the deck's cards array.
+ * given progress map.
  *
  * @param {Object} deck       - A deck object with a `cards` array
  * @param {Object} progress   - Record<CardId, "known" | "learning">
@@ -89,18 +184,7 @@ function shuffleDeck(cards) {
  */
 function getWeakCards(deck, progress) {
   if (!deck || !deck.cards) return [];
-  return deck.cards.filter((card, cardIndex) => {
-    let cardId;
-    // activeSubDeckIndex === -1 means regular (non-hierarchical) deck
-    if (state.activeSubDeckIndex !== -1) {
-      // Hierarchical deck - use sub-deck ID
-      cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
-    } else {
-      // Regular deck
-      cardId = generateCardId(state.activeDeckIndex, cardIndex);
-    }
-    return progress[cardId] === 'learning';
-  });
+  return deck.cards.filter(card => progress[getCardId(card)] === 'learning');
 }
 
 /**
@@ -137,21 +221,82 @@ function deriveDisplayCards() {
 // 3. Initialization & progress persistence
 // ---------------------------------------------------------------------------
 
+const STORAGE_KEY = 'flashcard-progress-v2';
+const LEGACY_STORAGE_KEY = 'flashcard-progress';          // v1: position-based keys
+const LEGACY_BACKUP_KEY = 'flashcard-progress-v1-backup';
+
 /**
- * Reads the stored progress object from localStorage and merges it into
- * state.progress. Wrapped in try/catch so private-browsing restrictions
- * don't crash the app.
+ * Reads the stored progress (card marks + group practice dates) from
+ * localStorage into state. Wrapped in try/catch so private-browsing
+ * restrictions don't crash the app.
  */
 function loadProgressFromStorage() {
   try {
-    const raw = localStorage.getItem('flashcard-progress');
+    const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      state.progress = JSON.parse(raw);
+      const saved = JSON.parse(raw);
+      state.progress = saved.cards || {};
+      state.practice = saved.groups || {};
+      state.migratedFromV1 = Boolean(saved.migratedFromV1);
     }
   } catch (e) {
     // localStorage unavailable or JSON malformed — silently continue
     state.progress = {};
+    state.practice = {};
   }
+}
+
+/**
+ * Writes card marks and group practice dates to localStorage.
+ */
+function saveProgress() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      cards: state.progress,
+      groups: state.practice,
+      migratedFromV1: state.migratedFromV1
+    }));
+  } catch (e) {
+    // localStorage unavailable — silently continue
+  }
+}
+
+/**
+ * One-time conversion of v1 progress, whose keys ("deck-1-sub-0-card-3")
+ * pointed at whatever card sat in that position, to content-based Card_IDs.
+ * progress-migration.json maps each v1 key to the ID of the card that was in
+ * that position before the switch; cards whose text was corrected since then
+ * are left out, so they come back unmarked. Marks already saved in v2 win.
+ *
+ * @returns {Promise<void>} always resolves; on failure v1 data is kept for next load
+ */
+function migrateLegacyProgress() {
+  let legacy = null;
+  try {
+    legacy = JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY));
+  } catch (e) {
+    return Promise.resolve();
+  }
+  if (!legacy || state.migratedFromV1) return Promise.resolve();
+
+  return fetch('progress-migration.json')
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(map => {
+      Object.entries(legacy).forEach(([oldKey, status]) => {
+        const cardId = map[oldKey];
+        if (cardId && !(cardId in state.progress)) state.progress[cardId] = status;
+      });
+      state.migratedFromV1 = true;
+      saveProgress();
+      localStorage.setItem(LEGACY_BACKUP_KEY, JSON.stringify(legacy));
+      localStorage.removeItem(LEGACY_STORAGE_KEY);
+    })
+    .catch(() => {
+      // Offline or file missing — keep the v1 data and try again on next load
+    });
 }
 
 /**
@@ -183,8 +328,10 @@ function initApp() {
       }
       state.decks = data.decks;
       loadProgressFromStorage();
-      renderNavigator();
-      activateFirstDeck();
+      return migrateLegacyProgress().then(() => {
+        renderNavigator();
+        activateFirstDeck();
+      });
     })
     .catch(err => {
       renderError(err.message || 'Failed to load cards.json. Please check the file and try again.');
@@ -194,6 +341,60 @@ function initApp() {
 // ---------------------------------------------------------------------------
 // 4. Rendering functions
 // ---------------------------------------------------------------------------
+
+/** "today", "yesterday" or "3d ago". */
+function formatDaysAgo(days) {
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  return `${days}d ago`;
+}
+
+/** Card count for a nav row, plus when the group was last practised. */
+function formatCardCount(cards, review) {
+  const count = `${cards.length} cards`;
+  return review ? `${count} · ${formatDaysAgo(review.daysAgo)}` : count;
+}
+
+function createBadge(modifier, text, title) {
+  const badge = document.createElement('span');
+  badge.className = `badge ${modifier}`;
+  badge.textContent = text;
+  badge.setAttribute('title', title);
+  return badge;
+}
+
+/**
+ * Badges for one study group: a review badge when it is due, then the
+ * known / still-learning counts. Each badge is only shown when non-empty.
+ * Requirements: 6.5
+ *
+ * @param {Array} cards
+ * @param {{daysAgo: number, due: boolean} | null} review
+ * @returns {HTMLElement}
+ */
+function buildBadges(cards, review) {
+  const badgesDiv = document.createElement('div');
+  badgesDiv.className = 'nav__badges';
+
+  let knownCount = 0;
+  let learningCount = 0;
+  cards.forEach(card => {
+    const status = state.progress[getCardId(card)];
+    if (status === 'known') knownCount++;
+    else if (status === 'learning') learningCount++;
+  });
+
+  if (review && review.due) {
+    badgesDiv.appendChild(createBadge('badge--due', '↻', `Due for review (last practised ${formatDaysAgo(review.daysAgo)})`));
+  }
+  if (knownCount > 0) {
+    badgesDiv.appendChild(createBadge('badge--known', knownCount, `${knownCount} known`));
+  }
+  if (learningCount > 0) {
+    badgesDiv.appendChild(createBadge('badge--learning', learningCount, `${learningCount} still learning`));
+  }
+  return badgesDiv;
+}
 
 /**
  * Builds the category/subcategory navigation tree from state.decks.
@@ -274,6 +475,18 @@ function renderNavigator() {
         mainCountSpan.className = 'nav__count';
         mainCountSpan.textContent = `${totalCards} cards`;
 
+        // Show how many groups are due, so they can be found without expanding
+        const dueGroups = deck.subDecks.filter((subDeck, subDeckIndex) => {
+          const review = getReviewStatus(getGroupKey(deckIndex, subDeckIndex), subDeck.cards);
+          return review && review.due;
+        }).length;
+        if (dueGroups > 0) {
+          const dueSpan = document.createElement('span');
+          dueSpan.className = 'nav__due';
+          dueSpan.textContent = ` · ↻ ${dueGroups} to review`;
+          mainCountSpan.appendChild(dueSpan);
+        }
+
         mainLabelDiv.appendChild(mainNameSpan);
         mainLabelDiv.appendChild(mainCountSpan);
         mainLi.appendChild(mainLabelDiv);
@@ -290,14 +503,7 @@ function renderNavigator() {
           subLi.setAttribute('role', 'button');
           subLi.setAttribute('tabindex', '0');
 
-          // Count known/learning for this sub-deck
-          let knownCount = 0;
-          let learningCount = 0;
-          subDeck.cards.forEach((card, cardIndex) => {
-            const cardId = generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex);
-            if (state.progress[cardId] === 'known') knownCount++;
-            else if (state.progress[cardId] === 'learning') learningCount++;
-          });
+          const review = getReviewStatus(getGroupKey(deckIndex, subDeckIndex), subDeck.cards);
 
           const subLabelDiv = document.createElement('div');
           subLabelDiv.className = 'nav__label';
@@ -307,31 +513,13 @@ function renderNavigator() {
 
           const subCountSpan = document.createElement('span');
           subCountSpan.className = 'nav__count';
-          subCountSpan.textContent = `${subDeck.cards.length} cards`;
+          subCountSpan.textContent = formatCardCount(subDeck.cards, review);
 
           subLabelDiv.appendChild(subNameSpan);
           subLabelDiv.appendChild(subCountSpan);
 
-          const badgesDiv = document.createElement('div');
-          badgesDiv.className = 'nav__badges';
-
-          if (knownCount > 0) {
-            const knownBadge = document.createElement('span');
-            knownBadge.className = 'badge badge--known';
-            knownBadge.textContent = knownCount;
-            knownBadge.setAttribute('title', `${knownCount} known`);
-            badgesDiv.appendChild(knownBadge);
-          }
-          if (learningCount > 0) {
-            const learningBadge = document.createElement('span');
-            learningBadge.className = 'badge badge--learning';
-            learningBadge.textContent = learningCount;
-            learningBadge.setAttribute('title', `${learningCount} still learning`);
-            badgesDiv.appendChild(learningBadge);
-          }
-
           subLi.appendChild(subLabelDiv);
-          subLi.appendChild(badgesDiv);
+          subLi.appendChild(buildBadges(subDeck.cards, review));
 
           // Active state
           if (deckIndex === state.activeDeckIndex && subDeckIndex === state.activeSubDeckIndex && state.activeDeck) {
@@ -356,14 +544,7 @@ function renderNavigator() {
         li.setAttribute('role', 'button');
         li.setAttribute('tabindex', '0');
 
-        // Count known/learning for this deck
-        let knownCount = 0;
-        let learningCount = 0;
-        deck.cards.forEach((card, cardIndex) => {
-          const cardId = generateCardId(deckIndex, cardIndex);
-          if (state.progress[cardId] === 'known') knownCount++;
-          else if (state.progress[cardId] === 'learning') learningCount++;
-        });
+        const review = getReviewStatus(getGroupKey(deckIndex, -1), deck.cards);
 
         const nameLabelDiv = document.createElement('div');
         nameLabelDiv.className = 'nav__label';
@@ -373,31 +554,13 @@ function renderNavigator() {
 
         const subcategoryCountSpan = document.createElement('span');
         subcategoryCountSpan.className = 'nav__count';
-        subcategoryCountSpan.textContent = `${deck.cards.length} cards`;
+        subcategoryCountSpan.textContent = formatCardCount(deck.cards, review);
 
         nameLabelDiv.appendChild(nameSpan);
         nameLabelDiv.appendChild(subcategoryCountSpan);
 
-        const badgesDiv = document.createElement('div');
-        badgesDiv.className = 'nav__badges';
-
-        if (knownCount > 0) {
-          const knownBadge = document.createElement('span');
-          knownBadge.className = 'badge badge--known';
-          knownBadge.textContent = knownCount;
-          knownBadge.setAttribute('title', `${knownCount} known`);
-          badgesDiv.appendChild(knownBadge);
-        }
-        if (learningCount > 0) {
-          const learningBadge = document.createElement('span');
-          learningBadge.className = 'badge badge--learning';
-          learningBadge.textContent = learningCount;
-          learningBadge.setAttribute('title', `${learningCount} still learning`);
-          badgesDiv.appendChild(learningBadge);
-        }
-
         li.appendChild(nameLabelDiv);
-        li.appendChild(badgesDiv);
+        li.appendChild(buildBadges(deck.cards, review));
 
         // Active state
         if (deckIndex === state.activeDeckIndex && state.activeDeck && !state.activeDeck.subDecks) {
@@ -437,7 +600,47 @@ function renderCard() {
   // Populate front
   frontText.textContent = card.front;
 
-  // Optional front example (shown on front face, e.g. Persian context sentence)
+  // Optional dialogue context: a colleague's line in Spanish, shown above the gist
+  const contextEl = document.getElementById('card-context');
+  if (contextEl) {
+    contextEl.textContent = card.context ? `«${card.context}»` : '';
+    contextEl.hidden = !card.context;
+  }
+  cardEl.classList.toggle('card--dialogue', Boolean(card.context));
+
+  // Optional Persian equivalents of key expressions ({ "spanish": "persian" }):
+  // the Persian alone on the front as a cue, Spanish = Persian pairs on the back
+  const faPairs = card.fa ? Object.entries(card.fa) : [];
+  const frontFaEl = document.getElementById('card-front-fa');
+  if (frontFaEl) {
+    frontFaEl.textContent = faPairs.map(([, fa]) => fa).join(' · ');
+    frontFaEl.hidden = faPairs.length === 0;
+  }
+  const backFaEl = document.getElementById('card-back-fa');
+  if (backFaEl) {
+    backFaEl.innerHTML = '';
+    faPairs.forEach(([es, fa]) => {
+      const item = document.createElement('li');
+      const esSpan = document.createElement('span');
+      esSpan.lang = 'es';
+      esSpan.textContent = es;
+      const faSpan = document.createElement('span');
+      faSpan.lang = 'fa';
+      faSpan.dir = 'rtl';
+      faSpan.textContent = fa;
+      item.append(esSpan, ' = ', faSpan);
+      backFaEl.appendChild(item);
+    });
+    backFaEl.hidden = faPairs.length === 0;
+  }
+
+  // Speaker buttons only appear on faces that have Spanish to read (Req 10.1)
+  const btnSpeaker = document.getElementById('btn-speaker');
+  if (btnSpeaker) btnSpeaker.hidden = !getSpeechText(card, 'front');
+  const btnSpeakerBack = document.getElementById('btn-speaker-back');
+  if (btnSpeakerBack) btnSpeakerBack.hidden = !getSpeechText(card, 'back');
+
+  // Optional front example (English cue for the follow-up sentence)
   const frontExampleEl = document.getElementById('card-front-example');
   if (frontExampleEl) {
     if (card['front example']) {
@@ -523,17 +726,7 @@ function updateReviewButtonState() {
   const btnReview = document.getElementById('btn-review');
   if (!btnReview || !state.activeDeck) return;
 
-  const hasWeakCards = state.activeDeck.cards.some((card, cardIndex) => {
-    let cardId;
-    if (state.activeSubDeckIndex !== -1) {
-      // Hierarchical deck - use sub-deck ID
-      cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, cardIndex);
-    } else {
-      // Regular deck
-      cardId = generateCardId(state.activeDeckIndex, cardIndex);
-    }
-    return state.progress[cardId] === 'learning';
-  });
+  const hasWeakCards = state.activeDeck.cards.some(card => state.progress[getCardId(card)] === 'learning');
 
   if (hasWeakCards) {
     btnReview.disabled = false;
@@ -621,6 +814,7 @@ function activateSubDeck(deckIndex, subDeckIndex) {
   state.activeDeck = {
     category: deck.category,
     subcategory: deck.subcategory + ' › ' + deck.subDecks[subDeckIndex].groupName,
+    frontLanguage: deck.frontLanguage,
     cards: deck.subDecks[subDeckIndex].cards
   };
   state.activeDeckIndex = deckIndex;
@@ -692,27 +886,11 @@ function markCard(status) {
   const card = state.displayCards[state.currentIndex];
   if (!card) return;
 
-  // Find the original index of this card in the deck to get a stable Card_ID
-  const originalIndex = state.activeDeck.cards.indexOf(card);
-  if (originalIndex === -1) return;
-
-  let cardId;
-  if (state.activeSubDeckIndex !== -1) {
-    // Hierarchical deck - use sub-deck ID
-    cardId = generateSubDeckCardId(state.activeDeckIndex, state.activeSubDeckIndex, originalIndex);
-  } else {
-    // Regular deck
-    cardId = generateCardId(state.activeDeckIndex, originalIndex);
-  }
-
-  state.progress[cardId] = status;
+  state.progress[getCardId(card)] = status;
+  recordPractice(getGroupKey(state.activeDeckIndex, state.activeSubDeckIndex));
 
   // Persist to localStorage (Req 7.1)
-  try {
-    localStorage.setItem('flashcard-progress', JSON.stringify(state.progress));
-  } catch (e) {
-    // localStorage unavailable — silently continue
-  }
+  saveProgress();
 
   // Re-render navigator to update badges and card to update button states
   renderNavigator();
@@ -720,16 +898,35 @@ function markCard(status) {
 }
 
 /**
- * Clears all progress from localStorage and re-renders.
+ * Notes that a group was practised today. Each new day counts as one more
+ * session, which lengthens the gap before the group is due again.
+ *
+ * @param {string} groupKey
+ */
+function recordPractice(groupKey) {
+  const today = todayString();
+  const entry = state.practice[groupKey] || { last: null, sessions: 0 };
+  if (entry.last !== today) {
+    entry.sessions += 1;
+    entry.last = today;
+  }
+  state.practice[groupKey] = entry;
+}
+
+/**
+ * Clears all progress from localStorage and re-renders, after confirmation.
  * Requirements: 7.4, 7.5
  */
 function resetProgress() {
+  if (!window.confirm('Reset progress for ALL decks? Every Known / Still Learning mark will be cleared.')) return;
   try {
-    localStorage.removeItem('flashcard-progress');
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
   } catch (e) {
     // localStorage unavailable — silently continue
   }
   state.progress = {};
+  state.practice = {};
   renderNavigator();
   renderCard();
 }
@@ -854,8 +1051,8 @@ function closeNav() {
  * Requirements: 4.1, 12.2
  */
 function handleCardClick(e) {
-  // Don't flip if the speaker button was clicked
-  if (e.target.closest('#btn-speaker')) return;
+  // Don't flip if a speaker button was clicked
+  if (e.target.closest('.btn--speaker')) return;
   flipCard();
 }
 
@@ -924,7 +1121,8 @@ function handleControlsClick(e) {
 }
 
 /**
- * Handles speaker button click — speaks the card front text using SpeechSynthesis.
+ * Handles speaker button clicks — reads the Spanish on that face of the card
+ * (see getSpeechText) with a Spain Spanish voice when the device has one.
  * Requirements: 10.1, 10.2
  */
 function handleSpeakerClick(e) {
@@ -932,8 +1130,14 @@ function handleSpeakerClick(e) {
   const card = state.displayCards[state.currentIndex];
   if (!card) return;
 
-  const utterance = new SpeechSynthesisUtterance(card.front);
+  const text = getSpeechText(card, e.currentTarget.dataset.face);
+  if (!text) return;
+
+  speechSynthesis.cancel(); // don't queue behind a sentence that is still playing
+  const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'es-ES';
+  const voice = speechSynthesis.getVoices().find(v => /^es[-_]ES/i.test(v.lang));
+  if (voice) utterance.voice = voice;
   speechSynthesis.speak(utterance);
 }
 
@@ -992,9 +1196,11 @@ function attachEventListeners() {
   const resetArea = document.querySelector('.reset-area');
   if (resetArea) resetArea.addEventListener('click', handleControlsClick);
 
-  // Speaker button
-  const speakerBtn = document.getElementById('btn-speaker');
-  if (speakerBtn) speakerBtn.addEventListener('click', handleSpeakerClick);
+  // Speaker buttons (one per card face)
+  ['btn-speaker', 'btn-speaker-back'].forEach(id => {
+    const speakerBtn = document.getElementById(id);
+    if (speakerBtn) speakerBtn.addEventListener('click', handleSpeakerClick);
+  });
 }
 
 // Bootstrap the app once the DOM is ready (script is deferred so DOM is ready)
