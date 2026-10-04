@@ -2,7 +2,7 @@
 
 A static, zero-dependency flashcard app for building **speaking fluency in Castilian Spanish** through everyday chunks. No build step, no npm, no server required.
 
-Before writing new cards, read [`.kiro/steering/content.md`](.kiro/steering/content.md). It covers the card formats and the Castilian rules every card must follow.
+Where this is heading, and what each step covers, is in [`ROADMAP.md`](ROADMAP.md). Before writing new cards, read [`.kiro/steering/content.md`](.kiro/steering/content.md). It covers the card formats and the Castilian rules every card must follow.
 
 ## Run Locally
 

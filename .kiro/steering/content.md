@@ -14,7 +14,7 @@ Rules for writing and reviewing cards in `cards.json`. Every card so far has bee
 - The learner says the Spanish **out loud** before flipping, including the follow-up sentence.
 - **Known** is pressed only when the sentence came out instantly.
 - One group of 10 cards = one sitting (10–20 minutes). Keep groups at exactly 10 cards.
-- The navigator shows when each group was last practised and marks it ↻ when it is due again (1, 3, 7, 14, 30, 60 days; within 2 days if it still has Still Learning cards).
+- The navigator shows when each group was last practised and marks it ↻ when it is due again (1, 3, 7, 14, 30, 60, 120 days; within 2 days if it still has Still Learning cards).
 
 ## Card formats
 
@@ -72,12 +72,11 @@ A Spanish expression on the front, with the English meaning, a Spanish example a
 
 A card's progress is keyed by a hash of its `front` + `back`. Decks and groups can be reordered, renamed or merged freely without losing progress. Editing a card's `front` or `back` gives it a new identity and resets its mark — intended, because the sentence to learn has changed. Editing `example`, `front example`, `translation`, `context` or `fa` keeps the mark.
 
-## Roadmap for new layers
+## Roadmap
 
-1. **W-1 Office** (done): stand-ups (perfecto), blockers and plans (subjunctive after *hasta que, en cuanto, cuando*), what happened (past narration, pluperfect, reported speech), meetings (conditional and subjunctive), coffee and lunch.
-2. **Next:**
-   - A perfecto vs indefinido contrast group.
-   - Reported speech at work (*me dijo que lo tendría…*).
-   - Polite disagreement and negotiation (*yo lo veo de otra manera*, *entiendo lo que dices, pero…*).
-   - Subjunctive triggers in feedback (*es importante que…*, *no hace falta que…*).
-   - Fillers and turn-taking (*pues, a ver, es que, o sea, la verdad es que*) as dialogue cards.
+What to build next, in what order, and why, lives in [`ROADMAP.md`](../../ROADMAP.md). Every new layer must:
+- name the roadmap layer it implements (e.g. W-3);
+- follow the format and rules in this file;
+- be 50 cards (5 groups of 10).
+
+Update the roadmap's status table when a layer is built.

@@ -216,7 +216,7 @@ Value: JSON string of {
 GroupKey = "W-1 › Group 1 · Stand-up: done" (sub-deck) or "Coloquial-1" (flat deck)
 ```
 
-On load, `cards` goes to `state.progress` and `groups` to `state.practice`. Marking a card updates both: the card's status, and the group's practice date (each new day = one more session). A group is due again 1, 3, 7, 14, 30 or 60 days after its last practice, depending on its session count. If it still has "learning" cards, it is due within 2 days. The Navigator shows "last practised" and a ↻ badge when a group is due.
+On load, `cards` goes to `state.progress` and `groups` to `state.practice`. Marking a card updates both: the card's status, and the group's practice date (each new day = one more session). A group is due again 1, 3, 7, 14, 30, 60 or 120 days after its last practice, depending on its session count. If it still has "learning" cards, it is due within 2 days. The Navigator shows "last practised" and a ↻ badge when a group is due.
 
 ### CSS Class Model (BEM-like)
 

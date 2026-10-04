@@ -78,7 +78,7 @@ function getCardId(card) {
 }
 
 /** Days until a group is due again, indexed by how many days it has been practised. */
-const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
+const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60, 120];
 
 /**
  * Stable key for a study group, e.g. "W-1 › Group 1 · Stand-up: done", or the
@@ -110,7 +110,7 @@ function daysBetween(from, to) {
 
 /**
  * When a group was last practised and whether it is due again. The gap grows
- * with each day the group has been practised (1, 3, 7, 14, 30, 60 days);
+ * with each day the group has been practised (1, 3, 7, 14, 30, 60, 120 days);
  * groups that still have "learning" cards come back within two days.
  *
  * @param {string} groupKey

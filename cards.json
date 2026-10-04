@@ -46,7 +46,7 @@
               },
               "back": "Sí, se la he mandado hace una hora.",
               "example": "Te he puesto en copia.",
-              "translation": "le + la → se la. Today, even «hace una hora» takes the perfecto in Spain. poner a alguien en copia = to cc someone."
+              "translation": "le + la → se la. Said the same day, Spain usually keeps the perfecto even with «hace una hora». poner a alguien en copia = to cc someone."
             },
             {
               "context": "¿Has revisado ya los comentarios del equipo?",
@@ -510,6 +510,542 @@
       ]
     },
     {
+      "category": "Work",
+      "subcategory": "W-2",
+      "frontLanguage": "en",
+      "subDecks": [
+        {
+          "groupName": "Group 1 · Today vs before",
+          "cards": [
+            {
+              "context": "¿Has hablado con Marta?",
+              "front": "yes · yesterday · and called her again this morning · she agrees now",
+              "fa": {
+                "volver a llamar": "دوباره زنگ زدن"
+              },
+              "back": "Sí, hablé con ella ayer y esta mañana la he vuelto a llamar.",
+              "example": "Ya está de acuerdo.",
+              "translation": "Same verb, two time frames: ayer → hablé (indefinido); esta mañana → he vuelto a llamar (perfecto). volver a + infinitive = to do again."
+            },
+            {
+              "context": "¿Qué tal la semana?",
+              "front": "Monday was chaos · since then, much better",
+              "fa": {
+                "desde entonces": "از اون موقع تا حالا"
+              },
+              "back": "El lunes fue un caos.",
+              "example": "Pero desde entonces todo ha ido mucho mejor.",
+              "translation": "El lunes = a finished day → fue (indefinido). Desde entonces = from then until now → ha ido (perfecto)."
+            },
+            {
+              "context": "¿Ya has enviado la propuesta?",
+              "front": "yes · sent it last Friday · no answer yet",
+              "fa": {
+                "todavía no han contestado": "هنوز جواب ندادن"
+              },
+              "back": "Sí, la envié el viernes pasado.",
+              "example": "Pero todavía no han contestado.",
+              "translation": "El viernes pasado → indefinido (envié). Todavía no = up to now → perfecto (han contestado)."
+            },
+            {
+              "context": "¿Has estado alguna vez en la oficina de Barcelona?",
+              "front": "yes, twice · the last time was in March",
+              "fa": {
+                "alguna vez": "تا حالا",
+                "la última vez": "دفعه‌ی آخر"
+              },
+              "back": "Sí, he estado dos veces.",
+              "example": "La última vez fue en marzo.",
+              "translation": "Life experience (alguna vez, dos veces) → perfecto. A specific time (en marzo) → indefinido."
+            },
+            {
+              "context": "¿Cuánto tiempo llevas en la empresa?",
+              "front": "I joined two years ago · since then I've changed teams twice",
+              "fa": {
+                "hace dos años": "دو سال پیش"
+              },
+              "back": "Entré hace dos años.",
+              "example": "Y desde entonces he cambiado de equipo dos veces.",
+              "translation": "Hace dos años → indefinido (entré). Desde entonces → perfecto (he cambiado). Also possible: «Llevo dos años en la empresa»."
+            },
+            {
+              "context": "¿Qué tal ha ido hoy el taller con el cliente?",
+              "front": "really well · much better than last time · that time was a disaster",
+              "fa": {
+                "aquella vez": "اون دفعه"
+              },
+              "back": "Ha ido muy bien, mucho mejor que la última vez.",
+              "example": "Aquella vez fue un desastre.",
+              "translation": "Hoy → ha ido (perfecto). Aquella vez = a finished occasion → fue (indefinido). taller = workshop."
+            },
+            {
+              "context": "¿Has visto el último informe de ventas?",
+              "front": "I skimmed it yesterday · haven't had time to analyse it yet",
+              "fa": {
+                "por encima": "سرسری"
+              },
+              "back": "Lo vi ayer por encima.",
+              "example": "Pero todavía no he tenido tiempo de analizarlo.",
+              "translation": "Ayer → vi. Todavía no → he tenido. por encima = quickly, without detail (to skim)."
+            },
+            {
+              "context": "¿Te ha llamado ya el proveedor?",
+              "front": "he called me on Monday · nothing since then",
+              "fa": {
+                "no he sabido nada de él": "هیچ خبری ازش ندارم"
+              },
+              "back": "Me llamó el lunes.",
+              "example": "Y desde entonces no he sabido nada de él.",
+              "translation": "El lunes → llamó. Desde entonces (until now) → no he sabido nada. saber de alguien = to hear from someone."
+            },
+            {
+              "context": "¿Cómo ha ido el trimestre?",
+              "front": "we've hit the targets · although July was very tough",
+              "fa": {
+                "cumplir los objetivos": "به هدف‌ها رسیدن"
+              },
+              "back": "Hemos cumplido los objetivos.",
+              "example": "Aunque julio fue muy duro.",
+              "translation": "The quarter that just ended still counts as 'now' → perfecto (hemos cumplido). July, a closed month → indefinido (fue). cumplir los objetivos = to hit the targets."
+            },
+            {
+              "context": "¿Ya conocías a Pablo?",
+              "front": "yes · we met at a conference years ago · today I saw him again after ages",
+              "fa": {
+                "congreso": "همایش"
+              },
+              "back": "Sí, nos conocimos en un congreso hace años.",
+              "example": "Y hoy lo he vuelto a ver después de mucho tiempo.",
+              "translation": "conocerse (indefinido) = to meet for the first time. Hoy → he vuelto a ver. congreso = conference (the event); conferencia = a talk."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 2 · What they said",
+          "cards": [
+            {
+              "context": "¿Qué te ha dicho el jefe?",
+              "front": "that he likes the idea · but wants to see numbers first",
+              "fa": {
+                "me ha dicho que…": "بهم گفته که…"
+              },
+              "back": "Me ha dicho que le gusta la idea.",
+              "example": "Pero que antes quiere ver números.",
+              "translation": "Me ha dicho (today) → the reported verbs stay in the present. Repeating «que» before each idea is natural: «…pero que…»."
+            },
+            {
+              "context": "¿Qué dijo Marta ayer en la reunión?",
+              "front": "that the project was going well · but they needed another developer",
+              "fa": {
+                "desarrollador": "برنامه‌نویس"
+              },
+              "back": "Dijo que el proyecto iba bien.",
+              "example": "Pero que necesitaban otro desarrollador.",
+              "translation": "Dijo (past) → present becomes imperfecto: «va bien» → iba bien, «necesitamos» → necesitaban."
+            },
+            {
+              "context": "¿Por qué no ha venido Luis?",
+              "front": "he told me yesterday he'd come later · he had a doctor's appointment",
+              "fa": {
+                "tener cita en el médico": "وقت دکتر داشتن"
+              },
+              "back": "Ayer me dijo que vendría más tarde.",
+              "example": "Que tenía cita en el médico.",
+              "translation": "Future → conditional when reported from the past: «vendré» → me dijo que vendría. tener cita (en el médico) = to have an appointment."
+            },
+            {
+              "context": "¿Qué te preguntó el cliente?",
+              "front": "whether we could deliver earlier · and how much it would cost",
+              "fa": {
+                "me preguntó si…": "ازم پرسید که…"
+              },
+              "back": "Me preguntó si podíamos entregarlo antes.",
+              "example": "Y cuánto costaría.",
+              "translation": "Yes/no questions are reported with si. Question words keep their accent: cuánto, cuándo, cómo. «¿Cuánto costará?» → cuánto costaría."
+            },
+            {
+              "context": "¿Qué te pidió Ana?",
+              "front": "to review the document · before sending it to the client",
+              "fa": {
+                "me pidió que…": "ازم خواست که…"
+              },
+              "back": "Me pidió que revisara el documento.",
+              "example": "Antes de mandárselo al cliente.",
+              "translation": "pedir que + subjunctive. After a past verb (pidió) → imperfect subjunctive: «revisa» → que revisara."
+            },
+            {
+              "context": "¿En qué quedasteis al final?",
+              "front": "we agreed to meet again next week · everyone brings a proposal",
+              "fa": {
+                "¿en qué quedasteis?": "آخرش قرارتون چی شد؟"
+              },
+              "back": "Quedamos en vernos otra vez la semana que viene.",
+              "example": "Y cada uno traerá una propuesta.",
+              "translation": "quedar en + infinitive / quedar en que… = to agree on (very common in Spain). «¿En qué quedamos?» = so what did we agree?"
+            },
+            {
+              "context": "¿Sabes si van a contratar a alguien?",
+              "front": "Laura mentioned yes · but she didn't know when",
+              "fa": {
+                "me comentó que sí": "بهم گفت آره"
+              },
+              "back": "Laura me comentó que sí.",
+              "example": "Pero que no sabía cuándo.",
+              "translation": "comentar = to mention. «que sí / que no» = reported yes/no. «no sé» → no sabía."
+            },
+            {
+              "context": "¿Qué ha dicho dirección del presupuesto?",
+              "front": "that they've approved it · but we'll have to cut ten percent",
+              "fa": {
+                "recortar": "کم کردن (بودجه)"
+              },
+              "back": "Que nos lo han aprobado.",
+              "example": "Pero que tendremos que recortar un diez por ciento.",
+              "translation": "To answer «¿Qué ha dicho…?», start with «Que…». Reported today (ha dicho) → tenses don't change: tendremos."
+            },
+            {
+              "context": "¿Te dijo por qué se fue de la empresa?",
+              "front": "he said he'd been offered a better job · and fancied a change",
+              "fa": {
+                "le apetecía cambiar": "دلش می‌خواست یه تغییری بده"
+              },
+              "back": "Me dijo que le habían hecho una oferta mejor.",
+              "example": "Y que le apetecía cambiar.",
+              "translation": "Pluperfect (le habían hecho) = it happened before he told you. apetecer = to feel like / fancy."
+            },
+            {
+              "context": "¿Has hablado con los de diseño?",
+              "front": "yes · they say they'll have it by Friday · but I wouldn't count on it",
+              "fa": {
+                "contar con algo": "روی چیزی حساب کردن"
+              },
+              "back": "Sí, dicen que lo tendrán para el viernes.",
+              "example": "Pero yo no contaría con ello.",
+              "translation": "dicen (present) → no tense change: lo tendrán. contar con algo = to count on something; the conditional softens it."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 3 · Disagreeing politely",
+          "cards": [
+            {
+              "context": "Creo que deberíamos cancelar esta funcionalidad.",
+              "front": "I get your point · but I see it differently · users are asking for it",
+              "fa": {
+                "lo veo de otra manera": "من یه جور دیگه می‌بینمش"
+              },
+              "back": "Entiendo lo que dices, pero yo lo veo de otra manera.",
+              "example": "Los usuarios la están pidiendo.",
+              "translation": "Show you understand first, then disagree: «Entiendo lo que dices, pero…». la = la funcionalidad."
+            },
+            {
+              "context": "El retraso es culpa del equipo técnico.",
+              "front": "I don't fully agree · the requirements changed several times too",
+              "fa": {
+                "no del todo": "نه کاملاً"
+              },
+              "back": "No estoy del todo de acuerdo.",
+              "example": "Los requisitos también cambiaron varias veces.",
+              "translation": "«no… del todo» softens disagreement. cambiaron = a closed series of past events (indefinido)."
+            },
+            {
+              "context": "Este diseño es mucho mejor, ¿no?",
+              "front": "you're partly right · but it's quite a bit more expensive to build",
+              "fa": {
+                "en parte tienes razón": "تا حدی حق با توئه"
+              },
+              "back": "En parte tienes razón.",
+              "example": "Pero es bastante más caro de desarrollar.",
+              "translation": "en parte = partly. caro / fácil / difícil de + infinitive = expensive / easy / hard to…"
+            },
+            {
+              "context": "Tenemos que lanzarlo este mes sí o sí.",
+              "front": "I find it a bit risky · what if we launch a beta first?",
+              "fa": {
+                "sí o sí": "هر طور شده",
+                "¿y si…?": "اگه… چی؟"
+              },
+              "back": "Lo veo un poco arriesgado.",
+              "example": "¿Y si primero lanzamos una beta?",
+              "translation": "¿Y si + present…? = what if…? (a soft proposal). sí o sí = no matter what. lo veo + adjective = I find it…"
+            },
+            {
+              "context": "No podemos bajar el precio.",
+              "front": "OK · what we could do is offer more support hours · then the price stays",
+              "fa": {
+                "lo que sí podríamos hacer es…": "کاری که می‌تونیم بکنیم اینه که…"
+              },
+              "back": "Vale, pero lo que sí podríamos hacer es ofrecer más horas de soporte.",
+              "example": "Así no tocamos el precio.",
+              "translation": "lo que (sí) podríamos hacer es… = a counter-proposal. tocar el precio = to change the price."
+            },
+            {
+              "context": "¿Aceptamos sus condiciones?",
+              "front": "I would · as long as they give us a fixed date · otherwise it makes no sense",
+              "fa": {
+                "siempre y cuando": "به شرطی که"
+              },
+              "back": "Yo aceptaría, siempre y cuando nos den una fecha cerrada.",
+              "example": "Si no, no tiene sentido.",
+              "translation": "siempre y cuando + subjunctive (den) = as long as. fecha cerrada = a fixed, confirmed date."
+            },
+            {
+              "context": "¿Tú qué harías?",
+              "front": "it's not so much about money as about time · I'd ask for a longer deadline",
+              "fa": {
+                "no es tanto una cuestión de dinero como de tiempo": "مسئله اونقدر پول نیست، بیشتر زمانه"
+              },
+              "back": "No es tanto una cuestión de dinero como de tiempo.",
+              "example": "Yo pediría más plazo.",
+              "translation": "no es tanto X como Y = it's not so much X as Y. plazo = time allowed / deadline."
+            },
+            {
+              "context": "Esto ya lo intentamos el año pasado y no funcionó.",
+              "front": "true · but back then we didn't have the data we have now",
+              "fa": {
+                "entonces": "اون موقع"
+              },
+              "back": "Es verdad que no funcionó.",
+              "example": "Pero entonces no teníamos los datos que tenemos ahora.",
+              "translation": "El año pasado → no funcionó (indefinido). Entonces no teníamos → imperfecto, describing the situation back then."
+            },
+            {
+              "context": "¿Lo hacemos a mi manera?",
+              "front": "I'd rather we tested both options · and decided with data",
+              "fa": {
+                "preferiría que…": "ترجیح می‌دادم که…"
+              },
+              "back": "Preferiría que probáramos las dos opciones.",
+              "example": "Y que decidiéramos con datos.",
+              "translation": "preferiría que + imperfect subjunctive (probáramos, decidiéramos)."
+            },
+            {
+              "context": "Entonces, ¿cerramos el acuerdo?",
+              "front": "nearly there · let me check one detail with legal · I'll confirm tomorrow",
+              "fa": {
+                "ya casi lo tenemos": "دیگه تقریباً تمومه",
+                "déjame que…": "بذار…"
+              },
+              "back": "Ya casi lo tenemos. Déjame que consulte un detalle con legal.",
+              "example": "Mañana te lo confirmo.",
+              "translation": "déjame que + subjunctive (consulte) = let me… «Mañana te lo confirmo» = present used as a promise."
+            }
+          ]
+        },
+        {
+          "groupName": "Group 4 · Requests & feedback",
+          "cards": [
+            {
+              "context": "¿Necesitas algo para la presentación?",
+              "front": "it'd be great if you sent me the figures today · so I have time to prepare it",
+              "fa": {
+                "sería genial que…": "عالی می‌شه اگه…"
+              },
+              "back": "Sería genial que me pasaras las cifras hoy.",
+              "example": "Así tengo tiempo de prepararla.",
+              "translation": "sería genial / estaría bien que + imperfect subjunctive (pasaras). pasar = to send / share (files, figures)."
+            },
+            {
+              "context": "¿Quieres que lo revise yo?",
+              "front": "no need · it's already reviewed · thanks anyway",
+              "fa": {
+                "no hace falta que…": "لازم نیست…"
+              },
+              "back": "No hace falta que lo revises, ya está revisado.",
+              "example": "Pero gracias igualmente.",
+              "translation": "no hace falta que + subjunctive (revises) = there's no need for you to… gracias igualmente = thanks anyway."
+            },
+            {
+              "context": "¿Algún comentario sobre mi informe?",
+              "front": "very complete · I'd just ask you to add a summary at the start",
+              "fa": {
+                "solo te pediría que…": "فقط خواهشم اینه که…"
+              },
+              "back": "Está muy completo.",
+              "example": "Solo te pediría que añadieras un resumen al principio.",
+              "translation": "Conditional (pediría) + imperfect subjunctive (añadieras) = soft, polite feedback."
+            },
+            {
+              "context": "¿Qué es lo más importante en este proyecto?",
+              "front": "that the client sees progress every week · otherwise they get nervous",
+              "fa": {
+                "lo más importante es que…": "مهم‌ترین چیز اینه که…"
+              },
+              "back": "Lo más importante es que el cliente vea avances cada semana.",
+              "example": "Si no, se pone nervioso.",
+              "translation": "es importante / lo más importante es que + subjunctive (vea). ponerse nervioso = to get nervous."
+            },
+            {
+              "context": "Voy a mandar el informe al cliente.",
+              "front": "before you send it, take a look at the numbers · last time an error slipped through",
+              "fa": {
+                "se nos coló un error": "یه اشتباه از زیر دستمون در رفت"
+              },
+              "back": "Antes de que lo mandes, échale un vistazo a los números.",
+              "example": "La última vez se nos coló un error.",
+              "translation": "antes de que + subjunctive, always (mandes). colarse un error = for an error to slip through. La última vez → indefinido (se coló)."
+            },
+            {
+              "context": "¿Puedo cogerme el viernes libre?",
+              "front": "of course · as long as you leave everything ready · and let the team know",
+              "fa": {
+                "cogerse un día libre": "یه روز مرخصی گرفتن"
+              },
+              "back": "Claro, siempre que lo dejes todo listo.",
+              "example": "Y avises al equipo.",
+              "translation": "siempre que + subjunctive (dejes, avises) = as long as. cogerse un día libre = to take a day off (Spain)."
+            },
+            {
+              "context": "¿Cómo quieres que hagamos la demo?",
+              "front": "I'd like each person to present their part · five minutes max",
+              "fa": {
+                "como mucho": "حداکثر"
+              },
+              "back": "Me gustaría que cada uno presentara su parte.",
+              "example": "Cinco minutos como mucho.",
+              "translation": "¿Cómo quieres que hagamos…? → present subjunctive after quieres que. Me gustaría que + imperfect subjunctive (presentara)."
+            },
+            {
+              "context": "Perdona, todavía no he terminado lo que me pediste.",
+              "front": "don't worry · send it to me when you can · no rush",
+              "fa": {
+                "no corre prisa": "عجله‌ای نیست"
+              },
+              "back": "No te preocupes, mándamelo cuando puedas.",
+              "example": "No corre prisa.",
+              "translation": "cuando + subjunctive for the future (puedas). no corre prisa = there's no rush."
+            },
+            {
+              "context": "¿Te ha gustado mi propuesta?",
+              "front": "a lot · I'm glad you included the risks",
+              "fa": {
+                "me alegra que…": "خوشحالم که…"
+              },
+              "back": "Me ha gustado mucho.",
+              "example": "Me alegra que hayas incluido los riesgos.",
+              "translation": "me alegra que + perfect subjunctive (hayas incluido) for something already done. Today → me ha gustado."
+            },
+            {
+              "context": "Nadie ha actualizado el tablero esta semana.",
+              "front": "it's important we all update it before Friday's meeting · otherwise we don't know where we stand",
+              "fa": {
+                "cómo vamos": "اوضاعمون چطوره"
+              },
+              "back": "Es importante que todos lo actualicemos antes de la reunión del viernes.",
+              "example": "Si no, no sabemos cómo vamos.",
+              "translation": "es importante que + subjunctive (actualicemos). Including yourself (nosotros) sounds less bossy. ¿Cómo vamos? = how are we doing?"
+            }
+          ]
+        },
+        {
+          "groupName": "Group 5 · Steering the conversation",
+          "cards": [
+            {
+              "context": "…y por eso hay que migrar todo al nuevo sistema.",
+              "front": "sorry to interrupt · do you mean the whole platform?",
+              "fa": {
+                "perdona que te interrumpa": "ببخشید که وسط حرفت می‌پرم"
+              },
+              "back": "Perdona que te interrumpa.",
+              "example": "¿Te refieres a toda la plataforma?",
+              "translation": "perdona que + subjunctive (interrumpa) = sorry for (doing)… referirse a = to mean / refer to."
+            },
+            {
+              "context": "¿Me oyes? Se te corta un poco.",
+              "front": "sorry, my screen froze · can you repeat the last part?",
+              "fa": {
+                "se me ha congelado la pantalla": "صفحه‌م هنگ کرد"
+              },
+              "back": "Perdona, se me ha congelado la pantalla.",
+              "example": "¿Me puedes repetir lo último?",
+              "translation": "se me ha congelado = it just happened to me (accidental se + perfecto). lo último = the last bit."
+            },
+            {
+              "context": "¿Por qué no te convence la propuesta?",
+              "front": "well · it's not that I don't like it · it's that it's too expensive",
+              "fa": {
+                "no es que…, es que…": "نه اینکه…، فقط…"
+              },
+              "back": "A ver, no es que no me guste.",
+              "example": "Es que es demasiado cara.",
+              "translation": "no es que + subjunctive (guste), es que + indicative (es) = it's not that…, it's that… «A ver» buys you time to think."
+            },
+            {
+              "context": "¿Entonces lo cancelamos?",
+              "front": "no · what I mean is we should postpone it · I mean, not cancel it completely",
+              "fa": {
+                "lo que quiero decir es que…": "منظورم اینه که…",
+                "o sea": "یعنی"
+              },
+              "back": "No, lo que quiero decir es que deberíamos aplazarlo.",
+              "example": "O sea, no cancelarlo del todo.",
+              "translation": "lo que quiero decir es que… = what I mean is… o sea = I mean / in other words."
+            },
+            {
+              "context": "Bueno, ¿algo más sobre el presupuesto?",
+              "front": "by the way · going back to what Marta said earlier · it's worth reviewing",
+              "fa": {
+                "por cierto": "راستی"
+              },
+              "back": "Por cierto, volviendo a lo que ha dicho Marta antes…",
+              "example": "Creo que merece la pena revisarlo.",
+              "translation": "por cierto = by the way. volviendo a… = going back to… ha dicho (earlier in this meeting) → perfecto."
+            },
+            {
+              "context": "¿Cuándo crees que estará listo?",
+              "front": "hmm · good question · let me check and I'll tell you",
+              "fa": {
+                "pues…": "خب…"
+              },
+              "back": "Pues… buena pregunta.",
+              "example": "Déjame que lo mire y te digo.",
+              "translation": "Pues… = well… (buys time). déjame que + subjunctive (mire). «y te digo» = and I'll let you know."
+            },
+            {
+              "context": "¿Qué tal fue la feria?",
+              "front": "long story short · in the end we got three new clients · not bad at all",
+              "fa": {
+                "total, que…": "خلاصه که…"
+              },
+              "back": "Total, que al final conseguimos tres clientes nuevos.",
+              "example": "No está nada mal.",
+              "translation": "Total, que… = long story short (to wrap up a story). A finished event → conseguimos (indefinido)."
+            },
+            {
+              "context": "Creo que eso no es lo que acordamos.",
+              "front": "you're right · I explained myself badly · I meant next month, not this one",
+              "fa": {
+                "me he explicado mal": "بد توضیح دادم"
+              },
+              "back": "Tienes razón, me he explicado mal.",
+              "example": "Quería decir el mes que viene, no este.",
+              "translation": "Just now → me he explicado mal (perfecto). «Quería decir» and «quise decir» both mean 'I meant'."
+            },
+            {
+              "context": "¿Os parece si lo dejamos aquí?",
+              "front": "yes · to sum up: Marta handles the budget and I talk to the client · see you Thursday?",
+              "fa": {
+                "resumiendo": "خلاصه بگم"
+              },
+              "back": "Sí. Resumiendo: Marta se encarga del presupuesto y yo hablo con el cliente.",
+              "example": "¿Nos vemos el jueves?",
+              "translation": "Resumiendo / en resumen = to sum up. The present works for agreed plans (yo hablo, nos vemos)."
+            },
+            {
+              "context": "¿Y tú qué piensas?",
+              "front": "honestly · I haven't thought about it enough · can I tell you tomorrow?",
+              "fa": {
+                "la verdad es que": "راستش"
+              },
+              "back": "La verdad es que no lo he pensado lo suficiente.",
+              "example": "¿Te lo digo mañana?",
+              "translation": "la verdad es que… = honestly / the thing is… (very frequent). lo suficiente = enough. ¿Te lo digo mañana? = present for an offer."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "category": "Verbs",
       "subcategory": "P-A1",
       "frontLanguage": "en",
@@ -550,8 +1086,8 @@
             {
               "front": "I didn't mean that",
               "back": "No quise decir eso",
-              "example": "Me expresé mal.",
-              "translation": "querer → quise. «No quise decir eso» = I didn't mean that; «quise decir…» = I meant… In the affirmative, quise + infinitive = I tried to. For 'I wanted to (but didn't)', use quería or iba a: «Te iba a llamar, pero se me hizo tarde»."
+              "example": "Ayer me expresé mal.",
+              "translation": "querer → quise. «No quise decir eso» = I didn't mean that; «quise decir…» = I meant… In the affirmative, quise + infinitive = I tried to. For 'I wanted to (but didn't)', use quería or iba a: «Te iba a llamar, pero se me hizo tarde». If it just happened: «me he expresado mal»."
             },
             {
               "front": "The doctor told me to rest",
@@ -591,8 +1127,8 @@
             {
               "front": "I met an interesting guy",
               "back": "Conocí a un tío interesante",
-              "example": "En la conferencia de AWS.",
-              "translation": "conocer → conocí. In indefinido often means meeting someone for the first time."
+              "example": "En un evento de AWS.",
+              "translation": "conocer → conocí. In indefinido often means meeting someone for the first time. In Spain a «conferencia» is a talk; the event is a «congreso» or «evento»."
             },
             {
               "front": "I drove to Madrid",
@@ -910,7 +1446,7 @@
             {
               "front": "I put all my energy into learning",
               "back": "Puse toda mi energía en aprender",
-              "example": "Y empecé a notar mejora.",
+              "example": "Y empecé a notar los resultados.",
               "translation": "Natural motivational/progress expression."
             },
             {
@@ -947,7 +1483,7 @@
               "front": "I had no choice",
               "back": "No tuve otra opción",
               "example": "Tuve que aceptar la situación.",
-              "translation": "Classic high-frequency structure."
+              "translation": "Classic high-frequency structure. Colloquial Spain: «No me quedó otra»."
             },
             {
               "front": "I couldn't handle everything",
@@ -1096,7 +1632,7 @@
               "front": "I kept thinking about it all day",
               "back": "Seguí pensando en eso todo el día",
               "example": "No podía desconectar.",
-              "translation": "seguir + gerund/thinking structure = continuing action."
+              "translation": "seguir + gerund = to keep doing something."
             },
             {
               "front": "I started feeling much better",
@@ -1232,7 +1768,7 @@
               "front": "I continued learning even when I was tired",
               "back": "Seguí aprendiendo incluso cuando estaba cansado",
               "example": "No quería perder el hábito.",
-              "translation": "seguir + gerund/continuation structure."
+              "translation": "seguir + gerund = to keep doing something."
             }
           ]
         },
@@ -1392,14 +1928,14 @@
             },
             {
               "front": "I didn't understand what was happening",
-              "front example": "Everything happened very quickly.",
+              "front example": "Everything happened too fast.",
               "back": "No entendía qué estaba pasando",
               "example": "Todo ocurrió demasiado rápido.",
               "translation": "Imperfecto describes the ongoing state of not understanding; ocurrió marks the completed event."
             },
             {
               "front": "I was feeling a bit strange that day",
-              "front example": "I didn't really know why.",
+              "front example": "I didn't know exactly why.",
               "back": "Ese día me sentía un poco raro",
               "example": "No sabía exactamente por qué.",
               "translation": "Sentirse in imperfecto describes an ongoing emotional state."
@@ -1502,7 +2038,7 @@
             },
             {
               "front": "I was slowly getting better",
-              "front example": "And little by little I regained my confidence.",
+              "front example": "And I started to get my confidence back.",
               "back": "Poco a poco iba mejorando",
               "example": "Y empecé a recuperar la confianza.",
               "translation": "Ir + gerund emphasizes gradual progression. recuperar = to recover/regain."
@@ -1877,7 +2413,7 @@
             },
             {
               "front": "If I could, I'd take a few days off",
-              "front example": "I need to disconnect from everything for a while.",
+              "front example": "I need to switch off for a bit.",
               "back": "Si pudiera, me tomaría unos días libres",
               "example": "Necesito desconectar un poco.",
               "translation": "Pudiera = imperfect subjunctive; me tomaría = conditional. tomarse días libres = take days off."
@@ -1917,7 +2453,7 @@
             },
             {
               "front": "I should probably reconsider it",
-              "front example": "There are several factors I hadn't considered.",
+              "front example": "There are some factors I hadn't considered.",
               "back": "Probablemente debería replanteármelo",
               "example": "Hay algunos factores que no había considerado.",
               "translation": "Debería = conditional of deber, often used for advice or soft self-recommendation. replanteárselo = reconsider it."
@@ -2123,8 +2659,8 @@
         {
           "front": "Nunca mejor dicho",
           "back": "Used when a phrase fits perfectly in the context, often humorously.",
-          "example": "Respira tranquilo… nunca mejor dicho.",
-          "translation": "Literally: 'never better said'."
+          "example": "Hace un frío que pela y me he quedado helado… nunca mejor dicho.",
+          "translation": "Literally: 'never better said'. Used when an expression is literally true in the situation."
         },
         {
           "front": "Da gusto",
@@ -2147,7 +2683,7 @@
         {
           "front": "De por medio",
           "back": "Something involved or influencing the situation.",
-          "example": "Con buenas noticias de por medio, todo cambia.",
+          "example": "Cuando hay dinero de por medio, todo se complica.",
           "translation": "Often used for emotions, problems, money, relationships, etc."
         },
         {
@@ -2165,7 +2701,7 @@
         {
           "front": "Momentito",
           "back": "Diminutive of 'momento'; sounds softer and affectionate.",
-          "example": "Disfruta ese momentito de orgullo.",
+          "example": "Un momentito, que termino esto y estoy contigo.",
           "translation": "Spanish often uses diminutives for emotional tone."
         },
         {
@@ -2274,7 +2810,7 @@
           "front": "Rollo",
           "back": "Vibe, atmosphere, feeling.",
           "example": "Ese tío tiene buen rollo.",
-          "translation": "Very colloquial Spanish word."
+          "translation": "Very colloquial Spanish word. Also: «¡Qué rollo!» = how boring!"
         },
         {
           "front": "He estado tomando",
@@ -2369,7 +2905,7 @@
         {
           "front": "dar una baja médica",
           "back": "Expression used when a doctor grants medical leave.",
-          "example": "La médica me dio una baja médica.",
+          "example": "La médica me dio una semana de baja.",
           "translation": "Related: estar de baja, coger una baja."
         },
         {
@@ -2418,7 +2954,7 @@
           "front": "ir al grano",
           "back": "To get to the point directly.",
           "example": "Vale, voy al grano.",
-          "translation": "Related: ser directo, no dar vueltas."
+          "translation": "Related: ser directo, no andarse con rodeos."
         },
         {
           "front": "darle vueltas a algo",
@@ -2597,7 +3133,7 @@
         {
           "front": "Tela",
           "back": "Literal meaning: fabric/cloth. Real usage: something intense, excessive or difficult.",
-          "example": "Tiene tela el asunto.",
+          "example": "—Han vuelto a subir el alquiler. —¡Tela!",
           "translation": "Spain-specific metaphorical use."
         },
         {
@@ -2615,7 +3151,7 @@
         {
           "front": "Ya ves",
           "back": "Literal meaning: now you see. Real usage: exactly, that's life, totally.",
-          "example": "—Estoy agotado. —Ya ves.",
+          "example": "—Todo está carísimo. —Ya ves.",
           "translation": "Agreement/resignation expression."
         },
         {
@@ -2646,7 +3182,7 @@
           "front": "Tronco",
           "back": "Literal meaning: tree trunk. Real usage: dude/bro.",
           "example": "Tronco, qué haces.",
-          "translation": "Very Madrid/street style."
+          "translation": "Very Madrid/street style, and a bit dated: «tío» is far more common today."
         },
         {
           "front": "Currárselo",
@@ -2681,7 +3217,7 @@
         {
           "front": "Me cago en...",
           "back": "Literal meaning: I shit on... Real usage: strong frustration expression.",
-          "example": "Me cago en todo, perdí el móvil.",
+          "example": "Me cago en todo, he perdido el móvil.",
           "translation": "Very Spanish swearing structure."
         },
         {
@@ -2729,7 +3265,7 @@
         {
           "front": "Menuda movida",
           "back": "Literal meaning: what a movement. Real usage: what a mess/drama/problem.",
-          "example": "Lo del trabajo es una movida.",
+          "example": "¡Menuda movida hubo ayer en la oficina!",
           "translation": "Movida is deeply tied to Spanish slang culture."
         },
         {
@@ -2777,13 +3313,13 @@
         {
           "front": "Ponerse las pilas",
           "back": "Literal meaning: to put batteries into oneself. Real usage: to get motivated/start acting seriously.",
-          "example": "Tengo que ponerme las pilas con el inglés.",
+          "example": "Tengo que ponerme las pilas con el español.",
           "translation": "Very visual and common phrase."
         },
         {
           "front": "Ir a saco",
           "back": "Literal meaning: to go to the sack/bag. Real usage: to go all in/full force.",
-          "example": "Esta semana estoy yendo a saco con AWS.",
+          "example": "Esta semana voy a saco con AWS.",
           "translation": "Strong energy/focus expression."
         },
         {
