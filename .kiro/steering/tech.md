@@ -14,8 +14,8 @@
 ## Browser APIs Used (No Libraries Needed)
 
 - **`fetch()`** — to load `cards.json` at runtime
-- **`localStorage`** — to persist progress (known/unknown cards) between sessions
-- **`SpeechSynthesis` (Web Speech API)** — optional audio pronunciation, built into all modern browsers
+- **`localStorage`** — to persist progress (known/learning cards, group practice dates) between sessions
+- **`SpeechSynthesis` (Web Speech API)** — Spanish (es-ES) audio for the Spanish text on each card face, built into all modern browsers
 - **CSS 3D transforms** — for the card flip animation (`rotateY`, `perspective`, `backface-visibility`)
 
 ## JavaScript Conventions
@@ -30,10 +30,11 @@
 // State shape
 const state = {
   decks: [],           // parsed from cards.json
-  activeDeck: null,    // { category, subcategory, cards[] }
+  activeDeck: null,    // { category, subcategory, frontLanguage, cards[] }
   currentIndex: 0,
   isFlipped: false,
-  progress: {}         // { "cardId": "known" | "learning" }
+  progress: {},        // { "cardId": "known" | "learning" } — cardId = hash of front + back
+  practice: {}         // { "W-1 › Group 1 · …": { last: "YYYY-MM-DD", sessions: 3 } }
 };
 ```
 
@@ -64,14 +65,23 @@ const state = {
 {
   "decks": [
     {
-      "category": "string — top-level group shown in nav (e.g. 'Verbs')",
-      "subcategory": "string — sub-group (e.g. 'Daily Routine')",
-      "cards": [
+      "category": "string — top-level group shown in nav (e.g. 'Work', 'Verbs')",
+      "subcategory": "string — deck name (e.g. 'W-1')",
+      "frontLanguage": "'en' (optional) — front is an English prompt, Spanish answer on the back",
+      "subDecks": [
         {
-          "front": "string — Spanish word or phrase",
-          "back": "string — English translation",
-          "example": "string (optional) — Spanish example sentence",
-          "translation": "string (optional) — English translation of example"
+          "groupName": "string — e.g. 'Group 1 · Stand-up: done' (10 cards per group)",
+          "cards": [
+            {
+              "context": "string (optional) — a colleague's line in Spanish, shown above the prompt",
+              "front": "string — prompt: Spanish expression, English sentence or English gist",
+              "front example": "string (optional) — English cue for the follow-up sentence",
+              "fa": "object (optional) — { 'Spanish expression': 'Persian equivalent' }",
+              "back": "string — answer / meaning",
+              "example": "string (optional) — Spanish follow-up or example sentence",
+              "translation": "string (optional) — note: why this tense, meaning of an expression"
+            }
+          ]
         }
       ]
     }
@@ -79,10 +89,12 @@ const state = {
 }
 ```
 
-- `front` and `back` are **required**
-- `example` and `translation` are **optional** — shown below the card back when present
+- A deck has either `subDecks` (groups) or a flat `cards` array
+- `front` and `back` are **required**; all other card fields are optional
 - The combination of `category + subcategory` must be unique — it acts as the deck identifier
+- Progress is keyed by a hash of `front` + `back`, so cards can move between decks/groups freely; editing `front` or `back` resets that card's progress
 - Card order within a deck is the default study order; shuffle is handled in JS at runtime
+- Content rules (Castilian usage, card formats): see `content.md`
 
 ## Deployment
 

@@ -191,39 +191,32 @@ const state = {
 
 ### Card ID Derivation
 
-Card IDs are used as localStorage keys. They are derived deterministically from deck and card position in the original (unshuffled) `state.decks` array so they remain stable across sessions.
+Card IDs are used as localStorage keys. They are derived from the card's **content**, not its position, so decks and groups can be reordered, renamed or merged without moving progress onto other cards:
 
-**Flat deck** (Vocabulary, etc.):
 ```js
-function generateCardId(deckIndex, cardIndex) {
-  return `deck-${deckIndex}-card-${cardIndex}`;
+function getCardId(card) {
+  return 'c' + cyrb53(`${card.front.trim()}␟${card.back.trim()}`).toString(36);
 }
 ```
 
-**Hierarchical sub-deck** (Verbs with groups):
-```js
-function generateSubDeckCardId(deckIndex, subDeckIndex, cardIndex) {
-  return `deck-${deckIndex}-sub-${subDeckIndex}-card-${cardIndex}`;
-}
-```
+Editing a card's `front` or `back` gives it a new ID (its progress resets — it is a new sentence to learn). Editing `example`, `translation`, `context` or `fa` keeps the ID.
 
-The correct generator is selected at runtime based on `state.activeSubDeckIndex`: when it is `-1` the deck is flat; otherwise the sub-deck generator is used.
+> History: v1 used position-based IDs (`deck-0-sub-0-card-3`). Every restructure of `cards.json` silently moved marks onto other cards. `progress-migration.json` maps v1 keys to content IDs and is applied once per browser by `migrateLegacyProgress()`.
 
 ### localStorage Schema
 
 ```
-Key:   "flashcard-progress"
-Value: JSON string of Record<CardId, "known" | "learning">
-
-Example (mix of flat and sub-deck IDs):
-{
-  "deck-0-sub-0-card-0": "known",
-  "deck-0-sub-0-card-3": "learning",
-  "deck-3-card-1": "known"
+Key:   "flashcard-progress-v2"
+Value: JSON string of {
+  cards:  Record<CardId, "known" | "learning">,
+  groups: Record<GroupKey, { last: "YYYY-MM-DD", sessions: number }>,
+  migratedFromV1: boolean
 }
+
+GroupKey = "W-1 › Group 1 · Stand-up: done" (sub-deck) or "Coloquial-1" (flat deck)
 ```
 
-All progress is stored under a single key as a serialized JSON object. On load, the entire object is parsed and stored in `state.progress`. On any mark action, the object is re-serialized and written back.
+On load, `cards` goes to `state.progress` and `groups` to `state.practice`. Marking a card updates both: the card's status, and the group's practice date (each new day = one more session). A group is due again 1, 3, 7, 14, 30, 60 or 120 days after its last practice, depending on its session count. If it still has "learning" cards, it is due within 2 days. The Navigator shows "last practised" and a ↻ badge when a group is due.
 
 ### CSS Class Model (BEM-like)
 
@@ -325,7 +318,11 @@ All progress is stored under a single key as a serialized JSON object. On load, 
 
 ### Property 11: SpeechSynthesis called with correct text and language
 
-*For any* card `front` text string, clicking the speaker button should invoke `speechSynthesis.speak` with an utterance whose `text` equals the card's `front` value and whose `lang` is set to `"es-ES"`.
+*For any* card, clicking a speaker button should invoke `speechSynthesis.speak` with an utterance whose `lang` is `"es-ES"` and whose `text` is the Spanish on that face (see `getSpeechText`):
+- Front: `context` if present, else `front` unless the deck has `"frontLanguage": "en"`.
+- Back: `back` + `example` for `frontLanguage: "en"` decks, else `example` (or `front`).
+
+A face with no Spanish has no speaker button.
 
 **Validates: Requirements 10.2**
 
